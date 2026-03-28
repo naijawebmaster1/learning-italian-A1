@@ -125,7 +125,7 @@ export function QuizComponent({ lesson, onComplete }: QuizComponentProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          className="bg-card border rounded-3xl p-8 shadow-sm relative overflow-hidden"
+          className="bg-card border rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden"
         >
           <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mb-4">
             <Star className="w-4 h-4 fill-primary" />

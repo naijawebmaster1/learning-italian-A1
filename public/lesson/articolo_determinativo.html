@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Articolo Determinativo Italiano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --warm-white: #fff9f2;
+    --ink: #1a1208;
+    --terracotta: #c0492b;
+    --gold: #d4a843;
+    --sage: #5a7a5e;
+    --muted: #8a7a68;
+    --border: #e0d5c5;
+    --card: #ffffff;
+    --masc: #1a4a7a;
+    --fem: #7a1a4a;
+    --masc-light: #e8f0f8;
+    --fem-light: #f8e8f0;
+    --correct: #2d7a3a;
+    --wrong: #c0492b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(212,168,67,0.06) 40px,rgba(212,168,67,0.06) 41px);
+  }
+  .hero-flag { display: flex; justify-content: center; gap: 0; margin-bottom: 28px; }
+  .flag-stripe { width: 18px; height: 60px; border-radius: 3px; }
+  .flag-stripe:nth-child(1) { background: #009246; }
+  .flag-stripe:nth-child(2) { background: #ffffff; }
+  .flag-stripe:nth-child(3) { background: #ce2b37; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero .sub { font-size: 1rem; color: rgba(250,246,239,0.6); font-weight: 300; letter-spacing: 1px; text-transform: uppercase; }
+  .tabs { display: flex; justify-content: center; gap: 8px; padding: 28px 20px 0; flex-wrap: wrap; }
+  .tab-btn { padding: 10px 22px; border: 2px solid var(--border); background: var(--card); border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500; cursor: pointer; color: var(--muted); transition: all 0.2s; }
+  .tab-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .tab-btn.active { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+  .section { display: none; }
+  .section.active { display: block; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; color: var(--ink); }
+  .section-desc { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
+  .theory-intro { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+  .theory-intro p { font-size: 1rem; line-height: 1.75; opacity: 0.9; }
+  .theory-intro strong { color: var(--gold); }
+  .gender-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  @media (max-width: 600px) { .gender-grid { grid-template-columns: 1fr; } }
+  .gender-card { border-radius: 16px; padding: 28px; border: 2px solid; }
+  .gender-card.masc { background: var(--masc-light); border-color: #b8d0e8; }
+  .gender-card.fem { background: var(--fem-light); border-color: #e8b8d0; }
+  .gender-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .gender-card.masc h3 { color: var(--masc); }
+  .gender-card.fem h3 { color: var(--fem); }
+  .art-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .art-table th { text-align: left; padding: 6px 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .art-table td { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .art-big { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+  .masc .art-big { color: var(--masc); }
+  .fem .art-big { color: var(--fem); }
+  .art-rule { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+  .art-example { font-size: 0.88rem; font-weight: 500; }
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .rule-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; border-left: 4px solid var(--gold); }
+  .rule-card h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gold); margin-bottom: 8px; }
+  .rule-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+  .rule-card code { background: var(--cream); padding: 1px 5px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; color: var(--terracotta); }
+  .full-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); background: var(--card); }
+  .full-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .full-table thead tr { background: var(--ink); color: var(--cream); }
+  .full-table th { padding: 14px 18px; text-align: left; font-weight: 500; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .full-table td { padding: 13px 18px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .full-table tr:last-child td { border-bottom: none; }
+  .full-table tr:hover td { background: var(--cream); }
+  .ft-art { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; }
+  .ft-masc { color: var(--masc); }
+  .ft-fem { color: var(--fem); }
+  .ft-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; }
+  .badge-masc { background: var(--masc-light); color: var(--masc); }
+  .badge-fem { background: var(--fem-light); color: var(--fem); }
+  .exercise-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+  .exercise-block h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 6px; color: var(--terracotta); }
+  .exercise-block p.inst { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; }
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .ex-item { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--warm-white); font-size: 0.9rem; transition: border-color 0.2s; }
+  .ex-item.correct { border-color: var(--correct); background: #edf7ee; }
+  .ex-item.wrong { border-color: var(--wrong); background: #fdecea; }
+  .ex-item label { color: var(--muted); font-size: 0.78rem; font-weight: 500; }
+  .ex-item .word { font-weight: 500; }
+  .ex-input { width: 50px; border: none; border-bottom: 2px solid var(--border); background: transparent; text-align: center; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); outline: none; padding: 2px 0; transition: border-color 0.2s; }
+  .ex-input:focus { border-color: var(--terracotta); }
+  .ex-input.correct-val { color: var(--correct); border-color: var(--correct); }
+  .ex-input.wrong-val { color: var(--wrong); border-color: var(--wrong); }
+  .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+  .btn-primary { background: var(--terracotta); color: white; }
+  .btn-primary:hover { background: #a33d24; }
+  .btn-secondary { background: transparent; color: var(--muted); border-color: var(--border); margin-left: 10px; }
+  .btn-secondary:hover { border-color: var(--muted); color: var(--ink); }
+  .btn-row { margin-top: 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .score-display { font-size: 0.88rem; color: var(--muted); margin-left: 12px; }
+  .score-display strong { color: var(--terracotta); }
+  .plural-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .plural-item { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--warm-white); font-size: 0.9rem; }
+  .arrow { color: var(--muted); font-size: 0.8rem; }
+  .plural-inputs { display: flex; align-items: center; gap: 4px; }
+  .ex-input-sm { width: 44px; border: none; border-bottom: 2px solid var(--border); background: transparent; text-align: center; font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); outline: none; padding: 2px 0; }
+  .ex-input-sm:focus { border-color: var(--terracotta); }
+  .ex-input-lg { width: 90px; border: none; border-bottom: 2px solid var(--border); background: transparent; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: var(--ink); outline: none; padding: 2px 4px; }
+  .ex-input-lg:focus { border-color: var(--terracotta); }
+  .quiz-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .quiz-number { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
+  .quiz-word { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .quiz-hint { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; font-style: italic; }
+  .quiz-options { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .quiz-opt { padding: 12px 28px; border-radius: 30px; border: 2px solid var(--border); background: var(--warm-white); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; cursor: pointer; color: var(--ink); transition: all 0.15s; }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: #fef6e4; }
+  .quiz-opt.correct-opt { background: #edf7ee; border-color: var(--correct); color: var(--correct); }
+  .quiz-opt.wrong-opt { background: #fdecea; border-color: var(--wrong); color: var(--wrong); }
+  .quiz-feedback { margin-top: 16px; font-size: 0.95rem; font-weight: 500; min-height: 24px; color: var(--correct); }
+  .quiz-feedback.err { color: var(--wrong); }
+  .quiz-progress { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .prog-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); transition: background 0.3s; }
+  .prog-dot.done-correct { background: var(--correct); }
+  .prog-dot.done-wrong { background: var(--wrong); }
+  .prog-dot.current { background: var(--terracotta); }
+  .quiz-score-box { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 40px; text-align: center; width: 100%; }
+  .quiz-score-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
+  .quiz-score-box .big-score { font-size: 4rem; font-family: 'Playfair Display', serif; color: var(--gold); line-height: 1; margin: 16px 0; }
+  .quiz-score-box p { opacity: 0.7; margin-bottom: 12px; }
+  footer { text-align: center; padding: 30px 20px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-flag">
+    <div class="flag-stripe"></div>
+    <div class="flag-stripe"></div>
+    <div class="flag-stripe"></div>
+  </div>
+  <h1><em>L'Articolo</em> Determinativo</h1>
+  <p class="sub">Italian Definite Articles · A1 Grammar</p>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('theory')">📖 Theory</button>
+  <button class="tab-btn" onclick="showTab('table')">📋 Full Table</button>
+  <button class="tab-btn" onclick="showTab('ex1')">✏️ Exercise 1</button>
+  <button class="tab-btn" onclick="showTab('ex2')">✏️ Exercise 2</button>
+  <button class="tab-btn" onclick="showTab('quiz')">🎯 Quiz</button>
+</div>
+
+<!-- THEORY -->
+<div id="tab-theory" class="section active">
+<div class="container">
+  <h2 class="section-title">What is the Definite Article?</h2>
+  <p class="section-desc">Like "the" in English — but Italian has 7 forms depending on gender, number, and the first letter of the noun.</p>
+  <div class="theory-intro">
+    <p>In Italian, every noun has a <strong>gender</strong> (masculine or feminine) and a <strong>number</strong> (singular or plural). The definite article must <strong>agree</strong> with the noun in both. Unlike English, which has only one word ("the"), Italian has <strong>7 different forms</strong>.</p>
+  </div>
+  <div class="gender-grid">
+    <div class="gender-card masc">
+      <h3>♂ Maschile (Masculine)</h3>
+      <table class="art-table">
+        <tr><th>Article</th><th>Rule</th><th>Example</th></tr>
+        <tr><td><span class="art-big">il</span></td><td><span class="art-rule">most consonants</span></td><td class="art-example">il libro</td></tr>
+        <tr><td><span class="art-big">lo</span></td><td><span class="art-rule">s+cons, z, ps, gn, x, y</span></td><td class="art-example">lo zio, lo studente</td></tr>
+        <tr><td><span class="art-big">l'</span></td><td><span class="art-rule">vowel</span></td><td class="art-example">l'amico, l'uomo</td></tr>
+        <tr><td><span class="art-big">i</span></td><td><span class="art-rule">plural of <em>il</em></span></td><td class="art-example">i libri</td></tr>
+        <tr><td><span class="art-big">gli</span></td><td><span class="art-rule">plural of <em>lo</em> &amp; <em>l'</em></span></td><td class="art-example">gli amici, gli zii</td></tr>
+      </table>
+    </div>
+    <div class="gender-card fem">
+      <h3>♀ Femminile (Feminine)</h3>
+      <table class="art-table">
+        <tr><th>Article</th><th>Rule</th><th>Example</th></tr>
+        <tr><td><span class="art-big">la</span></td><td><span class="art-rule">consonant</span></td><td class="art-example">la banana, la casa</td></tr>
+        <tr><td><span class="art-big">l'</span></td><td><span class="art-rule">vowel</span></td><td class="art-example">l'idea, l'agenda</td></tr>
+        <tr><td><span class="art-big">le</span></td><td><span class="art-rule">all plurals</span></td><td class="art-example">le banane, le idee</td></tr>
+        <tr><td colspan="3" style="height:20px"></td></tr>
+        <tr><td colspan="3" style="height:20px"></td></tr>
+      </table>
+    </div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:16px">Key Rules to Remember</h2>
+  <div class="rules-grid">
+    <div class="rule-card"><h4>🔤 lo vs il</h4><p>Use <code>lo / gli</code> before: <code>s+consonant</code>, <code>z</code>, <code>ps</code>, <code>gn</code>, <code>x</code>, <code>y</code>. Otherwise use <code>il / i</code>.</p></div>
+    <div class="rule-card"><h4>✂️ Elision with l'</h4><p>Both <code>lo</code> (masc.) and <code>la</code> (fem.) become <code>l'</code> before a vowel. E.g. <code>l'amica</code>, <code>l'ombrello</code>.</p></div>
+    <div class="rule-card"><h4>📚 Plural of lo</h4><p><code>lo</code> and <code>l'</code> (masc.) both become <code>gli</code> in plural. E.g. <code>gli studenti</code>, <code>gli amici</code>.</p></div>
+    <div class="rule-card"><h4>♀ Feminine Plural</h4><p>All feminine articles (<code>la</code> and <code>l'</code>) become <code>le</code> in plural. <code>le case</code>, <code>le idee</code>.</p></div>
+    <div class="rule-card"><h4>📞 Invariable nouns</h4><p>Some nouns don't change in plural (e.g. <code>il cinema → i cinema</code>). The article still must agree!</p></div>
+    <div class="rule-card"><h4>🎓 Gender tip</h4><p>Nouns ending in <code>-o</code> are usually masculine; <code>-a</code> feminine; <code>-e</code> can be either — check the article!</p></div>
+  </div>
+</div>
+</div>
+
+<!-- FULL TABLE -->
+<div id="tab-table" class="section">
+<div class="container">
+  <h2 class="section-title">Complete Reference Table</h2>
+  <p class="section-desc">All 7 definite article forms with their rules and examples.</p>
+  <div class="full-table-wrap">
+    <table class="full-table">
+      <thead><tr><th>Article</th><th>Gender</th><th>Number</th><th>Used before…</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ft-art ft-masc">il</span></td><td><span class="ft-badge badge-masc">Masculine</span></td><td>Singular</td><td>Most consonants</td><td>il ragazzo, il telefonino, il panino</td></tr>
+        <tr><td><span class="ft-art ft-masc">lo</span></td><td><span class="ft-badge badge-masc">Masculine</span></td><td>Singular</td><td>s+cons, z, ps, gn, x, y</td><td>lo zio, lo studente, lo specchio</td></tr>
+        <tr><td><span class="ft-art ft-masc">l'</span></td><td><span class="ft-badge badge-masc">Masculine</span></td><td>Singular</td><td>Vowel (a, e, i, o, u)</td><td>l'amico, l'ombrello, l'ufficio</td></tr>
+        <tr><td><span class="ft-art ft-masc">i</span></td><td><span class="ft-badge badge-masc">Masculine</span></td><td>Plural</td><td>Most consonants (plural of il)</td><td>i ragazzi, i libri, i panini</td></tr>
+        <tr><td><span class="ft-art ft-masc">gli</span></td><td><span class="ft-badge badge-masc">Masculine</span></td><td>Plural</td><td>Vowels and s+cons, z… (plural of lo/l')</td><td>gli amici, gli studenti, gli zii</td></tr>
+        <tr><td><span class="ft-art ft-fem">la</span></td><td><span class="ft-badge badge-fem">Feminine</span></td><td>Singular</td><td>Consonant</td><td>la banana, la casa, la mamma</td></tr>
+        <tr><td><span class="ft-art ft-fem">l'</span></td><td><span class="ft-badge badge-fem">Feminine</span></td><td>Singular</td><td>Vowel</td><td>l'agenda, l'idea, l'automobile</td></tr>
+        <tr><td><span class="ft-art ft-fem">le</span></td><td><span class="ft-badge badge-fem">Feminine</span></td><td>Plural</td><td>All feminine nouns</td><td>le mele, le case, le idee</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- EXERCISE 1 -->
+<div id="tab-ex1" class="section">
+<div class="container">
+  <div class="exercise-block">
+    <h3>Esercizio 1 — Articolo Singolare e Plurale</h3>
+    <p class="inst">Fill in the correct definite article for each noun. From Exercise 3 of your worksheet.</p>
+    <div class="ex-grid" id="ex1-grid"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="checkEx1()">Controlla ✓</button>
+      <button class="btn btn-secondary" onclick="resetEx1()">Ricomincia</button>
+      <span class="score-display" id="ex1-score"></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- EXERCISE 2 -->
+<div id="tab-ex2" class="section">
+<div class="container">
+  <div class="exercise-block">
+    <h3>Esercizio 2 — Dal Singolare al Plurale</h3>
+    <p class="inst">Transform each word from singular to plural. Write both the article AND the noun. From Exercise 4 of your worksheet.</p>
+    <div class="plural-grid" id="ex2-grid"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="checkEx2()">Controlla ✓</button>
+      <button class="btn btn-secondary" onclick="resetEx2()">Ricomincia</button>
+      <span class="score-display" id="ex2-score"></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- QUIZ -->
+<div id="tab-quiz" class="section">
+<div class="container">
+  <h2 class="section-title">Flashcard Quiz</h2>
+  <p class="section-desc">Choose the correct definite article for each noun. 20 random questions.</p>
+  <div class="quiz-progress" id="quiz-progress"></div>
+  <div class="quiz-card" id="quiz-card">
+    <div class="quiz-number" id="quiz-num">Question 1 of 20</div>
+    <div class="quiz-word" id="quiz-word">—</div>
+    <div class="quiz-hint" id="quiz-hint"></div>
+    <div class="quiz-options" id="quiz-opts"></div>
+  </div>
+  <div class="quiz-feedback" id="quiz-feedback"></div>
+</div>
+</div>
+
+<footer>
+  Based on <em>A1 Grammatica — L'articolo determinativo</em> · © Mondadori Education · Interactive version for learners
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) b.classList.add('active');
+  });
+}
+
+// EXERCISE 1
+const ex1Data = [
+  {word:'sigarette',art:'le'},{word:'panino',art:'il'},{word:'gomma',art:'la'},
+  {word:'villa',art:'la'},{word:'ragazzo',art:'il'},{word:'studenti',art:'gli'},
+  {word:'automobile',art:"l'"},{word:'pizza',art:'la'},{word:'amici',art:'gli'},
+  {word:'bottiglia',art:'la'},{word:'treno',art:'il'},{word:'matita',art:'la'},
+  {word:'esame',art:"l'"},{word:'mamma',art:'la'},{word:'casa',art:'la'},
+  {word:'zio',art:'lo'},{word:'professoressa',art:'la'},{word:'amico',art:"l'"},
+  {word:'quaderno',art:'il'},{word:'ospedale',art:"l'"},{word:'ufficio',art:"l'"},
+  {word:'lezioni',art:'le'},{word:'gelato',art:'il'},{word:'vini',art:'i'},
+  {word:'ragazze',art:'le'},{word:'orologio',art:"l'"},{word:'cappuccini',art:'i'},
+];
+
+function buildEx1() {
+  const grid = document.getElementById('ex1-grid');
+  grid.innerHTML = '';
+  ex1Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'ex-item';
+    div.id = 'ex1-item-' + i;
+    div.innerHTML = '<label>' + (i+1) + '.</label><input class="ex-input" id="ex1-in-' + i + '" maxlength="4" autocomplete="off" placeholder="…"><span class="word">' + item.word + '</span>';
+    grid.appendChild(div);
+  });
+}
+
+function checkEx1() {
+  let correct = 0;
+  ex1Data.forEach((item, i) => {
+    const inp = document.getElementById('ex1-in-' + i);
+    const val = inp.value.trim().toLowerCase();
+    const ans = item.art.toLowerCase();
+    const box = document.getElementById('ex1-item-' + i);
+    if (val === ans) {
+      correct++;
+      inp.classList.add('correct-val'); inp.classList.remove('wrong-val');
+      box.classList.add('correct'); box.classList.remove('wrong');
+    } else {
+      inp.classList.add('wrong-val'); inp.classList.remove('correct-val');
+      box.classList.add('wrong'); box.classList.remove('correct');
+      inp.value = item.art;
+    }
+  });
+  document.getElementById('ex1-score').innerHTML = 'Score: <strong>' + correct + '/' + ex1Data.length + '</strong>';
+}
+
+function resetEx1() {
+  ex1Data.forEach((item, i) => {
+    const inp = document.getElementById('ex1-in-' + i);
+    inp.value = ''; inp.className = 'ex-input';
+    const box = document.getElementById('ex1-item-' + i);
+    box.classList.remove('correct', 'wrong');
+  });
+  document.getElementById('ex1-score').innerHTML = '';
+}
+
+buildEx1();
+
+// EXERCISE 2
+const ex2Data = [
+  {sing_art:'la',sing:'stazione',plur_art:'le',plur:'stazioni'},
+  {sing_art:'il',sing:'panino',plur_art:'i',plur:'panini'},
+  {sing_art:"l'",sing:'idea',plur_art:'le',plur:'idee'},
+  {sing_art:'il',sing:'professore',plur_art:'i',plur:'professori'},
+  {sing_art:'la',sing:'birra',plur_art:'le',plur:'birre'},
+  {sing_art:"l'",sing:'università',plur_art:'le',plur:'università'},
+  {sing_art:'il',sing:'mese',plur_art:'i',plur:'mesi'},
+  {sing_art:'la',sing:'signora',plur_art:'le',plur:'signore'},
+  {sing_art:'la',sing:'banca',plur_art:'le',plur:'banche'},
+  {sing_art:"l'",sing:'amico',plur_art:'gli',plur:'amici'},
+  {sing_art:'lo',sing:'zucchero',plur_art:'gli',plur:'zuccheri'},
+  {sing_art:'il',sing:'cinema',plur_art:'i',plur:'cinema'},
+  {sing_art:'il',sing:'giorno',plur_art:'i',plur:'giorni'},
+  {sing_art:'la',sing:'moto',plur_art:'le',plur:'moto'},
+  {sing_art:"l'",sing:'autobus',plur_art:'gli',plur:'autobus'},
+  {sing_art:'la',sing:'forchetta',plur_art:'le',plur:'forchette'},
+  {sing_art:"l'",sing:'amica',plur_art:'le',plur:'amiche'},
+  {sing_art:'il',sing:'film',plur_art:'i',plur:'film'},
+  {sing_art:'la',sing:'borsa',plur_art:'le',plur:'borse'},
+  {sing_art:'il',sing:'ristorante',plur_art:'i',plur:'ristoranti'},
+  {sing_art:'la',sing:'chiave',plur_art:'le',plur:'chiavi'},
+  {sing_art:'lo',sing:'spumante',plur_art:'gli',plur:'spumanti'},
+  {sing_art:'la',sing:'bicicletta',plur_art:'le',plur:'biciclette'},
+  {sing_art:'il',sing:'corso',plur_art:'i',plur:'corsi'},
+];
+
+function buildEx2() {
+  const grid = document.getElementById('ex2-grid');
+  grid.innerHTML = '';
+  ex2Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'plural-item';
+    div.id = 'ex2-item-' + i;
+    div.innerHTML = '<span style="font-size:0.78rem;color:var(--muted);min-width:18px">' + (i+1) + '.</span>' +
+      '<span style="font-style:italic;color:var(--muted);font-size:0.82rem">' + item.sing_art + '</span>' +
+      '<span class="word">' + item.sing + '</span>' +
+      '<span class="arrow">→</span>' +
+      '<div class="plural-inputs">' +
+        '<input class="ex-input-sm" id="ex2-art-' + i + '" maxlength="4" placeholder="…">' +
+        '<input class="ex-input-lg" id="ex2-noun-' + i + '" placeholder="' + item.plur.substring(0,3) + '…">' +
+      '</div>';
+    grid.appendChild(div);
+  });
+}
+
+function checkEx2() {
+  let correct = 0;
+  ex2Data.forEach((item, i) => {
+    const artInp = document.getElementById('ex2-art-' + i);
+    const nounInp = document.getElementById('ex2-noun-' + i);
+    const artOk = artInp.value.trim().toLowerCase() === item.plur_art.toLowerCase();
+    const nounOk = nounInp.value.trim().toLowerCase() === item.plur.toLowerCase();
+    if (artOk && nounOk) correct++;
+    artInp.style.borderColor = artOk ? 'var(--correct)' : 'var(--wrong)';
+    artInp.style.color = artOk ? 'var(--correct)' : 'var(--wrong)';
+    nounInp.style.borderColor = nounOk ? 'var(--correct)' : 'var(--wrong)';
+    nounInp.style.color = nounOk ? 'var(--correct)' : 'var(--wrong)';
+    if (!artOk) artInp.value = item.plur_art;
+    if (!nounOk) nounInp.value = item.plur;
+  });
+  document.getElementById('ex2-score').innerHTML = 'Score: <strong>' + correct + '/' + ex2Data.length + '</strong>';
+}
+
+function resetEx2() {
+  ex2Data.forEach((item, i) => {
+    ['ex2-art-','ex2-noun-'].forEach(pre => {
+      const inp = document.getElementById(pre + i);
+      inp.value = ''; inp.style.borderColor = ''; inp.style.color = '';
+    });
+  });
+  document.getElementById('ex2-score').innerHTML = '';
+}
+
+buildEx2();
+
+// QUIZ
+const quizPool = [
+  {word:'libro',art:'il',hint:'masculine, starts with consonant'},
+  {word:'studente',art:'lo',hint:'masculine, starts with st-'},
+  {word:'amico',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'zio',art:'lo',hint:'masculine, starts with z'},
+  {word:'banana',art:'la',hint:'feminine, starts with consonant'},
+  {word:'agenda',art:"l'",hint:'feminine, starts with vowel'},
+  {word:'occhiali',art:'gli',hint:'masculine plural, starts with vowel'},
+  {word:'libri',art:'i',hint:'masculine plural, starts with consonant'},
+  {word:'mele',art:'le',hint:'feminine plural'},
+  {word:'amici',art:'gli',hint:'masculine plural, starts with vowel'},
+  {word:'telefonino',art:'il',hint:'masculine, starts with t'},
+  {word:'televisione',art:'la',hint:'feminine, starts with consonant'},
+  {word:'ombrello',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'specchio',art:'lo',hint:'masculine, starts with sp-'},
+  {word:'penna',art:'la',hint:'feminine, starts with consonant'},
+  {word:'soldi',art:'i',hint:'masculine plural'},
+  {word:'ufficio',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'professoressa',art:'la',hint:'feminine, starts with consonant'},
+  {word:'esame',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'zucchero',art:'lo',hint:'masculine, starts with z'},
+  {word:'stazione',art:'la',hint:'feminine, starts with consonant'},
+  {word:"università",art:"l'",hint:'feminine, starts with vowel'},
+  {word:'studenti',art:'gli',hint:'masculine plural, starts with st-'},
+  {word:'automobile',art:"l'",hint:'feminine, starts with vowel'},
+  {word:'forchette',art:'le',hint:'feminine plural'},
+  {word:'autobus',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'spumante',art:'lo',hint:'masculine, starts with sp-'},
+  {word:'bicicletta',art:'la',hint:'feminine, starts with consonant'},
+  {word:'gelato',art:'il',hint:'masculine, starts with consonant'},
+  {word:'ospedale',art:"l'",hint:'masculine, starts with vowel'},
+];
+const allArts = ['il','lo',"l'",'i','gli','la','le'];
+let quizQuestions = [], quizIdx = 0, quizResults = [];
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function initQuiz() {
+  quizQuestions = shuffle(quizPool).slice(0, 20);
+  quizIdx = 0; quizResults = [];
+  renderProgress();
+  renderQuizCard();
+  document.getElementById('quiz-feedback').textContent = '';
+}
+
+function renderProgress() {
+  const prog = document.getElementById('quiz-progress');
+  prog.innerHTML = quizQuestions.map((_, i) => {
+    let cls = 'prog-dot';
+    if (i < quizIdx) cls += quizResults[i] ? ' done-correct' : ' done-wrong';
+    else if (i === quizIdx) cls += ' current';
+    return '<div class="' + cls + '"></div>';
+  }).join('');
+}
+
+function renderQuizCard() {
+  if (quizIdx >= quizQuestions.length) { showQuizScore(); return; }
+  const q = quizQuestions[quizIdx];
+  document.getElementById('quiz-num').textContent = 'Question ' + (quizIdx+1) + ' of ' + quizQuestions.length;
+  document.getElementById('quiz-word').textContent = q.word;
+  document.getElementById('quiz-hint').textContent = '(' + q.hint + ')';
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  const wrong = shuffle(allArts.filter(a => a !== q.art)).slice(0, 3);
+  const opts = shuffle([q.art, ...wrong]);
+  const optsDiv = document.getElementById('quiz-opts');
+  optsDiv.innerHTML = '';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = opt;
+    btn.onclick = () => answerQuiz(opt, q.art, btn);
+    optsDiv.appendChild(btn);
+  });
+}
+
+function answerQuiz(chosen, correct, btn) {
+  const allBtns = document.querySelectorAll('.quiz-opt');
+  allBtns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('quiz-feedback');
+  if (chosen === correct) {
+    btn.classList.add('correct-opt');
+    fb.textContent = '✓ Corretto! Bravissimo!';
+    fb.className = 'quiz-feedback';
+    quizResults.push(true);
+  } else {
+    btn.classList.add('wrong-opt');
+    allBtns.forEach(b => { if (b.textContent === correct) b.classList.add('correct-opt'); });
+    fb.textContent = '✗ La risposta giusta è: "' + correct + '"';
+    fb.className = 'quiz-feedback err';
+    quizResults.push(false);
+  }
+  renderProgress();
+  setTimeout(() => { quizIdx++; renderProgress(); renderQuizCard(); }, 1400);
+}
+
+function showQuizScore() {
+  const score = quizResults.filter(Boolean).length;
+  const total = quizResults.length;
+  const pct = Math.round(score / total * 100);
+  const msg = pct >= 90 ? '🏆 Eccellente! Sei un maestro!' :
+              pct >= 70 ? '👍 Molto bene! Continua così!' :
+              pct >= 50 ? "📚 Bene, ma studia ancora un po'!" :
+                          '💪 Riprova — la pratica fa il maestro!';
+  document.getElementById('quiz-card').innerHTML =
+    '<div class="quiz-score-box"><h2>Risultato Finale</h2><div class="big-score">' + score + '/' + total + '</div><p>' + pct + '% corretto</p><p>' + msg + '</p><button class="btn btn-primary" onclick="initQuiz()">Gioca ancora 🔄</button></div>';
+  document.getElementById('quiz-feedback').textContent = '';
+}
+
+initQuiz();
+</script>
+</body>
+</html>

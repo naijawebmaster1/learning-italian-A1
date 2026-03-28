@@ -1,13 +1,16 @@
 'use client';
 
-import { Moon, Sun, Flame, User, Bell } from 'lucide-react';
+import { Moon, Sun, Flame, User, Bell, Menu, X } from 'lucide-react';
 import { useProgress } from '@/hooks/useProgress';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SidebarContent } from './Sidebar';
 
 export function Navbar() {
   const { progress } = useProgress();
   const [isDark, setIsDark] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -29,18 +32,24 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="flex h-16 items-center justify-between px-6 lg:px-8">
-        <div className="flex items-center gap-4 md:hidden">
-          <span className="text-xl font-bold text-primary">Italiano</span>
+      <div className="flex h-16 items-center justify-between px-4 md:px-6 lg:px-8">
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="p-2 -ml-2 rounded-lg hover:bg-muted transition-colors md:hidden"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          <span className="text-xl font-bold text-primary md:hidden">Italiano</span>
         </div>
 
-        <div className="hidden md:flex ml-auto items-center gap-6">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-200 dark:border-orange-500/20">
+        <div className="flex items-center gap-2 md:gap-4 ml-auto">
+          <div className="flex items-center gap-2 px-2 md:px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-200 dark:border-orange-500/20">
             <Flame className="w-4 h-4 fill-orange-500" />
-            <span className="text-sm font-bold">{progress.streak} Day Streak</span>
+            <span className="text-xs md:text-sm font-bold whitespace-nowrap">{progress.streak} <span className="hidden sm:inline">Day</span> Streak</span>
           </div>
 
-          <div className="h-6 w-px bg-border mx-2" />
+          <div className="hidden md:block h-6 w-px bg-border mx-2" />
 
           <button
             onClick={toggleDarkMode}
@@ -49,22 +58,54 @@ export function Navbar() {
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
 
-          <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground relative">
+          <button className="hidden sm:flex p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground relative">
             <Bell className="w-5 h-5" />
             <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-background" />
           </button>
 
-          <div className="flex items-center gap-3 pl-2">
-            <div className="flex flex-col items-end text-right">
+          <div className="flex items-center gap-2 md:gap-3 pl-2">
+            <div className="hidden lg:flex flex-col items-end text-right">
               <span className="text-sm font-semibold leading-none">A1 Student</span>
               <span className="text-xs text-muted-foreground mt-1">Strong Comprehension</span>
             </div>
-            <div className="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-              <User className="w-5 h-5" />
+            <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <User className="w-4 h-4 md:w-5 md:h-5" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
+            />
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 bottom-0 w-[280px] bg-card border-r z-51 shadow-2xl md:hidden"
+            >
+              <div className="absolute top-4 right-4 z-10">
+                <button 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              <SidebarContent onItemClick={() => setIsMobileMenuOpen(false)} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

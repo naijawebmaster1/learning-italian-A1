@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 import { lessons } from '@/data/lessons';
 import { useProgress } from '@/hooks/useProgress';
 
-export function Sidebar({ className }: { className?: string }) {
+export function SidebarContent({ className, onItemClick }: { className?: string, onItemClick?: () => void }) {
   const pathname = usePathname();
   const { progress } = useProgress();
 
@@ -33,7 +33,7 @@ export function Sidebar({ className }: { className?: string }) {
   ];
 
   return (
-    <aside className={cn("hidden md:flex flex-col w-64 border-r bg-card h-screen sticky top-0", className)}>
+    <div className={cn("flex flex-col h-full", className)}>
       <div className="p-6">
         <h1 className="text-2xl font-bold text-primary flex items-center gap-2">
           <BookOpen className="w-8 h-8" />
@@ -50,6 +50,7 @@ export function Sidebar({ className }: { className?: string }) {
             <Link
               key={item.href}
               href={item.href}
+              onClick={onItemClick}
               className={cn(
                 "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors group",
                 pathname === item.href 
@@ -76,6 +77,7 @@ export function Sidebar({ className }: { className?: string }) {
               <Link
                 key={lesson.id}
                 href={locked ? "#" : `/lessons/${lesson.slug}`}
+                onClick={locked ? undefined : onItemClick}
                 className={cn(
                   "flex items-center justify-between px-3 py-3 rounded-lg transition-all border border-transparent",
                   active ? "bg-accent border-accent-foreground/10 text-accent-foreground shadow-sm" : "hover:bg-muted group",
@@ -118,6 +120,14 @@ export function Sidebar({ className }: { className?: string }) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function Sidebar({ className }: { className?: string }) {
+  return (
+    <aside className={cn("hidden md:flex flex-col w-64 border-r bg-card h-screen sticky top-0", className)}>
+      <SidebarContent />
     </aside>
   );
 }

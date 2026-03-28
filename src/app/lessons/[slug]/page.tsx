@@ -59,7 +59,7 @@ export default function LessonPage() {
           <p className="text-muted-foreground mt-2 font-medium">Lesson {lesson.id} of {lessons.length}</p>
         </div>
         
-        <div className="flex bg-muted p-1 rounded-xl">
+        <div className="flex bg-muted p-1 rounded-xl overflow-x-auto hide-scrollbar">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -89,8 +89,8 @@ export default function LessonPage() {
           className="min-h-[500px]"
         >
           {activeTab === 'grammar' && (
-            <div className="space-y-8">
-              <div className="bg-card border rounded-3xl p-8 lg:p-10 shadow-sm leading-relaxed">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="bg-card border rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm leading-relaxed">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                   <Book className="w-6 h-6 text-primary" />
                   {lesson.grammar.title}
@@ -134,7 +134,7 @@ export default function LessonPage() {
           )}
 
           {activeTab === 'dialogue' && (
-            <div className="bg-card border rounded-3xl p-8 lg:p-12 shadow-sm space-y-10">
+            <div className="bg-card border rounded-3xl p-6 sm:p-8 lg:p-12 shadow-sm space-y-8 sm:space-y-10">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold">{lesson.dialogue.title}</h2>
                 <button className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/20">
@@ -183,7 +183,7 @@ export default function LessonPage() {
                 setActiveTab(tabOrder[nextIndex]);
               }
             }}
-            className="group bg-primary text-primary-foreground px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:scale-105 transition-transform shadow-xl shadow-primary/20"
+            className="group bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold flex items-center gap-2 sm:gap-3 hover:scale-105 transition-transform shadow-xl shadow-primary/20"
           >
             <span>Continue to {activeTab === 'grammar' ? 'Vocabulary' : activeTab === 'vocab' ? 'Dialogue' : 'Quiz'}</span>
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

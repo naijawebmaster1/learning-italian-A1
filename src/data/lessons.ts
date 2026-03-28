@@ -36,21 +36,95 @@ export const lessons: Lesson[] = [
   },
   {
     id: 3,
-    title: "Articles (Definite & Indefinite)",
+    title: "Determinative Articles (Articoli Determinativi)",
     slug: "articles",
     grammar: {
-      title: "Articles in Italian",
-      content: "Italian articles depend on gender (M/F) and the starting letter. Definite: il, lo, la, l', i, gli, le. Indefinite: un, uno, una, un'."
+      title: "The Italian Definite Article",
+      content: `Like 'the' in English, but Italian has 7 forms depending on the gender, number, and starting letter of the noun.
+      
+**Masculine Singular:**
+- **il**: most consonants (il libro)
+- **lo**: s+consonant, z, ps, gn, x, y (lo zio, lo studente)
+- **l'**: vowels (l'amico, l'uomo)
+
+**Masculine Plural:**
+- **i**: plural of 'il' (i libri)
+- **gli**: plural of 'lo' and 'l'' (gli studenti, gli amici)
+
+**Feminine Singular:**
+- **la**: most consonants (la casa)
+- **l'**: vowels (l'idea, l'agenda)
+
+**Feminine Plural:**
+- **le**: all feminine nouns (le case, le idee, le amiche)`
     },
     vocabulary: [
       { italian: "Il libro", english: "The book" },
+      { italian: "Lo zio", english: "The uncle" },
+      { italian: "L'amico", english: "The friend (male)" },
       { italian: "La casa", english: "The house" },
+      { italian: "L'idea", english: "The idea" },
       { italian: "Lo studente", english: "The student" },
+      { italian: "La mamma", english: "The mom" },
+      { italian: "Il treno", english: "The train" },
+      { italian: "L'ufficio", english: "The office" },
+      { italian: "Il panino", english: "The sandwich" },
     ],
-    examples: [{ italian: "Il cane è bello.", english: "The dog is beautiful." }],
-    dialogue: { title: "In biblioteca", lines: [{ speaker: "Leo", italian: "Dov'è il libro?", english: "Where is the book?" }] },
-    comprehensionQuestions: [{ question: "Article for 'casa'?", options: ["Il", "La"], correctAnswer: "La" }],
-    exercises: [{ id: "3_1", type: "multiple-choice", question: "Indefinite for 'amico'?", options: ["un", "uno"], correctAnswer: "un" }]
+    examples: [
+      { italian: "Il ragazzo è a scuola.", english: "The boy is at school." },
+      { italian: "Gli amici sono simpatici.", english: "The friends are nice." },
+      { italian: "La pizza è buonissima!", english: "The pizza is very good!" },
+    ],
+    dialogue: {
+      title: "In Biblioteca (In the Library)",
+      lines: [
+        { speaker: "Studente", italian: "Scusi, dov'è il libro di storia?", english: "Excuse me, where is the history book?" },
+        { speaker: "Bibliotecaria", italian: "Il libro è sul tavolo, vicino alla finestra.", english: "The book is on the table, near the window." },
+        { speaker: "Studente", italian: "E l'agenda?", english: "And the planner?" },
+        { speaker: "Bibliotecaria", italian: "L'agenda è qui.", english: "The planner is here." },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Which article do you use for 'zio'?",
+        options: ["Il", "Lo", "La"],
+        correctAnswer: "Lo"
+      },
+      {
+        question: "What is the plural of 'il libro'?",
+        options: ["I libri", "Gli libri", "Le libri"],
+        correctAnswer: "I libri"
+      }
+    ],
+    exercises: [
+      {
+        id: "3_1",
+        type: "multiple-choice",
+        question: "Choose the article for 'studenti':",
+        options: ["I", "Gli", "Le"],
+        correctAnswer: "Gli"
+      },
+      {
+        id: "3_2",
+        type: "fill-in-the-blank",
+        question: "___ automobile (The car)",
+        correctAnswer: "L'",
+        explanation: "Feminine singular starting with a vowel."
+      },
+      {
+        id: "3_3",
+        type: "translation",
+        question: "Translate: 'The friends (masc)'",
+        correctAnswer: "Gli amici"
+      },
+      {
+        id: "3_4",
+        type: "reorder",
+        question: "Reorder: is / the / sandwich / good",
+        words: ["Il", "panino", "è", "buono"],
+        correctAnswer: ["Il", "panino", "è", "buono"]
+      }
+    ]
   },
   {
     id: 4,
