@@ -19,11 +19,13 @@ import {
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useSpeech } from '@/hooks/useSpeech';
 
 export default function LessonPage() {
   const { slug } = useParams();
   const router = useRouter();
   const { completeLesson, progress } = useProgress();
+  const { speak } = useSpeech();
   const [activeTab, setActiveTab] = useState<'grammar' | 'vocab' | 'dialogue' | 'quiz'>('grammar');
 
   const lesson = useMemo(() => 
@@ -36,6 +38,14 @@ export default function LessonPage() {
 
   const handleQuizComplete = (score: number) => {
     completeLesson(lesson.id, score);
+  };
+
+  const playDialogue = async () => {
+    for (const line of lesson.dialogue.lines) {
+      speak(line.italian);
+      // Wait for a few seconds before the next line
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
   };
 
   const tabs = [
@@ -69,7 +79,7 @@ export default function LessonPage() {
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all",
                 activeTab === tab.id 
-                  ? "bg-background text-primary shadow-sm" 
+                   ? "bg-background text-primary shadow-sm" 
                   : "text-muted-foreground hover:text-foreground hover:bg-background/50"
               )}
             >
@@ -109,7 +119,12 @@ export default function LessonPage() {
                   <div key={i} className="bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10 rounded-2xl p-6 relative overflow-hidden group">
                     <p className="text-xl font-black mb-2 text-primary">{ex.italian}</p>
                     <p className="text-muted-foreground font-medium">{ex.english}</p>
-                    <Volume2 className="absolute top-4 right-4 w-6 h-6 opacity-10 group-hover:opacity-100 transition-opacity cursor-pointer text-primary" />
+                    <button 
+                      onClick={() => speak(ex.italian)}
+                      className="absolute top-4 right-4 p-2 rounded-full hover:bg-primary/10 transition-colors"
+                    >
+                      <Volume2 className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity cursor-pointer text-primary" />
+                    </button>
                   </div>
                 ))}
               </div>
@@ -127,7 +142,10 @@ export default function LessonPage() {
                       <p className="text-xs font-mono text-primary mt-2 opacity-60">[{item.pronunciation}]</p>
                     )}
                   </div>
-                  <button className="p-3 rounded-full bg-muted group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <button 
+                    onClick={() => speak(item.italian)}
+                    className="p-3 rounded-full bg-muted group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                  >
                     <Volume2 className="w-5 h-5" />
                   </button>
                 </div>
@@ -139,9 +157,12 @@ export default function LessonPage() {
             <div className="bg-card border rounded-3xl p-6 sm:p-8 lg:p-12 shadow-sm space-y-8 sm:space-y-10">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold">{lesson.dialogue.title}</h2>
-                <button className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/20">
+                <button 
+                  onClick={playDialogue}
+                  className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/20"
+                >
                   <PlayCircle className="w-4 h-4" />
-                  Listen
+                  Listen to All
                 </button>
               </div>
 
@@ -152,13 +173,16 @@ export default function LessonPage() {
                     i % 2 === 0 ? "mr-auto" : "ml-auto items-end text-right"
                   )}>
                     <div className={cn(
-                      "px-6 py-4 rounded-2xl relative",
+                      "px-6 py-4 rounded-2xl relative group cursor-pointer",
                       i % 2 === 0 
-                        ? "bg-muted text-foreground rounded-tl-none" 
-                        : "bg-primary text-primary-foreground rounded-tr-none shadow-lg shadow-primary/10"
-                    )}>
+                        ? "bg-muted text-foreground rounded-tl-none hover:bg-muted/80" 
+                        : "bg-primary text-primary-foreground rounded-tr-none shadow-lg shadow-primary/10 hover:bg-primary/90"
+                    )}
+                    onClick={() => speak(line.italian)}
+                    >
                       <p className="text-xs font-black uppercase tracking-widest opacity-60 mb-1">{line.speaker}</p>
                       <p className="text-lg font-bold">{line.italian}</p>
+                      <Volume2 className="absolute top-2 right-2 w-3 h-3 opacity-0 group-hover:opacity-40 transition-opacity" />
                     </div>
                     <p className="text-xs font-medium text-muted-foreground px-2">{line.english}</p>
                   </div>

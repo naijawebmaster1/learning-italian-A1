@@ -6,6 +6,7 @@ import { useProgress } from '@/hooks/useProgress';
 import { cn, validateTyping } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight, RotateCcw, Star, Volume2 } from 'lucide-react';
+import { useSpeech } from '@/hooks/useSpeech';
 
 interface QuizComponentProps {
   lesson: Lesson;
@@ -13,6 +14,7 @@ interface QuizComponentProps {
 }
 
 export function QuizComponent({ lesson, onComplete }: QuizComponentProps) {
+  const { speak } = useSpeech();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,6 +27,13 @@ export function QuizComponent({ lesson, onComplete }: QuizComponentProps) {
   const handleAnswerChange = (value: string | string[]) => {
     if (showResult) return;
     setAnswers(prev => ({ ...prev, [currentExercise.id]: value }));
+  };
+
+  const handleSpeakQuestion = () => {
+    // Extract text between quotes or common Italian patterns if available
+    // For now, speak the whole question if it's Italian-focused
+    const textToSpeak = currentExercise.question.match(/'([^']+)'/)?.[1] || currentExercise.question;
+    speak(textToSpeak);
   };
 
   const submitAnswer = () => {
@@ -132,7 +141,16 @@ export function QuizComponent({ lesson, onComplete }: QuizComponentProps) {
             <span>{currentExercise.type.replace('-', ' ')}</span>
           </div>
 
-          <h3 className="text-2xl font-bold mb-8">{currentExercise.question}</h3>
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <h3 className="text-2xl font-bold">{currentExercise.question}</h3>
+            <button 
+              onClick={handleSpeakQuestion}
+              className="p-3 rounded-full hover:bg-primary/10 text-primary transition-colors shrink-0"
+              title="Listen"
+            >
+              <Volume2 className="w-6 h-6" />
+            </button>
+          </div>
 
           <div className="space-y-4">
             {currentExercise.type === 'multiple-choice' && (
