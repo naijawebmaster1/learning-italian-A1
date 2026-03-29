@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BottomNav } from '@/components/BottomNav';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -40,10 +41,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       
       <div className="flex-1 flex flex-col min-w-0">
         <Navbar onMenuClick={() => setIsMobileMenuOpen(true)} />
-        <main className="flex-1 overflow-x-hidden p-4 md:p-6 lg:p-10 max-w-7xl mx-auto w-full">
+        <main className="flex-1 overflow-x-hidden p-4 md:p-6 lg:p-10 max-w-7xl mx-auto w-full pb-20 md:pb-6">
           {children}
         </main>
       </div>
+
+      <BottomNav />
 
       {/* Mobile Menu Drawer - Fixed at Root level */}
       <AnimatePresence>

@@ -41,12 +41,13 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           >
             <Menu className="w-6 h-6" />
           </button>
-          <Link href="/" className="relative h-8 w-32 md:hidden block">
-            <Image src="/logo.png" alt="Italiano A1" fill className="object-contain object-left" />
-          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 ml-auto">
+          <Link href="/" className="relative h-6 w-20 md:hidden block opacity-90 mr-2">
+            <Image src="/logo.png" alt="Italiano A1" fill className="object-contain object-right" />
+          </Link>
+          
           <div className="flex items-center gap-2 px-2 md:px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-200 dark:border-orange-500/20">
             <Flame className="w-4 h-4 fill-orange-500" />
             <span className="text-xs md:text-sm font-bold whitespace-nowrap">{progress.streak} <span className="hidden sm:inline">Day</span> Streak</span>
