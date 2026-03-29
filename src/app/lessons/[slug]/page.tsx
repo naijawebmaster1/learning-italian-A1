@@ -17,6 +17,8 @@ import {
   Volume2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function LessonPage() {
   const { slug } = useParams();
@@ -95,10 +97,10 @@ export default function LessonPage() {
                   <Book className="w-6 h-6 text-primary" />
                   {lesson.grammar.title}
                 </h2>
-                <div className="prose prose-slate dark:prose-invert max-w-none prose-lg">
-                  {lesson.grammar.content.split('\n').map((line, i) => (
-                    <p key={i} className="mb-4 text-muted-foreground">{line}</p>
-                  ))}
+                <div className="markdown-content max-w-none prose-lg">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {lesson.grammar.content}
+                  </ReactMarkdown>
                 </div>
               </div>
 

@@ -210,6 +210,17 @@
     <div class="rule-card"><h4>♀ Feminine Plural</h4><p>All feminine articles (<code>la</code> and <code>l'</code>) become <code>le</code> in plural. <code>le case</code>, <code>le idee</code>.</p></div>
     <div class="rule-card"><h4>📞 Invariable nouns</h4><p>Some nouns don't change in plural (e.g. <code>il cinema → i cinema</code>). The article still must agree!</p></div>
     <div class="rule-card"><h4>🎓 Gender tip</h4><p>Nouns ending in <code>-o</code> are usually masculine; <code>-a</code> feminine; <code>-e</code> can be either — check the article!</p></div>
+    <div class="rule-card"><h4>⚠️ Lo pneumatico</h4><p>Historically, <code>lo</code> is used for <code>pn-</code>. Nowadays <code>il</code> is common too, but <code>lo</code> remains the classic grammar choice.</p></div>
+    <div class="rule-card"><h4>🌊 God / Gods</h4><p>A classic exception: <code>Dio</code> (God) takes <code>il</code>, but the plural <code>dei</code> takes <code>gli</code>: <code>Gli dei dell'Olimpo</code>.</p></div>
+  </div>
+
+  <h2 class="section-title">Preview: Articulated Prepositions</h2>
+  <div class="theory-intro" style="background: var(--sage); margin-bottom: 0;">
+    <p>When prepositions like <strong>di, a, da, in, su</strong> meet a definite article, they <strong>combine</strong>! 
+    <br>• <code>di + il = del</code> (of the) 
+    <br>• <code>a + la = alla</code> (to the) 
+    <br>• <code>in + gli = negli</code> (in the)
+    <br><em>Mastering articles is the foundational step to mastering these combinations!</em></p>
   </div>
 </div>
 </div>
@@ -465,6 +476,12 @@ const quizPool = [
   {word:'bicicletta',art:'la',hint:'feminine, starts with consonant'},
   {word:'gelato',art:'il',hint:'masculine, starts with consonant'},
   {word:'ospedale',art:"l'",hint:'masculine, starts with vowel'},
+  {word:'pneumatico',art:'lo',hint:'masculine, starts with pn- (classic)'},
+  {word:'psicologo',art:'lo',hint:'masculine, starts with ps-'},
+  {word:'sport',art:'lo',hint:'masculine, starts with s+consonant'},
+  {word:'dei',art:'gli',hint:'exception: plural of Dio'},
+  {word:'isola',art:"l'",hint:'feminine, starts with vowel'},
+  {word:'zaino',art:'lo',hint:'masculine, starts with z-'},
 ];
 const allArts = ['il','lo',"l'",'i','gli','la','le'];
 let quizQuestions = [], quizIdx = 0, quizResults = [];

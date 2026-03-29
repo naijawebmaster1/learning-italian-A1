@@ -237,99 +237,194 @@ The standard Italian alphabet has **21 letters**. The letters J, K, W, X, and Y 
         question: "Which pronoun is used for the FORMAL 'you'?",
         options: ["Tu", "Voi", "Lei"],
         correctAnswer: "Lei"
+      },
+      {
+        id: "2_7",
+        type: "multiple-choice",
+        question: "Choose the correct form: 'Voi ___ bravi.'",
+        options: ["sono", "siamo", "siete"],
+        correctAnswer: "siete"
+      },
+      {
+        id: "2_8",
+        type: "fill-in-the-blank",
+        question: "Io ___ (am) un professore.",
+        correctAnswer: "sono"
+      },
+      {
+        id: "2_9",
+        type: "fill-in-the-blank",
+        question: "Lui ___ (is) molto famoso.",
+        correctAnswer: "è"
+      },
+      {
+        id: "2_10",
+        type: "fill-in-the-blank",
+        question: "Signora Miller, Lei ___ (are - formal) americana?",
+        correctAnswer: "è"
+      },
+      {
+        id: "2_11",
+        type: "translation",
+        question: "Translate: 'We are students'",
+        correctAnswer: "Noi siamo studenti"
+      },
+      {
+        id: "2_12",
+        type: "reorder",
+        question: "Reorder: I / am / Italian",
+        words: ["Io", "sono", "italiano"],
+        correctAnswer: ["Io", "sono", "italiano"]
+      },
+      {
+        id: "2_13",
+        type: "multiple-choice",
+        question: "Which is correct for a woman?",
+        options: ["Io sono italiano", "Io sono italiana"],
+        correctAnswer: "Io sono italiana"
+      },
+      {
+        id: "2_14",
+        type: "fill-in-the-blank",
+        question: "Noi ___ (are) grandi amici.",
+        correctAnswer: "siamo"
+      },
+      {
+        id: "2_15",
+        type: "translation",
+        question: "Translate: 'They are famous'",
+        correctAnswer: "Loro sono famosi"
+      },
+      {
+        id: "2_16",
+        type: "reorder",
+        question: "Reorder: you / are / tired / ?",
+        words: ["Tu", "sei", "stanco", "?"],
+        correctAnswer: ["Tu", "sei", "stanco", "?"]
+      },
+      {
+        id: "2_17",
+        type: "fill-in-the-blank",
+        question: "Voi ___ (are) in Italia.",
+        correctAnswer: "siete"
+      },
+      {
+        id: "2_18",
+        type: "multiple-choice",
+        question: "Opposite of 'Felice':",
+        options: ["Grande", "Triste", "Stanco"],
+        correctAnswer: "Triste"
+      },
+      {
+        id: "2_19",
+        type: "translation",
+        question: "Translate: 'The house is big'",
+        correctAnswer: "La casa è grande"
+      },
+      {
+        id: "2_20",
+        type: "fill-in-the-blank",
+        question: "Signora Bianchi ___ (is) italiana.",
+        correctAnswer: "è"
       }
     ]
   },
   {
     id: 3,
-    title: "Determinative Articles (Articoli Determinativi)",
+    title: "Articles Mastery (Determinativi & Indeterminativi)",
     slug: "articles",
     grammar: {
-      title: "The Italian Definite Article",
-      content: `Like 'the' in English, but Italian has 7 forms depending on the gender, number, and starting letter of the noun.
-      
-**Masculine Singular:**
-- **il**: most consonants (il libro)
-- **lo**: s+consonant, z, ps, gn, x, y (lo zio, lo studente)
-- **l'**: vowels (l'amico, l'uomo)
+      title: "The Ultimate Guide to Italian Articles",
+      content: `In Italian, articles are NOT optional! They must agree with the noun's gender, number, and its first letter.
 
-**Masculine Plural:**
-- **i**: plural of 'il' (i libri)
-- **gli**: plural of 'lo' and 'l'' (gli studenti, gli amici)
+### 1. The Definite Articles (The)
+Definite articles refer to specific things. Italian has 7 forms:
 
-**Feminine Singular:**
-- **la**: most consonants (la casa)
-- **l'**: vowels (l'idea, l'agenda)
+| Gender | Starting with... | Singular | Plural |
+| :--- | :--- | :--- | :--- |
+| **Masc.** | Most Consonants | **il** (il libro) | **i** (i libri) |
+| **Masc.** | z, s+cons, ps, gn, x, y | **lo** (lo stadio) | **gli** (gli stadi) |
+| **Masc.** | Vowel | **l'** (l'amico) | **gli** (gli amici) |
+| **Fem.** | Consonant | **la** (la casa) | **le** (le case) |
+| **Fem.** | Vowel | **l'** (l'idea) | **le** (le idee) |
 
-**Feminine Plural:**
-- **le**: all feminine nouns (le case, le idee, le amiche)`
+### 2. The Indefinite Articles (A / An)
+Used for non-specific things. These are only used in the **singular**:
+
+| Gender | Starting with... | Article | Example |
+| :--- | :--- | :--- | :--- |
+| **Masc.** | Most Consonants & Vowels | **un** | un pane, un ufficio |
+| **Masc.** | z, s+cons, ps, gn, x, y | **uno** | uno zaino, uno studente |
+| **Fem.** | Consonant | **una** | una pizza, una banca |
+| **Fem.** | Vowel | **un'** | un'arancia, un'agenda |
+
+**CRITICAL RULE:**
+- Masculine **un** NEVER takes an apostrophe (un amico).
+- Feminine **una** MUST take an apostrophe before a vowel (un'amica).`
     },
     vocabulary: [
-      { italian: "Il libro", english: "The book" },
-      { italian: "Lo zio", english: "The uncle" },
-      { italian: "L'amico", english: "The friend (male)" },
-      { italian: "La casa", english: "The house" },
-      { italian: "L'idea", english: "The idea" },
-      { italian: "Lo studente", english: "The student" },
-      { italian: "La mamma", english: "The mom" },
-      { italian: "Il treno", english: "The train" },
+      { italian: "Il libro / I libri", english: "The book / The books" },
+      { italian: "Lo studente / Gli studenti", english: "The student / The students" },
+      { italian: "L'amico / Gli amici", english: "The friend / The friends (masc)" },
+      { italian: "La casa / Le case", english: "The house / The houses" },
+      { italian: "Un ragazzo / Una ragazza", english: "A boy / A girl" },
+      { italian: "Uno zaino", english: "A backpack" },
+      { italian: "Un'idea", english: "An idea" },
+      { italian: "Un amico / Un'amica", english: "A friend (m) / A friend (f)" },
       { italian: "L'ufficio", english: "The office" },
-      { italian: "Il panino", english: "The sandwich" },
+      { italian: "Psicologo", english: "Psychologist", pronunciation: "SEE-KO-LO-GO" },
     ],
     examples: [
-      { italian: "Il ragazzo è a scuola.", english: "The boy is at school." },
-      { italian: "Gli amici sono simpatici.", english: "The friends are nice." },
-      { italian: "La pizza è buonissima!", english: "The pizza is very good!" },
+      { italian: "Lo psicologo parla con lo studente.", english: "The psychologist speaks with the student." },
+      { italian: "Ho un'amica italiana e un amico americano.", english: "I have an Italian female friend and an American male friend." },
+      { italian: "Gli zaini sono nell'armadio.", english: "The backpacks are in the closet." },
     ],
     dialogue: {
-      title: "In Biblioteca (In the Library)",
+      title: "In Cartoleria",
       lines: [
-        { speaker: "Studente", italian: "Scusi, dov'è il libro di storia?", english: "Excuse me, where is the history book?" },
-        { speaker: "Bibliotecaria", italian: "Il libro è sul tavolo, vicino alla finestra.", english: "The book is on the table, near the window." },
-        { speaker: "Studente", italian: "E l'agenda?", english: "And the planner?" },
-        { speaker: "Bibliotecaria", italian: "L'agenda è qui.", english: "The planner is here." },
+        { speaker: "Cliente", italian: "Buongiorno! Vorrei un quaderno e una penna.", english: "Good morning! I would like a notebook and a pen." },
+        { speaker: "Commesso", italian: "Certamente. Ecco il quaderno e la penna.", english: "Certainly. Here is the notebook and the pen." },
+        { speaker: "Cliente", italian: "Prendo anche lo zaino blu e l'agenda rossa.", english: "I'll also take the blue backpack and the red planner." },
+        { speaker: "Commesso", italian: "Ottima scelta! Sono 35 euro.", english: "Great choice! That's 35 euros." },
       ]
     },
     comprehensionQuestions: [
       {
-        question: "Which article do you use for 'zio'?",
-        options: ["Il", "Lo", "La"],
-        correctAnswer: "Lo"
-      },
-      {
-        question: "What is the plural of 'il libro'?",
-        options: ["I libri", "Gli libri", "Le libri"],
-        correctAnswer: "I libri"
+        question: "Which masculine nouns take 'lo' or 'uno'?",
+        options: ["Vowels only", "z, ps, gn, x, y, and s+consonant", "All consonants"],
+        correctAnswer: "z, ps, gn, x, y, and s+consonant"
       }
     ],
     exercises: [
-      {
-        id: "3_1",
-        type: "multiple-choice",
-        question: "Choose the article for 'studenti':",
-        options: ["I", "Gli", "Le"],
-        correctAnswer: "Gli"
-      },
-      {
-        id: "3_2",
-        type: "fill-in-the-blank",
-        question: "___ automobile (The car)",
-        correctAnswer: "L'",
-        explanation: "Feminine singular starting with a vowel."
-      },
-      {
-        id: "3_3",
-        type: "translation",
-        question: "Translate: 'The friends (masc)'",
-        correctAnswer: "Gli amici"
-      },
-      {
-        id: "3_4",
-        type: "reorder",
-        question: "Reorder: is / the / sandwich / good",
-        words: ["Il", "panino", "è", "buono"],
-        correctAnswer: ["Il", "panino", "è", "buono"]
-      }
+      // Indefinite Articles (User's requested list)
+      { id: "3_ind_1", type: "fill-in-the-blank", question: "___ ragazzo", correctAnswer: "un" },
+      { id: "3_ind_2", type: "fill-in-the-blank", question: "___ ragazza", correctAnswer: "una" },
+      { id: "3_ind_3", type: "fill-in-the-blank", question: "___ amico", correctAnswer: "un" },
+      { id: "3_ind_4", type: "fill-in-the-blank", question: "___ amica", correctAnswer: "un'" },
+      { id: "3_ind_5", type: "fill-in-the-blank", question: "___ studente", correctAnswer: "uno" },
+      { id: "3_ind_6", type: "fill-in-the-blank", question: "___ studentessa", correctAnswer: "una" },
+      { id: "3_ind_7", type: "fill-in-the-blank", question: "___ zio", correctAnswer: "uno" },
+      { id: "3_ind_8", type: "fill-in-the-blank", question: "___ zia", correctAnswer: "una" },
+      { id: "3_ind_9", type: "fill-in-the-blank", question: "___ libro", correctAnswer: "un" },
+      { id: "3_ind_10", type: "fill-in-the-blank", question: "___ idea", correctAnswer: "un'" },
+      { id: "3_ind_11", type: "fill-in-the-blank", question: "___ esame", correctAnswer: "un" },
+      { id: "3_ind_12", type: "fill-in-the-blank", question: "___ casa", correctAnswer: "una" },
+      { id: "3_ind_13", type: "fill-in-the-blank", question: "___ stazione", correctAnswer: "una" },
+      { id: "3_ind_14", type: "fill-in-the-blank", question: "___ zaino", correctAnswer: "uno" },
+      { id: "3_ind_15", type: "fill-in-the-blank", question: "___ albero", correctAnswer: "un" },
+      { id: "3_ind_16", type: "fill-in-the-blank", question: "___ isola", correctAnswer: "un'" },
+      { id: "3_ind_17", type: "fill-in-the-blank", question: "___ ospedale", correctAnswer: "un" },
+      { id: "3_ind_18", type: "fill-in-the-blank", question: "___ ufficio", correctAnswer: "un" },
+      { id: "3_ind_19", type: "fill-in-the-blank", question: "___ arancia", correctAnswer: "un'" },
+      { id: "3_ind_20", type: "fill-in-the-blank", question: "___ psicologo", correctAnswer: "uno" },
+      
+      // Definite Articles (Complementary set)
+      { id: "3_def_1", type: "fill-in-the-blank", question: "___ libro (the)", correctAnswer: "il" },
+      { id: "3_def_2", type: "fill-in-the-blank", question: "___ studentessa (the)", correctAnswer: "la" },
+      { id: "3_def_3", type: "fill-in-the-blank", question: "___ amici (the)", correctAnswer: "gli" },
+      { id: "3_def_4", type: "fill-in-the-blank", question: "___ amiche (the)", correctAnswer: "le" },
+      { id: "3_def_5", type: "fill-in-the-blank", question: "___ psicologo (the)", correctAnswer: "lo" },
+      { id: "3_def_6", type: "fill-in-the-blank", question: "___ esami (the)", correctAnswer: "gli" },
     ]
   },
   {

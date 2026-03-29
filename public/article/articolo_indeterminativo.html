@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Articolo Indeterminativo Italiano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --warm-white: #fff9f2;
+    --ink: #1a1208;
+    --terracotta: #c0492b;
+    --gold: #d4a843;
+    --sage: #5a7a5e;
+    --muted: #8a7a68;
+    --border: #e0d5c5;
+    --card: #ffffff;
+    --masc: #1a4a7a;
+    --fem: #7a1a4a;
+    --masc-light: #e8f0f8;
+    --fem-light: #f8e8f0;
+    --correct: #2d7a3a;
+    --wrong: #c0492b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(212,168,67,0.06) 40px,rgba(212,168,67,0.06) 41px);
+  }
+  .hero-flag { display: flex; justify-content: center; gap: 0; margin-bottom: 28px; }
+  .flag-stripe { width: 18px; height: 60px; border-radius: 3px; }
+  .flag-stripe:nth-child(1) { background: #009246; }
+  .flag-stripe:nth-child(2) { background: #ffffff; }
+  .flag-stripe:nth-child(3) { background: #ce2b37; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero .sub { font-size: 1rem; color: rgba(250,246,239,0.6); font-weight: 300; letter-spacing: 1px; text-transform: uppercase; }
+  .tabs { display: flex; justify-content: center; gap: 8px; padding: 28px 20px 0; flex-wrap: wrap; }
+  .tab-btn { padding: 10px 22px; border: 2px solid var(--border); background: var(--card); border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500; cursor: pointer; color: var(--muted); transition: all 0.2s; }
+  .tab-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .tab-btn.active { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+  .section { display: none; }
+  .section.active { display: block; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; color: var(--ink); }
+  .section-desc { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
+  .theory-intro { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+  .theory-intro p { font-size: 1rem; line-height: 1.75; opacity: 0.9; }
+  .theory-intro strong { color: var(--gold); }
+  .gender-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  @media (max-width: 600px) { .gender-grid { grid-template-columns: 1fr; } }
+  .gender-card { border-radius: 16px; padding: 28px; border: 2px solid; }
+  .gender-card.masc { background: var(--masc-light); border-color: #b8d0e8; }
+  .gender-card.fem { background: var(--fem-light); border-color: #e8b8d0; }
+  .gender-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .gender-card.masc h3 { color: var(--masc); }
+  .gender-card.fem h3 { color: var(--fem); }
+  .art-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .art-table th { text-align: left; padding: 6px 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .art-table td { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .art-big { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+  .masc .art-big { color: var(--masc); }
+  .fem .art-big { color: var(--fem); }
+  .art-rule { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+  .art-example { font-size: 0.88rem; font-weight: 500; }
+  .rule-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; border-left: 4px solid var(--gold); }
+  .rule-card h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gold); margin-bottom: 8px; }
+  .rule-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+  .rule-card code { background: var(--cream); padding: 1px 5px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; color: var(--terracotta); }
+  .exercise-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+  .exercise-block h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 6px; color: var(--terracotta); }
+  .exercise-block p.inst { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; }
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .ex-item { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--warm-white); font-size: 0.9rem; transition: border-color 0.2s; }
+  .ex-item.correct { border-color: var(--correct); background: #edf7ee; }
+  .ex-item.wrong { border-color: var(--wrong); background: #fdecea; }
+  .ex-item label { color: var(--muted); font-size: 0.78rem; font-weight: 500; }
+  .ex-item .word { font-weight: 500; }
+  .ex-input { width: 50px; border: none; border-bottom: 2px solid var(--border); background: transparent; text-align: center; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); outline: none; padding: 2px 0; transition: border-color 0.2s; }
+  .ex-input:focus { border-color: var(--terracotta); }
+  .ex-input.correct-val { color: var(--correct); border-color: var(--correct); }
+  .ex-input.wrong-val { color: var(--wrong); border-color: var(--wrong); }
+  .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+  .btn-primary { background: var(--terracotta); color: white; }
+  .btn-primary:hover { background: #a33d24; }
+  .btn-secondary { background: transparent; color: var(--muted); border-color: var(--border); margin-left: 10px; }
+  .btn-secondary:hover { border-color: var(--muted); color: var(--ink); }
+  .btn-row { margin-top: 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .score-display { font-size: 0.88rem; color: var(--muted); margin-left: 12px; }
+  .score-display strong { color: var(--terracotta); }
+  .quiz-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .quiz-number { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
+  .quiz-word { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .quiz-hint { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; font-style: italic; }
+  .quiz-options { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .quiz-opt { padding: 12px 28px; border-radius: 30px; border: 2px solid var(--border); background: var(--warm-white); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; cursor: pointer; color: var(--ink); transition: all 0.15s; }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: #fef6e4; }
+  .quiz-opt.correct-opt { background: #edf7ee; border-color: var(--correct); color: var(--correct); }
+  .quiz-opt.wrong-opt { background: #fdecea; border-color: var(--wrong); color: var(--wrong); }
+  .quiz-feedback { margin-top: 16px; font-size: 0.95rem; font-weight: 500; min-height: 24px; color: var(--correct); }
+  .quiz-feedback.err { color: var(--wrong); }
+  .quiz-progress { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .prog-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); transition: background 0.3s; }
+  .prog-dot.done-correct { background: var(--correct); }
+  .prog-dot.done-wrong { background: var(--wrong); }
+  .prog-dot.current { background: var(--terracotta); }
+  .quiz-score-box { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 40px; text-align: center; width: 100%; }
+  .quiz-score-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
+  .quiz-score-box .big-score { font-size: 4rem; font-family: 'Playfair Display', serif; color: var(--gold); line-height: 1; margin: 16px 0; }
+  .quiz-score-box p { opacity: 0.7; margin-bottom: 12px; }
+  footer { text-align: center; padding: 30px 20px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-flag">
+    <div class="flag-stripe"></div>
+    <div class="flag-stripe"></div>
+    <div class="flag-stripe"></div>
+  </div>
+  <h1><em>L'Articolo</em> Indeterminativo</h1>
+  <p class="sub">Italian Indefinite Articles · A1 Grammar</p>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('theory')">📖 Theory</button>
+  <button class="tab-btn" onclick="showTab('ex1')">✏️ Exercise 1</button>
+  <button class="tab-btn" onclick="showTab('quiz')">🎯 Quiz</button>
+</div>
+
+<!-- THEORY -->
+<div id="tab-theory" class="section active">
+<div class="container">
+  <h2 class="section-title">What is the Indefinite Article?</h2>
+  <p class="section-desc">Like "a" or "an" in English — used for a non-specific person or thing.</p>
+  <div class="theory-intro">
+    <p>In Italian, indefinite articles are used in the <strong>singular only</strong>. They agree with the gender and the first letter of the noun. There is no plural form (instead, we use partitive articles like <em>dei, delle</em>, which you'll learn later!).</p>
+  </div>
+  <div class="gender-grid">
+    <div class="gender-card masc">
+      <h3>♂ Maschile (Masculine)</h3>
+      <table class="art-table">
+        <tr><th>Article</th><th>Rule</th><th>Example</th></tr>
+        <tr><td><span class="art-big">un</span></td><td><span class="art-rule">consonants &amp; vowels</span></td><td class="art-example">un libro, un amico</td></tr>
+        <tr><td><span class="art-big">uno</span></td><td><span class="art-rule">s+cons, z, ps, gn, x, y</span></td><td class="art-example">uno zaino, uno studente</td></tr>
+      </table>
+    </div>
+    <div class="gender-card fem">
+      <h3>♀ Femminile (Feminine)</h3>
+      <table class="art-table">
+        <tr><th>Article</th><th>Rule</th><th>Example</th></tr>
+        <tr><td><span class="art-big">una</span></td><td><span class="art-rule">all consonants</span></td><td class="art-example">una casa, una ragazza</td></tr>
+        <tr><td><span class="art-big">un'</span></td><td><span class="art-rule">vowels only</span></td><td class="art-example">un'idea, un'amica</td></tr>
+      </table>
+    </div>
+  </div>
+  
+  <h2 class="section-title" style="margin-bottom:16px">Key Insights</h2>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px">
+    <div class="rule-card">
+      <h4>⚠️ No Apostrophe for Masc</h4>
+      <p>Masc. <code>un</code> never takes an apostrophe, even before a vowel. <code>un amico</code> (Correct) vs <code>un'amico</code> (Wrong!).</p>
+    </div>
+    <div class="rule-card">
+      <h4>✨ The Apostrophe for Fem</h4>
+      <p>Fem. <code>una</code> becomes <code>un'</code> only before a vowel. <code>un'isola</code>, <code>un'arancia</code>.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- EXERCISE 1 -->
+<div id="tab-ex1" class="section">
+<div class="container">
+  <div class="exercise-block">
+    <h3>Esercizio — Scegli l'articolo giusto</h3>
+    <p class="inst">Fill in the correct indefinite article (un, uno, una, un') for each noun.</p>
+    <div class="ex-grid" id="ex1-grid"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="checkEx1()">Controlla ✓</button>
+      <button class="btn btn-secondary" onclick="resetEx1()">Ricomincia</button>
+      <span class="score-display" id="ex1-score"></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- QUIZ -->
+<div id="tab-quiz" class="section">
+<div class="container">
+  <h2 class="section-title">Flashcard Quiz</h2>
+  <p class="section-desc">Choose the correct indefinite article. 15 questions.</p>
+  <div class="quiz-progress" id="quiz-progress"></div>
+  <div class="quiz-card" id="quiz-card">
+    <div class="quiz-number" id="quiz-num">Question 1 of 15</div>
+    <div class="quiz-word" id="quiz-word">—</div>
+    <div class="quiz-hint" id="quiz-hint"></div>
+    <div class="quiz-options" id="quiz-opts"></div>
+  </div>
+  <div class="quiz-feedback" id="quiz-feedback"></div>
+</div>
+</div>
+
+<footer>
+  Part of the Italian A1 Grammar Series · Interactive Version
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) b.classList.add('active');
+  });
+}
+
+const ex1Data = [
+  {word:'ragazzo',art:'un'},{word:'ragazza',art:'una'},{word:'amico',art:'un'},
+  {word:'amica',art:"un'"},{word:'studente',art:'uno'},{word:'studentessa',art:'una'},
+  {word:'zio',art:'uno'},{word:'zia',art:'una'},{word:'libro',art:'un'},
+  {word:'idea',art:"un'"},{word:'esame',art:'un'},{word:'casa',art:'una'},
+  {word:'stazione',art:'una'},{word:'zaino',art:'uno'},{word:'albero',art:'un'},
+  {word:'isola',art:"un'"},{word:'ospedale',art:'un'},{word:'ufficio',art:'un'},
+  {word:'arancia',art:"un'"},{word:'psicologo',art:'uno'}
+];
+
+function buildEx1() {
+  const grid = document.getElementById('ex1-grid');
+  grid.innerHTML = '';
+  ex1Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'ex-item';
+    div.id = 'ex1-item-' + i;
+    div.innerHTML = '<label>' + (i+1) + '.</label><input class="ex-input" id="ex1-in-' + i + '" maxlength="4" autocomplete="off" placeholder="…"><span class="word">' + item.word + '</span>';
+    grid.appendChild(div);
+  });
+}
+
+function checkEx1() {
+  let correct = 0;
+  ex1Data.forEach((item, i) => {
+    const inp = document.getElementById('ex1-in-' + i);
+    const val = inp.value.trim().toLowerCase();
+    const ans = item.art.toLowerCase();
+    const box = document.getElementById('ex1-item-' + i);
+    if (val === ans) {
+      correct++;
+      inp.classList.add('correct-val'); inp.classList.remove('wrong-val');
+      box.classList.add('correct'); box.classList.remove('wrong');
+    } else {
+      inp.classList.add('wrong-val'); inp.classList.remove('correct-val');
+      box.classList.add('wrong'); box.classList.remove('correct');
+      inp.value = item.art;
+    }
+  });
+  document.getElementById('ex1-score').innerHTML = 'Score: <strong>' + correct + '/' + ex1Data.length + '</strong>';
+}
+
+function resetEx1() {
+  ex1Data.forEach((item, i) => {
+    const inp = document.getElementById('ex1-in-' + i);
+    inp.value = ''; inp.className = 'ex-input';
+    const box = document.getElementById('ex1-item-' + i);
+    box.classList.remove('correct', 'wrong');
+  });
+  document.getElementById('ex1-score').innerHTML = '';
+}
+
+buildEx1();
+
+const quizPool = [
+  {word:'ristorante',art:'un',hint:'masc, consonant'},
+  {word:'università',art:"un'",hint:'fem, vowel'},
+  {word:'stivale',art:'uno',hint:'masc, s+consonant'},
+  {word:'opera',art:"un'",hint:'fem, vowel'},
+  {word:'panino',art:'un',hint:'masc, consonant'},
+  {word:'italiano',art:'un',hint:'masc, vowel (no apostrophe!)'},
+  {word:'italiana',art:"un'",hint:'fem, vowel (needs apostrophe)'},
+  {word:'zucchero',art:'uno',hint:'masc, z-'},
+  {word:'gnocco',art:'uno',hint:'masc, gn-'},
+  {word:'bicicletta',art:'una',hint:'fem, consonant'},
+  {word:'ombrello',art:'un',hint:'masc, vowel'},
+  {word:'agenda',art:"un'",hint:'fem, vowel'},
+  {word:'specchio',art:'uno',hint:'masc, s+consonant'},
+  {word:'treno',art:'un',hint:'masc, consonant'},
+  {word:'automobile',art:"un'",hint:'fem, vowel'}
+];
+const allArts = ['un','uno','una',"un'"];
+let quizQuestions = [], quizIdx = 0, quizResults = [];
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function initQuiz() {
+  quizQuestions = shuffle(quizPool).slice(0, 15);
+  quizIdx = 0; quizResults = [];
+  renderProgress();
+  renderQuizCard();
+  document.getElementById('quiz-feedback').textContent = '';
+}
+
+function renderProgress() {
+  const prog = document.getElementById('quiz-progress');
+  if(!prog) return;
+  prog.innerHTML = quizQuestions.map((_, i) => {
+    let cls = 'prog-dot';
+    if (i < quizIdx) cls += quizResults[i] ? ' done-correct' : ' done-wrong';
+    else if (i === quizIdx) cls += ' current';
+    return '<div class="' + cls + '"></div>';
+  }).join('');
+}
+
+function renderQuizCard() {
+  if (quizIdx >= quizQuestions.length) { showQuizScore(); return; }
+  const q = quizQuestions[quizIdx];
+  document.getElementById('quiz-num').textContent = 'Question ' + (quizIdx+1) + ' of ' + quizQuestions.length;
+  document.getElementById('quiz-word').textContent = q.word;
+  document.getElementById('quiz-hint').textContent = '(' + q.hint + ')';
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  const opts = allArts;
+  const optsDiv = document.getElementById('quiz-opts');
+  optsDiv.innerHTML = '';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = opt;
+    btn.onclick = () => answerQuiz(opt, q.art, btn);
+    optsDiv.appendChild(btn);
+  });
+}
+
+function answerQuiz(chosen, correct, btn) {
+  const allBtns = document.querySelectorAll('.quiz-opt');
+  allBtns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('quiz-feedback');
+  if (chosen === correct) {
+    btn.classList.add('correct-opt');
+    fb.textContent = '✓ Ben fatto!';
+    quizResults.push(true);
+  } else {
+    btn.classList.add('wrong-opt');
+    allBtns.forEach(b => { if (b.textContent === correct) b.classList.add('correct-opt'); });
+    fb.textContent = '✗ Attenzione: "' + correct + '"';
+    fb.className = 'quiz-feedback err';
+    quizResults.push(false);
+  }
+  renderProgress();
+  setTimeout(() => { quizIdx++; renderProgress(); renderQuizCard(); }, 1400);
+}
+
+function showQuizScore() {
+  const score = quizResults.filter(Boolean).length;
+  const total = quizResults.length;
+  document.getElementById('quiz-card').innerHTML =
+    '<div class="quiz-score-box"><h2>Risultato</h2><div class="big-score">' + score + '/' + total + '</div><button class="btn btn-primary" onclick="initQuiz()">Riprova</button></div>';
+}
+
+initQuiz();
+</script>
+</body>
+</html>

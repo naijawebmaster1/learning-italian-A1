@@ -128,3 +128,36 @@
 .title-gradient {
   @apply text-[#008C45] dark:text-[#00AD54];
 }
+
+/* Markdown Content Styling */
+.markdown-content {
+  @apply leading-relaxed;
+}
+
+.markdown-content table {
+  @apply w-full border-collapse my-6 text-sm sm:text-base;
+}
+
+.markdown-content th {
+  @apply bg-muted text-left p-3 border border-border font-bold;
+}
+
+.markdown-content td {
+  @apply p-3 border border-border;
+}
+
+.markdown-content h3 {
+  @apply text-xl font-bold mt-8 mb-4 text-primary;
+}
+
+.markdown-content p {
+  @apply mb-4 text-muted-foreground;
+}
+
+.markdown-content strong {
+  @apply text-foreground font-bold;
+}
+
+.markdown-content code {
+  @apply bg-muted px-1.5 py-0.5 rounded font-mono text-sm inline-block;
+}
