@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 import { lessons } from '@/data/lessons';
 import { useProgress } from '@/hooks/useProgress';
 
-export function SidebarContent({ className, onItemClick }: { className?: string, onItemClick?: () => void }) {
+export function SidebarContent({ className, onItemClick, hideHeader }: { className?: string, onItemClick?: () => void, hideHeader?: boolean }) {
   const pathname = usePathname();
   const { progress } = useProgress();
 
@@ -34,12 +34,14 @@ export function SidebarContent({ className, onItemClick }: { className?: string,
 
   return (
     <div className={cn("flex flex-col h-full", className)}>
-      <div className="p-6">
-        <h1 className="text-2xl font-bold text-primary flex items-center gap-2">
-          <BookOpen className="w-8 h-8" />
-          <span>Italiano</span>
-        </h1>
-      </div>
+      {!hideHeader && (
+        <div className="p-6">
+          <h1 className="text-2xl font-bold text-primary flex items-center gap-2">
+            <BookOpen className="w-8 h-8" />
+            <span>Italiano</span>
+          </h1>
+        </div>
+      )}
 
       <nav className="flex-1 overflow-y-auto px-4 space-y-8 pb-8">
         <div className="space-y-1">

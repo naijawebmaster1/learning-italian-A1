@@ -6,19 +6,121 @@ export const lessons: Lesson[] = [
     title: "The Alphabet, Pronunciation & Greetings",
     slug: "alphabet-greetings",
     grammar: {
-      title: "Italian Alphabet & Pronunciation",
-      content: "Italian uses 21 letters. Vowels are pure: A (father), E (bed), I (me), O (pot), U (moon). Consonants like C/G change sound with E/I. CH and GH are always hard (K/G)."
+      title: "The Italian Foundation: Sounds & Letters",
+      content: `Italian is a phonetic language, meaning it is mostly pronounced exactly as it is written. 
+
+**The Alphabet:**
+The standard Italian alphabet has **21 letters**. The letters J, K, W, X, and Y only appear in foreign words.
+- **Vowels (A, E, I, O, U)**: Always pure. A (ah), E (eh), I (ee), O (oh), U (oo).
+
+**The Hard & Soft Sounds:**
+- **C** and **G**:
+    - **Soft** (CH / J sound) before **E** or **I** (e.g., *Ciao*, *Gelato*).
+    - **Hard** (K / G sound) before **A, O, U** or **H** (e.g., *Casa*, *Gatto*, *Chiesa*, *Spaghetti*).
+- **CH** and **GH**: Always hard! The 'H' protects the consonant from the 'E/I' soft rule.
+- **SC**: 
+    - Soft (SH sound) before **E** or **I** (e.g., *Pesce*).
+    - Hard (SK sound) before **A, O, U** or **H** (e.g., *Scuola*).
+
+**Special Sounds:**
+- **GLI**: Like 'lli' in 'million' (e.g., *Famiglia*).
+- **GN**: Like 'ny' in 'canyon' (e.g., *Gnocchi*).
+- **Double Consonants**: Pronounced with a short pause or extra emphasis (e.g., *Palla* vs *Pala*).`
     },
     vocabulary: [
-      { italian: "Ciao", english: "Hello/Goodbye", pronunciation: "CHOW" },
-      { italian: "Buongiorno", english: "Good morning", pronunciation: "BWON-JOR-NO" },
-      { italian: "Grazie", english: "Thank you", pronunciation: "GRAT-SEE-EH" },
-      { italian: "Per favore", english: "Please", pronunciation: "PER FA-VO-RE" },
+      { italian: "Ciao", english: "Hello / Hi / Bye (Informal)", pronunciation: "CHOW" },
+      { italian: "Buongiorno", english: "Good morning / Hello (Formal)", pronunciation: "BWON-JOR-NO" },
+      { italian: "Buonasera", english: "Good evening", pronunciation: "BWONA-SAY-RA" },
+      { italian: "Come ti chiami?", english: "What is your name? (Informal)", pronunciation: "KO-ME TEE KEY-AH-ME" },
+      { italian: "Mi chiamo...", english: "My name is...", pronunciation: "MEE KEY-AH-MO" },
+      { italian: "Piacere", english: "Pleased to meet you", pronunciation: "PYAH-CHAY-RAY" },
+      { italian: "Come stai?", english: "How are you? (Informal)", pronunciation: "KO-ME STAH-EE" },
+      { italian: "Come sta?", english: "How are you? (Formal)", pronunciation: "KO-ME STAH" },
+      { italian: "Bene, grazie", english: "Fine, thank you", pronunciation: "BAY-NAY GRAT-SEE-EH" },
+      { italian: "E tu?", english: "And you? (Informal)", pronunciation: "EH TOO" },
+      { italian: "Per favore", english: "Please", pronunciation: "PER FA-VO-RAY" },
+      { italian: "Grazie mille", english: "Many thanks", pronunciation: "GRAT-SEE-EH MEE-LAY" },
+      { italian: "Prego", english: "You're welcome", pronunciation: "PRAY-GO" },
+      { italian: "Scusa", english: "Excuse me / Sorry (Informal)", pronunciation: "SKOO-ZAH" },
+      { italian: "Scusi", english: "Excuse me (Formal)", pronunciation: "SKOO-ZEE" },
+      { italian: "Arrivederci", english: "Goodbye (Formal)", pronunciation: "AH-REE-VAY-DER-CHEE" },
+      { italian: "A presto", english: "See you soon", pronunciation: "AH PRES-TO" },
+      { italian: "Sì / No", english: "Yes / No", pronunciation: "SEE / NO" },
     ],
-    examples: [{ italian: "Ciao, come stai?", english: "Hi, how are you?" }],
-    dialogue: { title: "In un bar", lines: [{ speaker: "Marco", italian: "Ciao!", english: "Hi!" }] },
-    comprehensionQuestions: [{ question: "Is Ciao formal?", options: ["Yes", "No"], correctAnswer: "No" }],
-    exercises: [{ id: "1_1", type: "multiple-choice", question: "Which is 1st letter?", options: ["A", "B"], correctAnswer: "A" }]
+    examples: [
+      { italian: "Buongiorno, come sta?", english: "Good morning, how are you? (Formal)" },
+      { italian: "Ciao! Io sono Marco, e tu?", english: "Hi! I am Marco, and you?" },
+      { italian: "Mi chiamo Sofia, piacere di conoscerti.", english: "My name is Sofia, nice to meet you." },
+      { italian: "Grazie mille per l'aiuto.", english: "Thank you very much for the help." },
+    ],
+    dialogue: {
+      title: "Un Primo Incontro (A First Meeting)",
+      lines: [
+        { speaker: "Giulia", italian: "Ciao! Io sono Giulia. Come ti chiami?", english: "Hi! I'm Giulia. What's your name?" },
+        { speaker: "Matteo", italian: "Ciao Giulia, piacere! Mi chiamo Matteo.", english: "Hi Giulia, nice to meet you! My name is Matteo." },
+        { speaker: "Giulia", italian: "Piacere mio, Matteo. Come stai?", english: "My pleasure, Matteo. How are you?" },
+        { speaker: "Matteo", italian: "Bene, grazie. E tu?", english: "Fine, thank you. And you?" },
+        { speaker: "Giulia", italian: "Benissimo! Di dove sei?", english: "Very well! Where are you from?" },
+        { speaker: "Matteo", italian: "Sono di Roma. E tu?", english: "I'm from Rome. And you?" },
+        { speaker: "Giulia", italian: "Io sono di Milano. Ora devo andare. A presto!", english: "I'm from Milan. Now I must go. See you soon!" },
+        { speaker: "Matteo", italian: "Ciao Giulia, a presto!", english: "Bye Giulia, see you soon!" },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Where is Giulia from?",
+        options: ["Rome", "Milan", "Venice"],
+        correctAnswer: "Milan"
+      },
+      {
+        question: "Is 'Piacere' used when meeting someone for the first time?",
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"
+      }
+    ],
+    exercises: [
+      {
+        id: "1_1",
+        type: "multiple-choice",
+        question: "How is the 'C' pronounced in 'Gelato'?",
+        options: ["Like 'K' (Hard)", "Like 'J' (Soft)", "Like 'S'"],
+        correctAnswer: "Like 'J' (Soft)",
+        explanation: "G and C are soft (J/CH) before E and I."
+      },
+      {
+        id: "1_2",
+        type: "multiple-choice",
+        question: "Which of these is the correct way to say 'Good evening'?",
+        options: ["Buongiorno", "Buonasera", "Buonanotte"],
+        correctAnswer: "Buonasera"
+      },
+      {
+        id: "1_3",
+        type: "fill-in-the-blank",
+        question: "Complete the greeting: 'Come ___ chiami?'",
+        correctAnswer: "ti",
+        explanation: "'Come ti chiami?' is the informal way to ask for a name."
+      },
+      {
+        id: "1_4",
+        type: "fill-in-the-blank",
+        question: "Translate 'My name is': '___ chiamo...'",
+        correctAnswer: "Mi"
+      },
+      {
+        id: "1_5",
+        type: "reorder",
+        question: "Reorder: nice / meet / to / you",
+        words: ["Piacere", "di", "conoscerti"],
+        correctAnswer: ["Piacere", "di", "conoscerti"]
+      },
+      {
+        id: "1_6",
+        type: "translation",
+        question: "Translate: 'Good morning, how are you?' (Formal)",
+        correctAnswer: "Buongiorno, come sta?"
+      }
+    ]
   },
   {
     id: 2,

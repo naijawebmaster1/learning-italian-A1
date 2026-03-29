@@ -1,16 +1,15 @@
 'use client';
 
-import { Moon, Sun, Flame, User, Bell, Menu, X } from 'lucide-react';
+import { Moon, Sun, Flame, User, Bell, Menu, X, BookOpen } from 'lucide-react';
 import { useProgress } from '@/hooks/useProgress';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SidebarContent } from './Sidebar';
 
-export function Navbar() {
+export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const { progress } = useProgress();
   const [isDark, setIsDark] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -35,7 +34,7 @@ export function Navbar() {
       <div className="flex h-16 items-center justify-between px-4 md:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <button 
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={onMenuClick}
             className="p-2 -ml-2 rounded-lg hover:bg-muted transition-colors md:hidden"
           >
             <Menu className="w-6 h-6" />
@@ -74,38 +73,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
-            />
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 bottom-0 w-[280px] bg-card border-r z-51 shadow-2xl md:hidden"
-            >
-              <div className="absolute top-4 right-4 z-10">
-                <button 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              <SidebarContent onItemClick={() => setIsMobileMenuOpen(false)} />
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
