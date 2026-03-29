@@ -1,6 +1,8 @@
 'use client';
 
 import { Moon, Sun, Flame, User, Bell, Menu, X, BookOpen } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useProgress } from '@/hooks/useProgress';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -39,7 +41,9 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           >
             <Menu className="w-6 h-6" />
           </button>
-          <span className="text-xl font-bold text-primary md:hidden">Italiano</span>
+          <Link href="/" className="relative h-8 w-32 md:hidden block">
+            <Image src="/logo.png" alt="Italiano A1" fill className="object-contain object-left" />
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 ml-auto">

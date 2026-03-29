@@ -126,5 +126,5 @@
 }
 
 .title-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400;
+  @apply text-[#008C45] dark:text-[#00AD54];
 }

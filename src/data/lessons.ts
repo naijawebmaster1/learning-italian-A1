@@ -124,17 +124,121 @@ The standard Italian alphabet has **21 letters**. The letters J, K, W, X, and Y 
   },
   {
     id: 2,
-    title: "Subject Pronouns & Essere",
+    title: "Subject Pronouns & Essere (To Be)",
     slug: "pronouns-essere",
     grammar: {
-      title: "Essere (To Be)",
-      content: "Io sono, Tu sei, Lui/Lei è, Noi siamo, Voi siete, Loro sono."
+      title: "The Core of Italian: Subject Pronouns & 'Essere'",
+      content: `In Italian, verbs change their endings based on the subject (I, you, he/she, etc.). This makes the **Subject Pronouns** essential, though they are often omitted in speech because the verb ending already tells you who is speaking!
+
+**Subject Pronouns:**
+- **Io** (I)
+- **Tu** (You - *Informal, singular*)
+- **Lui / Lei** (He / She)
+- **Lei** (You - *Formal, singular*) - *Always capitalized in writing!*
+- **Noi** (We)
+- **Voi** (You all - *Plural*)
+- **Loro** (They)
+
+**The Verb 'Essere' (To Be):**
+'Essere' is an irregular verb and is used for nationalities, professions, and identifying people or things.
+
+| Pronoun | Essere | English |
+| :--- | :--- | :--- |
+| Io | **sono** | I am |
+| Tu | **sei** | You are |
+| Lui/Lei | **è** | He/She is |
+| Noi | **siamo** | We are |
+| Voi | **siete** | You all are |
+| Loro | **sono** | They are |
+
+**Formal vs. Informal:**
+- Use **Tu** with friends, family, and children.
+- Use **Lei** (with the 3rd person singular verb form 'è') with strangers, superiors, or in professional settings.`
     },
-    vocabulary: [{ italian: "Sono", english: "I am" }],
-    examples: [{ italian: "Io sono americano.", english: "I am American." }],
-    dialogue: { title: "Conoscersi", lines: [{ speaker: "Luca", italian: "Sei italiano?", english: "Are you Italian?" }] },
-    comprehensionQuestions: [{ question: "We are?", options: ["Siamo", "Siete"], correctAnswer: "Siamo" }],
-    exercises: [{ id: "2_1", type: "fill-in-the-blank", question: "Io ___ (am)", correctAnswer: "sono" }]
+    vocabulary: [
+      { italian: "Italiano / Italiana", english: "Italian", pronunciation: "EE-TAH-LYAH-NO" },
+      { italian: "Americano / Americana", english: "American", pronunciation: "AH-MEH-REE-KAH-NO" },
+      { italian: "Studente / Studentessa", english: "Student", pronunciation: "STOO-DEN-TAY" },
+      { italian: "Insegnante", english: "Teacher", pronunciation: "EEN-SAY-NYAHN-TAY" },
+      { italian: "Dottore / Dottoressa", english: "Doctor", pronunciation: "DOT-TO-RAY" },
+      { italian: "Felice", english: "Happy", pronunciation: "FAY-LEE-CHAY" },
+      { italian: "Triste", pronunciation: "TREESS-TAY", english: "Sad" },
+      { italian: "Stanco / Stanca", english: "Tired", pronunciation: "STAHN-KO" },
+      { italian: "Bello / Bella", english: "Beautiful / Nice", pronunciation: "BEL-LO" },
+      { italian: "Grande", english: "Big / Great", pronunciation: "GRAHN-DAY" },
+      { italian: "Piccolo / Piccola", english: "Small", pronunciation: "PEEK-KO-LO" },
+      { italian: "Famoso / Famosa", english: "Famous", pronunciation: "FA-MO-ZO" },
+    ],
+    examples: [
+      { italian: "Io sono americano.", english: "I am American (male)." },
+      { italian: "Tu sei molto gentile.", english: "You are very kind." },
+      { italian: "Lei è un'insegnante bravissima.", english: "She is a very good teacher." },
+      { italian: "Noi siamo felici di essere qui.", english: "We are happy to be here." },
+      { italian: "Siete stanchi?", english: "Are you all tired?" },
+    ],
+    dialogue: {
+      title: "Un Incontro Formale (A Formal Meeting)",
+      lines: [
+        { speaker: "Signora Bianchi", italian: "Buongiorno! Lei è lo studente americano?", english: "Good morning! Are you the American student?" },
+        { speaker: "John", italian: "Sì, buongiorno. Io sono John. E Lei?", english: "Yes, good morning. I am John. And you?" },
+        { speaker: "Signora Bianchi", italian: "Io sono la professoressa Bianchi. Piacere.", english: "I am Professor Bianchi. Nice to meet you." },
+        { speaker: "John", italian: "Piacere mio, professoressa. Lei è italiana?", english: "The pleasure is mine, professor. Are you Italian?" },
+        { speaker: "Signora Bianchi", italian: "Sì, sono di Firenze. Benvenuto in Italia!", english: "Yes, I am from Florence. Welcome to Italy!" },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Is John the American student?",
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"
+      },
+      {
+        question: "Where is the professor from?",
+        options: ["Milan", "Florence", "Rome"],
+        correctAnswer: "Florence"
+      }
+    ],
+    exercises: [
+      {
+        id: "2_1",
+        type: "multiple-choice",
+        question: "Select the correct form: 'Noi ___ felici.'",
+        options: ["sono", "siamo", "siete"],
+        correctAnswer: "siamo"
+      },
+      {
+        id: "2_2",
+        type: "fill-in-the-blank",
+        question: "Tu ___ (are) italiano.",
+        correctAnswer: "sei"
+      },
+      {
+        id: "2_3",
+        type: "fill-in-the-blank",
+        question: "Loro ___ (are) stanchi.",
+        correctAnswer: "sono"
+      },
+      {
+        id: "2_4",
+        type: "translation",
+        question: "Translate: 'He is a doctor'",
+        correctAnswer: "Lui è un dottore"
+      },
+      {
+        id: "2_5",
+        type: "reorder",
+        question: "Reorder: tired / are / you all",
+        words: ["Voi", "siete", "stanchi"],
+        correctAnswer: ["Voi", "siete", "stanchi"]
+      },
+      {
+        id: "2_6",
+        type: "multiple-choice",
+        question: "Which pronoun is used for the FORMAL 'you'?",
+        options: ["Tu", "Voi", "Lei"],
+        correctAnswer: "Lei"
+      }
+    ]
   },
   {
     id: 3,

@@ -1,14 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { 
-  BookOpen, 
-  Home, 
-  Trophy, 
-  Settings, 
-  GraduationCap, 
-  Repeat, 
+import {
+  BookOpen,
+  Home,
+  Trophy,
+  Settings,
+  GraduationCap,
+  Repeat,
   LayoutDashboard,
   CheckCircle2,
   Lock
@@ -35,11 +36,16 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
   return (
     <div className={cn("flex flex-col h-full", className)}>
       {!hideHeader && (
-        <div className="p-6">
-          <h1 className="text-2xl font-bold text-primary flex items-center gap-2">
-            <BookOpen className="w-8 h-8" />
-            <span>Italiano</span>
-          </h1>
+        <div className="p-4 px-0">
+          <Link href="/" className="relative h-12 w-30 mx-auto block group">
+            <Image
+              src="/logo.png"
+              alt="Italiano A1"
+              fill
+              className=""
+              priority
+            />
+          </Link>
         </div>
       )}
 
@@ -55,8 +61,8 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
               onClick={onItemClick}
               className={cn(
                 "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors group",
-                pathname === item.href 
-                  ? "bg-primary text-primary-foreground shadow-sm" 
+                pathname === item.href
+                  ? "bg-primary text-primary-foreground shadow-sm"
                   : "hover:bg-muted text-muted-foreground hover:text-foreground"
               )}
             >
@@ -74,7 +80,7 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
             const locked = isLessonLocked(lesson.id);
             const completed = progress.completedLessons.includes(lesson.id);
             const active = pathname === `/lessons/${lesson.slug}`;
-            
+
             return (
               <Link
                 key={lesson.id}
@@ -115,8 +121,8 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
             </span>
           </div>
           <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-primary transition-all duration-500" 
+            <div
+              className="h-full bg-primary transition-all duration-500"
               style={{ width: `${(progress.completedLessons.length / lessons.length) * 100}%` }}
             />
           </div>

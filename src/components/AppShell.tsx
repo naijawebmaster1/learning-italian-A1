@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, X } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -61,11 +63,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="absolute top-0 left-0 bottom-0 w-[280px] bg-card border-r shadow-2xl flex flex-col"
             >
-              <div className="flex items-center justify-between p-4 border-b">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-6 h-6 text-primary" />
-                  <span className="text-lg font-bold">Italiano</span>
-                </div>
+              <div className="flex items-center justify-between p-6 border-b">
+                <Link href="/" className="relative h-8 w-32 block">
+                  <Image src="/logo.png" alt="Italiano A1" fill className="object-contain object-left" />
+                </Link>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
