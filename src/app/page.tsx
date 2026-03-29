@@ -59,6 +59,7 @@ export default function Home() {
                 alt="Students learning together" 
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="object-cover"
               />
             </div>

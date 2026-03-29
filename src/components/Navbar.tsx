@@ -45,7 +45,14 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
 
         <div className="flex items-center gap-2 md:gap-4 ml-auto">
           <Link href="/" className="relative h-6 w-20 md:hidden block opacity-90 mr-2">
-            <Image src="/logo.png" alt="Italiano A1" fill className="object-contain object-right" />
+            <Image 
+              src="/logo.png" 
+              alt="Italiano A1" 
+              fill 
+              priority
+              sizes="80px"
+              className="object-contain object-right" 
+            />
           </Link>
           
           <div className="flex items-center gap-2 px-2 md:px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-200 dark:border-orange-500/20">

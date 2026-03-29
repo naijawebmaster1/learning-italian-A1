@@ -42,6 +42,7 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
               src="/logo.png"
               alt="Italiano A1"
               fill
+              sizes="128px"
               className=""
               priority
             />
