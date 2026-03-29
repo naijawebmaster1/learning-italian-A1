@@ -6,12 +6,12 @@ import { useProgress } from '@/hooks/useProgress';
 import { useState, useMemo } from 'react';
 import { QuizComponent } from '@/components/QuizComponent';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Book, 
-  Lightbulb, 
-  MessageSquare, 
-  Languages, 
-  ChevronLeft, 
+import {
+  Book,
+  Lightbulb,
+  MessageSquare,
+  Languages,
+  ChevronLeft,
   ChevronRight,
   PlayCircle,
   Volume2
@@ -28,9 +28,9 @@ export default function LessonPage() {
   const { speak } = useSpeech();
   const [activeTab, setActiveTab] = useState<'grammar' | 'vocab' | 'dialogue' | 'quiz'>('grammar');
 
-  const lesson = useMemo(() => 
-    lessons.find(l => l.slug === slug), 
-  [slug]);
+  const lesson = useMemo(() =>
+    lessons.find(l => l.slug === slug),
+    [slug]);
 
   if (!lesson) {
     return <div className="p-20 text-center text-2xl font-bold">Lesson not found</div>;
@@ -58,28 +58,28 @@ export default function LessonPage() {
   return (
     <div className="max-w-6xl mx-auto pb-20">
       {/* Header */}
-      <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <header className="mb-10 flex flex-col  gap-6">
         <div>
-          <button 
+          <button
             onClick={() => router.push('/')}
             className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary mb-4 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
             Back to Dashboard
           </button>
-          <h1 className="text-3xl lg:text-4xl font-black">{lesson.title}</h1>
+          <h1 className="text-3xl lg:text-4xl font-black line-clamp-1">{lesson.title}</h1>
           <p className="text-muted-foreground mt-2 font-medium">Lesson {lesson.id} of {lessons.length}</p>
         </div>
-        
-        <div className="flex bg-muted p-1 rounded-xl overflow-x-auto hide-scrollbar">
+
+        <div className="flex bg-muted p-1 rounded-xl overflow-x-auto hide-scrollbar w-fit">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all",
-                activeTab === tab.id 
-                   ? "bg-background text-primary shadow-sm" 
+                activeTab === tab.id
+                  ? "bg-background text-primary shadow-sm"
                   : "text-muted-foreground hover:text-foreground hover:bg-background/50"
               )}
             >
@@ -119,7 +119,7 @@ export default function LessonPage() {
                   <div key={i} className="bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10 rounded-2xl p-6 relative overflow-hidden group">
                     <p className="text-xl font-black mb-2 text-primary">{ex.italian}</p>
                     <p className="text-muted-foreground font-medium">{ex.english}</p>
-                    <button 
+                    <button
                       onClick={() => speak(ex.italian)}
                       className="absolute top-4 right-4 p-2 rounded-full hover:bg-primary/10 transition-colors"
                     >
@@ -142,7 +142,7 @@ export default function LessonPage() {
                       <p className="text-xs font-mono text-primary mt-2 opacity-60">[{item.pronunciation}]</p>
                     )}
                   </div>
-                  <button 
+                  <button
                     onClick={() => speak(item.italian)}
                     className="p-3 rounded-full bg-muted group-hover:bg-primary group-hover:text-primary-foreground transition-all"
                   >
@@ -157,7 +157,7 @@ export default function LessonPage() {
             <div className="bg-card border rounded-3xl p-6 sm:p-8 lg:p-12 shadow-sm space-y-8 sm:space-y-10">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold">{lesson.dialogue.title}</h2>
-                <button 
+                <button
                   onClick={playDialogue}
                   className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/20"
                 >
@@ -174,11 +174,11 @@ export default function LessonPage() {
                   )}>
                     <div className={cn(
                       "px-6 py-4 rounded-2xl relative group cursor-pointer",
-                      i % 2 === 0 
-                        ? "bg-muted text-foreground rounded-tl-none hover:bg-muted/80" 
+                      i % 2 === 0
+                        ? "bg-muted text-foreground rounded-tl-none hover:bg-muted/80"
                         : "bg-primary text-primary-foreground rounded-tr-none shadow-lg shadow-primary/10 hover:bg-primary/90"
                     )}
-                    onClick={() => speak(line.italian)}
+                      onClick={() => speak(line.italian)}
                     >
                       <p className="text-xs font-black uppercase tracking-widest opacity-60 mb-1">{line.speaker}</p>
                       <p className="text-lg font-bold">{line.italian}</p>
