@@ -2,6 +2,7 @@
 
 import { useProgress } from '@/hooks/useProgress';
 import { lessons } from '@/data/lessons';
+import { lessonsA2 } from '@/data/lessonsA2';
 import { VocabularyCard } from '@/components/VocabularyCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Repeat, GraduationCap, ArrowRight, ChevronLeft, Search, Filter } from 'lucide-react';
@@ -16,11 +17,15 @@ export default function ReviewPage() {
 
   const allVocab = useMemo(() => {
     // Only show vocab from completed lessons
-    const completedVocab = lessons
-      .filter(l => progress.completedLessons.includes(l.id))
-      .flatMap(l => l.vocabulary.map(v => ({ ...v, lessonId: l.id })));
+    const a1Vocab = lessons
+      .filter(l => progress.completedLessons.includes(`a1-${l.id}`))
+      .flatMap(l => l.vocabulary.map(v => ({ ...v, lessonId: `a1-${l.id}` })));
     
-    return completedVocab;
+    const a2Vocab = lessonsA2
+      .filter(l => progress.completedLessons.includes(`a2-${l.id}`))
+      .flatMap(l => l.vocabulary.map(v => ({ ...v, lessonId: `a2-${l.id}` })));
+    
+    return [...a1Vocab, ...a2Vocab];
   }, [progress.completedLessons]);
 
   const filteredVocab = useMemo(() => {

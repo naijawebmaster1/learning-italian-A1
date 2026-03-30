@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { UserProgress } from '../types/lesson';
 
-const STORAGE_KEY = 'italian_learning_progress';
+const STORAGE_KEY = 'italian_learning_progress_v2'; // Bump version to handle new format
 
 const initialProgress: UserProgress = {
-  completedLessons: [],
-  lessonScores: {},
+  completedLessons: [], // Will now store strings like 'a1-1'
+  lessonScores: {},     // Will now use keys like 'a1-1'
   streak: 0,
   lastStudyDate: null,
   vocabularyMastery: {},
@@ -13,9 +13,10 @@ const initialProgress: UserProgress = {
 
 export function useProgress() {
   const [progress, setProgress] = useState<UserProgress>(initialProgress);
+  const [currentLevel, setCurrentLevel] = useState<'a1' | 'a2'>('a1');
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
+  const loadProgress = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
@@ -23,21 +24,64 @@ export function useProgress() {
       } catch (e) {
         console.error("Failed to load progress", e);
       }
+    } else {
+      const oldSaved = localStorage.getItem('italian_learning_progress');
+      if (oldSaved) {
+        try {
+          const oldData = JSON.parse(oldSaved);
+          const migrated: UserProgress = {
+            ...oldData,
+            completedLessons: oldData.completedLessons.map((id: number) => `a1-${id}`),
+            lessonScores: Object.fromEntries(
+              Object.entries(oldData.lessonScores).map(([id, score]) => [`a1-${id}`, score])
+            ),
+          };
+          setProgress(migrated);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        } catch (e) {
+          console.error("Migration failed", e);
+        }
+      }
     }
+
+    const savedLevel = localStorage.getItem('italian_learning_level');
+    if (savedLevel === 'a1' || savedLevel === 'a2') {
+      setCurrentLevel(savedLevel);
+    }
+  };
+
+  useEffect(() => {
+    loadProgress();
     setIsLoaded(true);
+
+    const handleStorageChange = () => {
+      loadProgress();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   const saveProgress = (newProgress: UserProgress) => {
     setProgress(newProgress);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newProgress));
+    window.dispatchEvent(new Event('storage'));
   };
 
-  const completeLesson = (lessonId: number, score: number) => {
+  const changeLevel = (level: 'a1' | 'a2') => {
+    setCurrentLevel(level);
+    localStorage.setItem('italian_learning_level', level);
+    window.dispatchEvent(new Event('storage'));
+  };
+
+  const completeLesson = (level: string, lessonId: number, score: number) => {
+    const key = `${level.toLowerCase()}-${lessonId}`;
     const updated = { ...progress };
-    if (!updated.completedLessons.includes(lessonId)) {
-      updated.completedLessons.push(lessonId);
+    
+    if (!updated.completedLessons.includes(key)) {
+      updated.completedLessons.push(key);
     }
-    updated.lessonScores[lessonId] = Math.max(updated.lessonScores[lessonId] || 0, score);
+    updated.lessonScores[key] = Math.max(updated.lessonScores[key] || 0, score);
     
     // Streak logic
     const today = new Date().toISOString().split('T')[0];
@@ -70,6 +114,8 @@ export function useProgress() {
 
   return {
     progress,
+    currentLevel,
+    changeLevel,
     isLoaded,
     completeLesson,
     updateVocabMastery,

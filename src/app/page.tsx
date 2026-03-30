@@ -1,17 +1,21 @@
 'use client';
- 
+
 import { lessons } from '@/data/lessons';
+import { lessonsA2 } from '@/data/lessonsA2';
 import { useProgress } from '@/hooks/useProgress';
 import { LessonCard } from '@/components/LessonCard';
-import { motion } from 'framer-motion';
-import { Trophy, Flame, Rocket, Star, BookOpen, Zap, Globe, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Trophy, Flame, Rocket, Star, BookOpen, Zap, Globe, ArrowRight, Layers } from 'lucide-react';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const { progress } = useProgress();
-  const completedCount = progress.completedLessons.length;
-  const totalLessons = lessons.length;
-  const progressPercentage = Math.round((completedCount / totalLessons) * 100);
+  const { progress, currentLevel, changeLevel } = useProgress();
+  const currentLessons = currentLevel === 'a1' ? lessons : lessonsA2;
+  
+  const completedCount = progress.completedLessons.filter(id => id.startsWith(currentLevel)).length;
+  const totalLessons = currentLessons.length;
+  const progressPercentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
 
   return (
     <div className="flex flex-col gap-24 pb-24">
@@ -25,14 +29,16 @@ export default function Home() {
           >
             <div className="flex items-center gap-2 mb-6">
               <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                A1 Italian Course
+                {currentLevel.toUpperCase()} Italian Course
               </span>
             </div>
-            <h1 className="text-6xl lg:text-8xl font-black tracking-tighter leading-none mb-6">
-              <span className="text-[#008C45]">Italiano</span> <span className="text-[#CD212A]">A1</span>
+            <h1 className="text-6xl lg:text-8xl font-black tracking-tighter leading-none mb-6 italic">
+              <span className="text-[#008C45]">Italiano</span> <span className="text-[#CD212A]">{currentLevel.toUpperCase()}</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-lg leading-relaxed mb-10">
-              Master the basics of Italian with a premium, structured learning experience designed to take you from zero to conversational.
+              {currentLevel === 'a1' 
+                ? "Master the basics of Italian with a premium, structured learning experience designed to take you from zero to conversational."
+                : "Level up your Italian. Master the past tense, pronouns, and handle complex everyday conversations with confidence."}
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
@@ -41,12 +47,29 @@ export default function Home() {
               >
                 Start Learning <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="bg-background border px-8 py-4 rounded-full font-bold text-lg hover:bg-muted transition-colors">
-                Vocabulary Review
-              </button>
+              <div className="flex bg-muted p-1 rounded-full border shadow-inner">
+                <button 
+                  onClick={() => changeLevel('a1')}
+                  className={cn(
+                    "px-6 py-3 rounded-full font-bold transition-all",
+                    currentLevel === 'a1' ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  A1
+                </button>
+                <button 
+                  onClick={() => changeLevel('a2')}
+                  className={cn(
+                    "px-6 py-3 rounded-full font-bold transition-all",
+                    currentLevel === 'a2' ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  A2
+                </button>
+              </div>
             </div>
           </motion.div>
-
+          {/* ... Hero Image remains same ... */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -70,9 +93,9 @@ export default function Home() {
       {/* Feature Grid ("What's Included") */}
       <section className="grid md:grid-cols-3 gap-8">
         {[
-          { title: "10 Structured Lessons", desc: "From alphabet to complex greetings.", icon: BookOpen },
+          { title: `${totalLessons} Structured Lessons`, desc: currentLevel === 'a1' ? "From alphabet to complex greetings." : "Master complex tenses and pronouns.", icon: BookOpen },
           { title: "Interactive Quizzes", desc: "Instant feedback on your progress.", icon: Zap },
-          { title: "B1 Readiness", desc: "Prepare for intermediate fluency.", icon: Globe },
+          { title: currentLevel === 'a1' ? "A2 Readiness" : "B1 Readiness", desc: "Prepare for intermediate fluency.", icon: Globe },
         ].map((feature, i) => (
           <motion.div
             key={feature.title}
@@ -100,7 +123,7 @@ export default function Home() {
           <div className="flex gap-4">
              <div className="flex items-center gap-2 text-primary font-bold bg-primary/10 px-6 py-3 rounded-full border border-primary/20">
               <Star className="w-5 h-5 fill-primary" />
-              <span>A1 Mastery</span>
+              <span>{currentLevel.toUpperCase()} Mastery</span>
             </div>
           </div>
         </div>
@@ -127,29 +150,58 @@ export default function Home() {
 
       {/* Lessons Grid */}
       <section id="lessons">
-        <div className="mb-12">
-          <h2 className="text-4xl font-black tracking-tight mb-2">Curriculum</h2>
-          <p className="text-muted-foreground">Pick up where you left off or start a new lesson.</p>
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <h2 className="text-4xl font-black tracking-tight mb-2">Curriculum</h2>
+            <p className="text-muted-foreground">Level {currentLevel.toUpperCase()} — Essential Mastery</p>
+          </div>
+          <div className="flex items-center gap-2 bg-muted p-1 rounded-xl">
+            <button 
+              onClick={() => changeLevel('a1')}
+              className={cn("px-4 py-2 rounded-lg font-bold text-sm transition-all", currentLevel === 'a1' ? "bg-background shadow-sm" : "opacity-50")}
+            >
+              A1
+            </button>
+            <button 
+              onClick={() => changeLevel('a2')}
+              className={cn("px-4 py-2 rounded-lg font-bold text-sm transition-all", currentLevel === 'a2' ? "bg-background shadow-sm" : "opacity-50")}
+            >
+              A2
+            </button>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {lessons.map((lesson, idx) => (
-            <LessonCard key={lesson.id} lesson={lesson} index={idx} />
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentLevel}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          >
+            {currentLessons.map((lesson, idx) => (
+              <LessonCard key={`${currentLevel}-${lesson.id}`} lesson={lesson} index={idx} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       {/* Pricing / CTA */}
-      <section className="bg-[#008C45] text-white rounded-[3rem] p-12 lg:p-24 text-center relative overflow-hidden">
+      <section className={cn(
+        "text-white rounded-[3rem] p-12 lg:p-24 text-center relative overflow-hidden transition-colors duration-500",
+        currentLevel === 'a1' ? "bg-[#008C45]" : "bg-[#005B96]"
+      )}>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">Inizia ora la tua avventura.</h2>
+          <h2 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">
+            {currentLevel === 'a1' ? "Inizia ora la tua avventura." : "Continua il tuo viaggio."}
+          </h2>
           <p className="text-white/80 text-xl mb-12">
-            The Italiano A1 course is designed to be accessible, interactive, and completely free for beginners.
+            The Italiano {currentLevel.toUpperCase()} course is designed to be accessible, interactive, and completely free.
           </p>
           <button 
             onClick={() => document.getElementById('lessons')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-[#008C45] px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl cursor-pointer"
+            className="bg-white text-foreground px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl cursor-pointer"
           >
-            Get Started Now
+            {currentLevel === 'a1' ? "Get Started Now" : "Keep Growing"}
           </button>
         </div>
       </section>

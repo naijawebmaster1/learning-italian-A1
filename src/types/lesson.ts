@@ -52,8 +52,8 @@ export interface Lesson {
 }
 
 export interface UserProgress {
-  completedLessons: number[];
-  lessonScores: Record<number, number>;
+  completedLessons: string[];
+  lessonScores: Record<string, number>;
   streak: number;
   lastStudyDate: string | null;
   vocabularyMastery: Record<string, number>; // italian -> skill level 0-5

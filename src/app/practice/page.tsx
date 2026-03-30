@@ -2,6 +2,7 @@
 
 import { useProgress } from '@/hooks/useProgress';
 import { lessons } from '@/data/lessons';
+import { lessonsA2 } from '@/data/lessonsA2';
 import { Exercise, Lesson } from '@/types/lesson';
 import { QuizComponent } from '@/components/QuizComponent';
 import { useState, useMemo, useEffect } from 'react';
@@ -16,9 +17,15 @@ export default function PracticePage() {
   // Generate a random set of exercises from completed lessons
   useEffect(() => {
     if (progress.completedLessons.length > 0) {
-      const allExercises = lessons
-        .filter(l => progress.completedLessons.includes(l.id))
+      const a1Exercises = lessons
+        .filter(l => progress.completedLessons.includes(`a1-${l.id}`))
         .flatMap(l => l.exercises);
+      
+      const a2Exercises = lessonsA2
+        .filter(l => progress.completedLessons.includes(`a2-${l.id}`))
+        .flatMap(l => l.exercises);
+      
+      const allExercises = [...a1Exercises, ...a2Exercises];
       
       // Shuffle and take 5-10
       const shuffled = [...allExercises].sort(() => 0.5 - Math.random());

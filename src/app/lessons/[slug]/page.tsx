@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { lessons } from '@/data/lessons';
+import { lessonsA2 } from '@/data/lessonsA2';
 import { useProgress } from '@/hooks/useProgress';
 import { useState, useMemo } from 'react';
 import { QuizComponent } from '@/components/QuizComponent';
@@ -28,16 +29,24 @@ export default function LessonPage() {
   const { speak } = useSpeech();
   const [activeTab, setActiveTab] = useState<'grammar' | 'vocab' | 'dialogue' | 'quiz'>('grammar');
 
-  const lesson = useMemo(() =>
-    lessons.find(l => l.slug === slug),
-    [slug]);
+  const lessonData = useMemo(() => {
+    const a1Lesson = lessons.find(l => l.slug === slug);
+    if (a1Lesson) return { lesson: a1Lesson, level: 'a1', total: lessons.length };
+    
+    const a2Lesson = lessonsA2.find(l => l.slug === slug);
+    if (a2Lesson) return { lesson: a2Lesson, level: 'a2', total: lessonsA2.length };
+    
+    return null;
+  }, [slug]);
 
-  if (!lesson) {
+  if (!lessonData) {
     return <div className="p-20 text-center text-2xl font-bold">Lesson not found</div>;
   }
 
+  const { lesson, level, total } = lessonData;
+
   const handleQuizComplete = (score: number) => {
-    completeLesson(lesson.id, score);
+    completeLesson(level, lesson.id, score);
   };
 
   const playDialogue = async () => {
@@ -68,7 +77,7 @@ export default function LessonPage() {
             Back to Dashboard
           </button>
           <h1 className="text-3xl lg:text-4xl font-black line-clamp-1">{lesson.title}</h1>
-          <p className="text-muted-foreground mt-2 font-medium">Lesson {lesson.id} of {lessons.length}</p>
+          <p className="text-muted-foreground mt-2 font-medium">Lesson {lesson.id} of {total} • <span className="uppercase text-primary font-bold">{level}</span></p>
         </div>
 
         <div className="flex bg-muted p-1 rounded-xl overflow-x-auto hide-scrollbar w-fit">

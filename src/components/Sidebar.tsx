@@ -16,15 +16,19 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { lessons } from '@/data/lessons';
+import { lessonsA2 } from '@/data/lessonsA2';
 import { useProgress } from '@/hooks/useProgress';
 
 export function SidebarContent({ className, onItemClick, hideHeader }: { className?: string, onItemClick?: () => void, hideHeader?: boolean }) {
   const pathname = usePathname();
-  const { progress } = useProgress();
+  const { progress, currentLevel } = useProgress();
+
+  const currentLessons = currentLevel === 'a1' ? lessons : lessonsA2;
 
   const isLessonLocked = (id: number) => {
     if (id === 1) return false;
-    return !progress.completedLessons.includes(id - 1);
+    const prevKey = `${currentLevel}-${id - 1}`;
+    return !progress.completedLessons.includes(prevKey);
   };
 
   const menuItems = [
@@ -35,20 +39,20 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
 
   return (
     <div className={cn("flex flex-col h-full", className)}>
-      {!hideHeader && (
-        <div className="p-4 px-0">
-          <Link href="/" className="relative h-12 w-30 mx-auto block group">
-            <Image
-              src="/logo.png"
-              alt="Italiano A1"
-              fill
-              sizes="128px"
-              className=""
-              priority
-            />
-          </Link>
-        </div>
-      )}
+       {!hideHeader && (
+         <div className="p-4 px-0">
+           <Link href="/" className="relative h-12 w-30 mx-auto block group">
+             <Image
+               src="/logo.png"
+               alt="Italiano A1"
+               fill
+               sizes="128px"
+               className=""
+               priority
+             />
+           </Link>
+         </div>
+       )}
 
       <nav className="flex-1 overflow-y-auto px-4 space-y-8 pb-8">
         <div className="space-y-1">
@@ -75,16 +79,17 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
 
         <div className="space-y-1">
           <p className="px-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-            A1 Lessons
+            {currentLevel.toUpperCase()} Lessons
           </p>
-          {lessons.map((lesson) => {
+          {currentLessons.map((lesson) => {
+            const lessonKey = `${currentLevel}-${lesson.id}`;
             const locked = isLessonLocked(lesson.id);
-            const completed = progress.completedLessons.includes(lesson.id);
+            const completed = progress.completedLessons.includes(lessonKey);
             const active = pathname === `/lessons/${lesson.slug}`;
 
             return (
               <Link
-                key={lesson.id}
+                key={lessonKey}
                 href={locked ? "#" : `/lessons/${lesson.slug}`}
                 onClick={locked ? undefined : onItemClick}
                 className={cn(
@@ -116,15 +121,15 @@ export function SidebarContent({ className, onItemClick, hideHeader }: { classNa
       <div className="p-4 border-t">
         <div className="bg-muted/50 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-muted-foreground">Course Progress</span>
+            <span className="text-xs font-medium text-muted-foreground">Level Progress</span>
             <span className="text-xs font-bold text-primary">
-              {Math.round((progress.completedLessons.length / lessons.length) * 100)}%
+              {Math.round((progress.completedLessons.filter(id => id.startsWith(currentLevel)).length / currentLessons.length) * 100)}%
             </span>
           </div>
           <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
             <div
               className="h-full bg-primary transition-all duration-500"
-              style={{ width: `${(progress.completedLessons.length / lessons.length) * 100}%` }}
+              style={{ width: `${(progress.completedLessons.filter(id => id.startsWith(currentLevel)).length / currentLessons.length) * 100}%` }}
             />
           </div>
         </div>

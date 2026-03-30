@@ -13,10 +13,13 @@ interface LessonCardProps {
 }
 
 export function LessonCard({ lesson, index }: LessonCardProps) {
-  const { progress } = useProgress();
-  const completed = progress.completedLessons.includes(lesson.id);
-  const locked = lesson.id !== 1 && !progress.completedLessons.includes(lesson.id - 1);
-  const score = progress.lessonScores[lesson.id];
+  const { progress, currentLevel } = useProgress();
+  const lessonKey = `${currentLevel}-${lesson.id}`;
+  const prevLessonKey = `${currentLevel}-${lesson.id - 1}`;
+  
+  const completed = progress.completedLessons.includes(lessonKey);
+  const locked = lesson.id !== 1 && !progress.completedLessons.includes(prevLessonKey);
+  const score = progress.lessonScores[lessonKey];
 
   return (
     <motion.div
