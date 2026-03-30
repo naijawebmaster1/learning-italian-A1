@@ -443,21 +443,193 @@ Used for non-specific things. These are only used in the **singular**:
   },
   {
     id: 4,
-    title: "Present Tense Verbs (-are, -ere, -ire)",
+    title: "Present Tense: Regular & Irregular Verbs",
     slug: "regular-verbs",
     grammar: {
-      title: "Regular Conjugations",
-      content: "-ARE: o, i, a, iamo, ate, ano. -ERE: o, i, e, iamo, ete, ono. -IRE: o, i, e, iamo, ite, ono."
+      title: "The Present Tense: Regular & Irregular",
+      content: `The present tense (**il presente**) is used for current actions and general facts.
+
+### 1. Regular Patterns
+Italian verbs are divided into three groups: **-are**, **-ere**, and **-ire**. 
+
+| Pronoun | -ARE (Parlare) | -ERE (Vedere) | -IRE (Dormire) |
+| :--- | :--- | :--- | :--- |
+| **Io** | parl**o** | ved**o** | dorm**o** |
+| **Tu** | parl**i** | ved**i** | dorm**i** |
+| **Lui/Lei** | parl**a** | ved**e** | dorm**e** |
+| **Noi** | parl**iamo** | ved**iamo** | dorm**iamo** |
+| **Voi** | parl**ate** | ved**ete** | dorm**ite** |
+| **Loro** | parl**ano** | ved**ono** | dorm**ono** |
+
+---
+
+### 2. The Great Five: Common Irregular Verbs
+These five verbs are used in almost every sentence. Memorize these patterns first!
+
+> [!TIP]
+> **Quick Patterns for Quick Learning:**
+> - **Venire** (*to come*): vengo, vieni, viene, veniamo, venite, vengono
+> - **Fare** (*to do/make*): faccio, fai, fa, facciamo, fate, fanno
+> - **Andare** (*to go*): vado, vai, va, andiamo, andate, vanno
+> - **Stare** (*to be/stay*): sto, stai, sta, stiamo, state, stanno
+> - **Bere** (*to drink*): bevo, bevi, beve, beviamo, bevete, bevono`
     },
     vocabulary: [
       { italian: "Parlare", english: "To speak" },
       { italian: "Mangiare", english: "To eat" },
       { italian: "Dormire", english: "To sleep" },
+      { italian: "Andare", english: "To go" },
+      { italian: "Fare", english: "To do/make" },
+      { italian: "Venire", english: "To come" },
+      { italian: "Stare", english: "To stay/be" },
+      { italian: "Bere", english: "To drink" },
+      { italian: "Colazione", english: "Breakfast" },
+      { italian: "Pausa", english: "Pause / Break" },
+      { italian: "Caffè macchiato", english: "Expresso with a drop of milk" },
+      { italian: "Cornetto", english: "Croissant / Pastry" },
+      { italian: "Sfoglia", english: "Puff pastry" },
+      { italian: "Il resto", english: "The change" },
     ],
-    examples: [{ italian: "Io parlo italiano.", english: "I speak Italian." }],
-    dialogue: { title: "Al ristorante", lines: [{ speaker: "Anna", italian: "Mangi la pasta?", english: "Are you eating pasta?" }] },
-    comprehensionQuestions: [{ question: "They speak?", options: ["Parlano", "Parlate"], correctAnswer: "Parlano" }],
-    exercises: [{ id: "4_1", type: "fill-in-the-blank", question: "Noi ___ (speak) italiano.", correctAnswer: "parliamo" }]
+    examples: [
+      { italian: "Io parlo italiano.", english: "I speak Italian." },
+      { italian: "Vado a casa.", english: "I'm going home." },
+      { italian: "Che cosa fai?", english: "What are you doing?" },
+      { italian: "Noi beviamo un caffè.", english: "We're drinking a coffee." },
+    ],
+    dialogue: {
+      title: "Al Bar a Firenze (At the Bar in Florence)",
+      lines: [
+        { speaker: "Marco", italian: "Ragazzi, sono stanco. Facciamo cinque minuti di pausa?", english: "Guys, I'm tired. Shall we take a five-minute break?" },
+        { speaker: "Anna", italian: "Va bene. Andiamo al bar?", english: "Okay. Shall we go to the bar?" },
+        { speaker: "Alberto", italian: "Buona idea, mi piace fare colazione al bar.", english: "Good idea, I like having breakfast at the bar." },
+        { speaker: "Cameriere", italian: "Buongiorno! Prego...", english: "Good morning! Go ahead..." },
+        { speaker: "Marco", italian: "Buongiorno. Allora, io prendo un caffè.", english: "Good morning. Then, I'll have a coffee." },
+        { speaker: "Cameriere", italian: "Macchiato?", english: "Macchiato?" },
+        { speaker: "Marco", italian: "No, normale. Grazie.", english: "No, regular. Thanks." },
+        { speaker: "Anna", italian: "Per me un cappuccino e un cornetto.", english: "For me, a cappuccino and a croissant." },
+        { speaker: "Cameriere", italian: "Con la crema o con la marmellata?", english: "With cream or with jam?" },
+        { speaker: "Anna", italian: "Mmm... preferisco il cornetto con la marmellata, la crema non mi piace.", english: "Mmm... I prefer the croissant with jam, I don't like cream." },
+        { speaker: "Alberto", italian: "Io vorrei un latte caldo e una sfoglia.", english: "I would like a hot milk and a puff pastry." },
+        { speaker: "Cameriere", italian: "Allora sono: un caffè, un cappuccio, un latte, una sfoglia e un cornetto, giusto?", english: "So that is: a coffee, a cappuccino, a milk, a puff pastry, and a croissant, right?" },
+        { speaker: "Marco", italian: "Sì, esatto. Possiamo sederci al tavolo?", english: "Yes, exactly. Can we sit at the table?" },
+        { speaker: "Cameriere", italian: "Sì, certo. (Dopo cinque minuti) Ecco il caffè, il cornetto e il cappuccino, il latte e la sfoglia.", english: "Yes, sure. (After five minutes) Here is the coffee, the croissant and the cappuccino, the milk and the puff pastry." },
+        { speaker: "Marco", italian: "Perfetto. Quant'è?", english: "Perfect. How much is it?" },
+        { speaker: "Cameriere", italian: "12 euro e 50.", english: "12 euros and 50." },
+        { speaker: "Marco", italian: "Ragazzi, pago io. Ecco a Lei.", english: "Guys, I'll pay. There you go." },
+        { speaker: "Cameriere", italian: "Grazie. Porto subito il resto.", english: "Thank you. I'll bring the change right away." },
+        { speaker: "Alberto", italian: "Però ragazzi... 12 euro e 50 è veramente tanto...", english: "But guys... 12 euros and 50 is really a lot..." },
+        { speaker: "Marco", italian: "Sì, ma considera il posto...", english: "Yes, but consider the place..." },
+        { speaker: "Anna", italian: "E poi... siamo a Firenze!", english: "And after all... we are in Florence!" },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Where is Giulia going on Saturday?",
+        options: ["Rome", "Florence", "Milan"],
+        correctAnswer: "Florence"
+      }
+    ],
+    exercises: [
+      {
+        id: "4_irreg_1",
+        type: "fill-in-the-blank",
+        question: "Nino, perché non ___ (venire) a Firenze sabato?",
+        correctAnswer: "vieni",
+        explanation: "The informal 'tu' form of 'venire' is 'vieni'."
+      },
+      {
+        id: "4_irreg_2",
+        type: "fill-in-the-blank",
+        question: "Buongiorno signora Martini. Come ___ (stare)?",
+        correctAnswer: "sta",
+        explanation: "With formal 'Lei', we use 'sta'."
+      },
+      {
+        id: "4_irreg_3",
+        type: "fill-in-the-blank",
+        question: "Domani Marco e Francesca ___ (venire) a cena a casa mia.",
+        correctAnswer: "vengono",
+        explanation: "Third person plural (loro) of 'venire' is 'vengono'."
+      },
+      {
+        id: "4_irreg_4",
+        type: "fill-in-the-blank",
+        question: "Per stare in forma io ___ (bere) minimo 2 litri di acqua al giorno.",
+        correctAnswer: "bevo"
+      },
+      {
+        id: "4_irreg_5",
+        type: "fill-in-the-blank",
+        question: "I miei genitori ___ (andare) in vacanza la prossima settimana.",
+        correctAnswer: "vanno"
+      },
+      {
+        id: "4_irreg_6",
+        type: "fill-in-the-blank",
+        question: "Molti italiani ___ (bere) un bicchiere di vino a pranzo o a cena.",
+        correctAnswer: "bevono"
+      },
+      {
+        id: "4_irreg_7",
+        type: "fill-in-the-blank",
+        question: "In questo periodo lavoro molto e ___ (stare) fuori casa tutto il giorno.",
+        correctAnswer: "sto"
+      },
+      {
+        id: "4_irreg_8a",
+        type: "fill-in-the-blank",
+        question: "Ragazzi, che cosa ___ (noi - fare) stasera?",
+        correctAnswer: "facciamo"
+      },
+      {
+        id: "4_irreg_8b",
+        type: "fill-in-the-blank",
+        question: "Noi ___ (andare) al cinema?",
+        correctAnswer: "andiamo"
+      },
+      {
+        id: "4_irreg_9",
+        type: "fill-in-the-blank",
+        question: "Io e la mia fidanzata ___ (stare) insieme da due anni.",
+        correctAnswer: "stiamo"
+      },
+      {
+        id: "4_irreg_10a",
+        type: "fill-in-the-blank",
+        question: "Io ___ (fare) una doccia e ___ subito da te.",
+        correctAnswer: "faccio"
+      },
+      {
+        id: "4_irreg_10b",
+        type: "fill-in-the-blank",
+        question: "Io faccio una doccia e ___ (venire) subito da te.",
+        correctAnswer: "vengo"
+      },
+      {
+        id: "4_irreg_11a",
+        type: "fill-in-the-blank",
+        question: "Allora ragazzi, cosa ___ (voi - fare)?",
+        correctAnswer: "fate"
+      },
+      {
+        id: "4_irreg_11b",
+        type: "fill-in-the-blank",
+        question: "Voi ___ (stare) a casa o ___ alla festa con noi?",
+        correctAnswer: "state"
+      },
+      {
+        id: "4_irreg_11c",
+        type: "fill-in-the-blank",
+        question: "Voi state a casa o ___ (venire) alla festa con noi?",
+        correctAnswer: "venite"
+      },
+      {
+        id: "4_irreg_12",
+        type: "fill-in-the-blank",
+        question: "Mike e Dennis sono studenti motivati e ___ (fare) i compiti ogni giorno.",
+        correctAnswer: "fanno"
+      }
+    ]
   },
   {
     id: 5,
@@ -561,9 +733,48 @@ Used for non-specific things. These are only used in the **singular**:
       { italian: "Aiuto!", english: "Help!" },
       { italian: "Il conto", english: "The bill" },
       { italian: "Dov'è il bagno?", english: "Where is the bathroom?" },
+      { italian: "Colazione", english: "Breakfast" },
+      { italian: "Pausa", english: "Pause / Break" },
+      { italian: "Caffè macchiato", english: "Expresso with a drop of milk" },
+      { italian: "Cornetto", english: "Croissant / Pastry" },
+      { italian: "Marmellata", english: "Jam" },
+      { italian: "Sfoglia", english: "Puff pastry" },
+      { italian: "Certo / Esatto", english: "Sure / Exactly" },
+      { italian: "Prego", english: "You're welcome / Go ahead" },
+      { italian: "Il resto", english: "The change" },
     ],
-    examples: [{ italian: "Vorrei un caffè, per favore.", english: "I would like a coffee, please." }],
-    dialogue: { title: "Al ristorante", lines: [{ speaker: "Cameriere", italian: "Cosa desidera?", english: "What would you like?" }] },
+    examples: [
+      { italian: "Quanto costa un caffè?", english: "How much is a coffee?" },
+      { italian: "Quant'è?", english: "How much is it?" },
+      { italian: "Andiamo al bar?", english: "Shall we go to the bar?" },
+      { italian: "Pago io.", english: "I'll pay." },
+    ],
+    dialogue: {
+      title: "Al Bar a Firenze (At the Bar in Florence)",
+      lines: [
+        { speaker: "Marco", italian: "Ragazzi, sono stanco. Facciamo cinque minuti di pausa?", english: "Guys, I'm tired. Shall we take a five-minute break?" },
+        { speaker: "Anna", italian: "Va bene. Andiamo al bar?", english: "Okay. Shall we go to the bar?" },
+        { speaker: "Alberto", italian: "Buona idea, mi piace fare colazione al bar.", english: "Good idea, I like having breakfast at the bar." },
+        { speaker: "Cameriere", italian: "Buongiorno! Prego...", english: "Good morning! Go ahead..." },
+        { speaker: "Marco", italian: "Buongiorno. Allora, io prendo un caffè.", english: "Good morning. Then, I'll have a coffee." },
+        { speaker: "Cameriere", italian: "Macchiato?", english: "Macchiato?" },
+        { speaker: "Marco", italian: "No, normale. Grazie.", english: "No, regular. Thanks." },
+        { speaker: "Anna", italian: "Per me un cappuccino e un cornetto.", english: "For me, a cappuccino and a croissant." },
+        { speaker: "Cameriere", italian: "Con la crema o con la marmellata?", english: "With cream or with jam?" },
+        { speaker: "Anna", italian: "Mmm... preferisco il cornetto con la marmellata, la crema non mi piace.", english: "Mmm... I prefer the croissant with jam, I don't like cream." },
+        { speaker: "Alberto", italian: "Io vorrei un latte caldo e una sfoglia.", english: "I would like a hot milk and a puff pastry." },
+        { speaker: "Cameriere", italian: "Allora sono: un caffè, un cappuccio, un latte, una sfoglia e un cornetto, giusto?", english: "So that is: a coffee, a cappuccino, a milk, a puff pastry, and a croissant, right?" },
+        { speaker: "Marco", italian: "Sì, esatto. Possiamo sederci al tavolo?", english: "Yes, exactly. Can we sit at the table?" },
+        { speaker: "Cameriere", italian: "Sì, certo. (Dopo cinque minuti) Ecco il caffè, il cornetto e il cappuccino, il latte e la sfoglia.", english: "Yes, sure. (After five minutes) Here is the coffee, the croissant and the cappuccino, the milk and the puff pastry." },
+        { speaker: "Marco", italian: "Perfetto. Quant'è?", english: "Perfect. How much is it?" },
+        { speaker: "Cameriere", italian: "12 euro e 50.", english: "12 euros and 50." },
+        { speaker: "Marco", italian: "Ragazzi, pago io. Ecco a Lei.", english: "Guys, I'll pay. There you go." },
+        { speaker: "Cameriere", italian: "Grazie. Porto subito il resto.", english: "Thank you. I'll bring the change right away." },
+        { speaker: "Alberto", italian: "Però ragazzi... 12 euro e 50 è veramente tanto...", english: "But guys... 12 euros and 50 is really a lot..." },
+        { speaker: "Marco", italian: "Sì, ma considera il posto...", english: "Yes, but consider the place..." },
+        { speaker: "Anna", italian: "E poi... siamo a Firenze!", english: "And after all... we are in Florence!" },
+      ]
+    },
     comprehensionQuestions: [{ question: "How to ask for the bill?", options: ["Il conto, per favore", "Ciao"], correctAnswer: "Il conto, per favore" }],
     exercises: [{ id: "10_1", type: "translation", question: "Where is the bathroom?", correctAnswer: "Dov'è il bagno?" }]
   }
