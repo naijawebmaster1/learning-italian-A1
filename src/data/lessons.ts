@@ -636,36 +636,528 @@ These five verbs are used in almost every sentence. Memorize these patterns firs
     title: "Numbers, Time & Dates",
     slug: "numbers-time",
     grammar: {
-      title: "Telling Time & Dates",
-      content: "Numbers: uno, due, tre... Time: Che ore sono? È l'una, sono le due. Dates: Il [number] di [month]."
+      title: "I Numeri, l'Orario e le Date",
+      content: `Numbers, time, and dates are essential for everyday Italian life — from catching a train to making plans with friends.
+
+## I Numeri (Numbers)
+
+**0–20:**
+| 0 zero | 1 uno | 2 due | 3 tre | 4 quattro | 5 cinque |
+|---|---|---|---|---|---|
+| 6 sei | 7 sette | 8 otto | 9 nove | 10 dieci | 11 undici |
+| 12 dodici | 13 tredici | 14 quattordici | 15 quindici | 16 sedici | |
+| 17 diciassette | 18 diciotto | 19 diciannove | 20 venti | | |
+
+**20–100 (tens):**
+- 20 **venti**, 30 **trenta**, 40 **quaranta**, 50 **cinquanta**
+- 60 **sessanta**, 70 **settanta**, 80 **ottanta**, 90 **novanta**, 100 **cento**
+
+**Compound numbers:** Drop the final vowel of the ten before *uno* and *otto*:
+- 21 → vent**uno** (not *ventiuno*), 28 → vent**otto**
+- 31 → trent**uno**, 38 → trent**otto**
+
+---
+
+## L'Orario (Telling the Time)
+
+**Key question:** *Che ore sono?* / *Che ora è?* — What time is it?
+
+| Rule | Example |
+|---|---|
+| **È l'una** — use *è* only for 1:00 | *È l'una.* (It's 1 o'clock.) |
+| **Sono le [number]** — use *sono le* for all others | *Sono le tre.* (It's 3 o'clock.) |
+| **e un quarto** — quarter past | *Sono le due e un quarto.* (2:15) |
+| **e mezza / e mezzo** — half past | *Sono le cinque e mezza.* (5:30) |
+| **meno un quarto** — quarter to | *Sono le otto meno un quarto.* (7:45) |
+| **mezzogiorno** — noon | *È mezzogiorno.* |
+| **mezzanotte** — midnight | *È mezzanotte.* |
+
+> **Tip:** For *di mattina* (a.m.) and *di sera* / *di pomeriggio* (p.m.) just add these after the time:
+> *Sono le nove di mattina.* (9 a.m.) — *Sono le nove di sera.* (9 p.m.)
+
+---
+
+## I Giorni della Settimana (Days of the Week)
+
+Days are **not capitalised** in Italian. The week starts on **Monday**.
+
+| Lunedì | Martedì | Mercoledì | Giovedì | Venerdì | Sabato | Domenica |
+|---|---|---|---|---|---|---|
+| Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
+
+> *Oggi è lunedì.* — Today is Monday.
+> *Il lunedì vado in palestra.* — On Mondays I go to the gym. (use *il* for habitual actions)
+
+---
+
+## I Mesi e le Date (Months & Dates)
+
+Months are also **not capitalised**. Dates use cardinal numbers (not ordinal like English):
+
+**Il primo** is the only exception — use *il primo* for the 1st, then *il due, il tre…* for the rest.
+
+| gennaio | febbraio | marzo | aprile | maggio | giugno |
+|---|---|---|---|---|---|
+| luglio | agosto | settembre | ottobre | novembre | dicembre |
+
+**Saying a date:**
+- *Oggi è il quindici marzo.* — Today is the 15th of March.
+- *Il mio compleanno è il primo luglio.* — My birthday is July 1st.
+
+**Asking the date:**
+- *Quanti ne abbiamo oggi?* — What's today's date? (Lit: How many do we have today?)
+- *Che giorno è oggi?* — What day is today?`
     },
     vocabulary: [
-      { italian: "Uno", english: "One" },
-      { italian: "Lunedì", english: "Monday" },
-      { italian: "Gennaio", english: "January" },
+      { italian: "Zero / Uno / Due", english: "Zero / One / Two", pronunciation: "ZEH-ro / OO-no / DOO-eh" },
+      { italian: "Tre / Quattro / Cinque", english: "Three / Four / Five", pronunciation: "TREH / KWAT-tro / CHEEN-kweh" },
+      { italian: "Dieci / Venti / Cento", english: "Ten / Twenty / One hundred", pronunciation: "dee-EH-chee / VEN-tee / CHEN-to" },
+      { italian: "Che ore sono?", english: "What time is it?", pronunciation: "KEH OH-reh SO-no" },
+      { italian: "È l'una", english: "It's one o'clock", pronunciation: "EH LOO-na" },
+      { italian: "Sono le tre", english: "It's three o'clock", pronunciation: "SO-no leh TREH" },
+      { italian: "E mezza", english: "Half past (lit: and half)", pronunciation: "EH MED-za" },
+      { italian: "E un quarto", english: "Quarter past (lit: and a quarter)", pronunciation: "EH oon KWAR-to" },
+      { italian: "Meno un quarto", english: "Quarter to (lit: minus a quarter)", pronunciation: "MEH-no oon KWAR-to" },
+      { italian: "Mezzogiorno", english: "Noon / Midday", pronunciation: "med-zo-JOR-no" },
+      { italian: "Mezzanotte", english: "Midnight", pronunciation: "med-za-NOT-teh" },
+      { italian: "Lunedì / Martedì", english: "Monday / Tuesday", pronunciation: "loo-neh-DEE / mar-teh-DEE" },
+      { italian: "Mercoledì / Giovedì", english: "Wednesday / Thursday", pronunciation: "mer-ko-leh-DEE / jo-veh-DEE" },
+      { italian: "Venerdì / Sabato / Domenica", english: "Friday / Saturday / Sunday", pronunciation: "ve-ner-DEE / SAH-ba-to / do-MEH-ni-ka" },
+      { italian: "Gennaio / Febbraio / Marzo", english: "January / February / March", pronunciation: "jen-NAH-yo / feb-BRAH-yo / MAR-zo" },
+      { italian: "Aprile / Maggio / Giugno", english: "April / May / June", pronunciation: "ah-PREE-leh / MAD-jo / JOO-nyo" },
+      { italian: "Luglio / Agosto / Settembre", english: "July / August / September", pronunciation: "LOOL-yo / ah-GOS-to / set-TEM-breh" },
+      { italian: "Ottobre / Novembre / Dicembre", english: "October / November / December", pronunciation: "ot-TOH-breh / no-VEM-breh / dee-CHEM-breh" },
+      { italian: "Oggi / Domani / Ieri", english: "Today / Tomorrow / Yesterday", pronunciation: "OJ-jee / do-MAH-nee / YEH-ree" },
+      { italian: "Il compleanno", english: "Birthday", pronunciation: "eel com-pleh-AN-no" },
     ],
-    examples: [{ italian: "Sono le otto.", english: "It's eight o'clock." }],
-    dialogue: { title: "Un appuntamento", lines: [{ speaker: "Sara", italian: "Che ore sono?", english: "What time is it?" }] },
-    comprehensionQuestions: [{ question: "Monday is?", options: ["Lunedì", "Martedì"], correctAnswer: "Lunedì" }],
-    exercises: [{ id: "5_1", type: "translation", question: "It is one o'clock", correctAnswer: "È l'una" }]
+    examples: [
+      { italian: "Sono le sette e mezza di mattina.", english: "It's half past seven in the morning." },
+      { italian: "Il treno parte alle nove e un quarto.", english: "The train leaves at quarter past nine." },
+      { italian: "Oggi è mercoledì, il ventidue marzo.", english: "Today is Wednesday, the 22nd of March." },
+      { italian: "Il mio compleanno è il primo agosto.", english: "My birthday is the 1st of August." },
+      { italian: "Ci vediamo venerdì alle tre meno un quarto.", english: "We'll see each other on Friday at quarter to three." },
+      { italian: "Il museo è aperto dal martedì alla domenica.", english: "The museum is open from Tuesday to Sunday." },
+    ],
+    dialogue: {
+      title: "Un Appuntamento (An Appointment)",
+      lines: [
+        { speaker: "Sara", italian: "Ciao Marco! Che ore sono?", english: "Hi Marco! What time is it?" },
+        { speaker: "Marco", italian: "Sono le undici e un quarto. Perché?", english: "It's quarter past eleven. Why?" },
+        { speaker: "Sara", italian: "Ho un appuntamento dal medico a mezzogiorno!", english: "I have a doctor's appointment at noon!" },
+        { speaker: "Marco", italian: "Quando? Oggi?", english: "When? Today?" },
+        { speaker: "Sara", italian: "Sì, oggi è giovedì, il tre aprile. Ho prenotato due settimane fa.", english: "Yes, today is Thursday, the 3rd of April. I booked it two weeks ago." },
+        { speaker: "Marco", italian: "Non c'è problema, hai ancora quarantacinque minuti.", english: "No problem, you still have forty-five minutes." },
+        { speaker: "Sara", italian: "Meno male! E tu, cosa fai questo weekend?", english: "Thank goodness! And you, what are you doing this weekend?" },
+        { speaker: "Marco", italian: "Sabato vado al mercato alle nove di mattina, e domenica riposo.", english: "On Saturday I'm going to the market at nine in the morning, and on Sunday I'm resting." },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "What time is Sara's appointment?",
+        options: ["At eleven fifteen", "At noon", "At quarter to twelve"],
+        correctAnswer: "At noon"
+      },
+      {
+        question: "What day is the dialogue set on?",
+        options: ["Tuesday", "Wednesday", "Thursday"],
+        correctAnswer: "Thursday"
+      },
+      {
+        question: "What does Marco do on Sunday?",
+        options: ["Goes to the market", "Goes to the doctor", "Rests"],
+        correctAnswer: "Rests"
+      },
+    ],
+    exercises: [
+      {
+        id: "5_1",
+        type: "multiple-choice",
+        question: "How do you say 'It's three o'clock' in Italian?",
+        options: ["È le tre.", "Sono le tre.", "Sono i tre.", "È tre."],
+        correctAnswer: "Sono le tre.",
+        explanation: "Use 'sono le' for all hours except 1 o'clock, noon, and midnight."
+      },
+      {
+        id: "5_2",
+        type: "multiple-choice",
+        question: "How do you say 'It's one o'clock'?",
+        options: ["Sono l'una.", "È l'una.", "Sono le una.", "È una."],
+        correctAnswer: "È l'una.",
+        explanation: "Only 1 o'clock uses 'è' (singular) instead of 'sono le'."
+      },
+      {
+        id: "5_3",
+        type: "translation",
+        question: "Translate: 'It's half past eight.'",
+        correctAnswer: "Sono le otto e mezza.",
+        explanation: "'E mezza' means half past. Use 'sono le' because 8 ≠ 1."
+      },
+      {
+        id: "5_4",
+        type: "fill-in-the-blank",
+        question: "Sono le quattro ___ un quarto. (It's quarter past four.)",
+        correctAnswer: "e",
+        explanation: "'E un quarto' = 'and a quarter' = quarter past."
+      },
+      {
+        id: "5_5",
+        type: "multiple-choice",
+        question: "What is 'quarter to seven' in Italian?",
+        options: ["Sono le sette e un quarto.", "Sono le sette meno un quarto.", "Sono le sei e mezza.", "È l'una meno un quarto."],
+        correctAnswer: "Sono le sette meno un quarto.",
+        explanation: "'Meno un quarto' means 'minus a quarter', i.e., quarter to."
+      },
+      {
+        id: "5_6",
+        type: "multiple-choice",
+        question: "Which number is 'quarantacinque'?",
+        options: ["54", "45", "40", "55"],
+        correctAnswer: "45",
+        explanation: "Quaranta (40) + cinque (5) = quarantacinque (45)."
+      },
+      {
+        id: "5_7",
+        type: "fill-in-the-blank",
+        question: "Il numero 21 si scrive: vent___ (drop the final vowel of venti before uno)",
+        correctAnswer: "uno",
+        explanation: "Ventuno — the final 'i' of venti is dropped before uno and otto."
+      },
+      {
+        id: "5_8",
+        type: "translation",
+        question: "Translate: 'Today is Monday.'",
+        correctAnswer: "Oggi è lunedì.",
+        explanation: "Days of the week are not capitalised in Italian."
+      },
+      {
+        id: "5_9",
+        type: "multiple-choice",
+        question: "Which day comes after 'mercoledì'?",
+        options: ["Martedì", "Giovedì", "Venerdì", "Sabato"],
+        correctAnswer: "Giovedì",
+        explanation: "The order is: lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica."
+      },
+      {
+        id: "5_10",
+        type: "multiple-choice",
+        question: "How do you say 'On Mondays I go to the gym' (habitual)?",
+        options: ["Lunedì vado in palestra.", "Il lunedì vado in palestra.", "A lunedì vado in palestra.", "Di lunedì vado in palestra."],
+        correctAnswer: "Il lunedì vado in palestra.",
+        explanation: "Use 'il/la + day' to express a habitual action ('every Monday')."
+      },
+      {
+        id: "5_11",
+        type: "multiple-choice",
+        question: "How do you say 'March 1st' as a date?",
+        options: ["Il uno marzo", "Il primo marzo", "Il primo di marzo", "Marzo uno"],
+        correctAnswer: "Il primo marzo",
+        explanation: "Only the 1st uses 'primo' (ordinal). All other dates use cardinal numbers: il due, il tre, etc."
+      },
+      {
+        id: "5_12",
+        type: "translation",
+        question: "Translate: 'My birthday is the 15th of June.'",
+        correctAnswer: "Il mio compleanno è il quindici giugno.",
+        explanation: "Italian dates: 'il + number + month' — no 'di' needed in everyday speech."
+      },
+      {
+        id: "5_13",
+        type: "fill-in-the-blank",
+        question: "Che ___ sono? (What time is it?) — fill in the missing word.",
+        correctAnswer: "ore",
+        explanation: "'Che ore sono?' is the standard way to ask the time."
+      },
+      {
+        id: "5_14",
+        type: "reorder",
+        question: "Reorder: 'The train leaves at nine thirty.'",
+        words: ["Il", "treno", "parte", "alle", "nove", "e", "mezza."],
+        correctAnswer: ["Il", "treno", "parte", "alle", "nove", "e", "mezza."]
+      },
+      {
+        id: "5_15",
+        type: "multiple-choice",
+        question: "What is 'agosto' in English?",
+        options: ["April", "June", "August", "October"],
+        correctAnswer: "August",
+        explanation: "agosto = August. Remember: aprile (April), giugno (June), ottobre (October)."
+      },
+      {
+        id: "5_16",
+        type: "fill-in-the-blank",
+        question: "Oggi è il ___ ottobre. (Today is the 28th of October.)",
+        correctAnswer: "ventotto",
+        explanation: "Venti + otto = ventotto (drop the 'i' from venti before otto)."
+      },
+      {
+        id: "5_17",
+        type: "multiple-choice",
+        question: "How do you ask 'What's today's date?' in a colloquial Italian way?",
+        options: ["Che ora è oggi?", "Quanti ne abbiamo oggi?", "Che data è adesso?", "Qual è il giorno?"],
+        correctAnswer: "Quanti ne abbiamo oggi?",
+        explanation: "Lit: 'How many do we have today?' — a very common colloquial way to ask the date."
+      },
+    ]
   },
   {
     id: 6,
     title: "Gender & Plural Rules",
     slug: "gender-plurals",
     grammar: {
-      title: "Masculine, Feminine, and Plurals",
-      content: "Masc: -o -> -i. Fem: -a -> -e. Both: -e -> -i. Adjectives must match."
+      title: "Genere e Plurale — Masculine, Feminine & Plurals",
+      content: `Every Italian noun has a **grammatical gender** — either masculine or feminine. This affects the article, adjective, and sometimes the verb. There is no neutral gender.
+
+## Il Genere (Gender)
+
+### Masculine Nouns
+Most masculine nouns end in **-o** in the singular:
+- *il ragazzo* (the boy), *il gatto* (the cat), *il libro* (the book), *il tavolo* (the table)
+
+### Feminine Nouns
+Most feminine nouns end in **-a** in the singular:
+- *la ragazza* (the girl), *la casa* (the house), *la porta* (the door), *la mela* (the apple)
+
+### Nouns ending in -e (both genders!)
+Many nouns end in **-e** and can be either masculine or feminine — you need to learn these:
+- *il fiore* (the flower — masculine), *il dente* (the tooth — masculine)
+- *la classe* (the class — feminine), *la notte* (the night — feminine)
+
+> **Tip:** When in doubt, learn the article together with the noun: *il cane*, *la chiave*.
+
+---
+
+## Il Plurale (Plurals)
+
+| Singular ending | Plural ending | Example |
+|---|---|---|
+| **-o** (masc) | **-i** | *ragazzo → ragazzi*, *gatto → gatti* |
+| **-a** (fem) | **-e** | *ragazza → ragazze*, *casa → case* |
+| **-e** (masc or fem) | **-i** | *fiore → fiori*, *classe → classi* |
+
+### Irregular Plurals (important exceptions)
+- *uomo* → *uomini* (man → men)
+- *mano* → *mani* (hand → hands — feminine despite ending in -o!)
+- *città, caffè, virtù* → **unchanged** (nouns ending in a stressed vowel don't change)
+
+---
+
+## Gli Articoli al Plurale (Plural Articles)
+
+| Gender | Singular | Plural | When to use plural form |
+|---|---|---|---|
+| Masc | *il* | *i* | Before most consonants |
+| Masc | *lo* | *gli* | Before s+consonant, z, gn, ps, x, y |
+| Masc | *l'* | *gli* | Before vowels |
+| Fem | *la* | *le* | All feminine nouns |
+| Fem | *l'* | *le* | Before vowels |
+
+---
+
+## Accordo degli Aggettivi (Adjective Agreement)
+
+Adjectives **must agree** in gender and number with the noun they describe.
+
+**Adjectives ending in -o/-a:**
+| | Singular | Plural |
+|---|---|---|
+| Masc | *alto* | *alti* |
+| Fem | *alta* | *alte* |
+
+**Adjectives ending in -e (same for both genders):**
+| | Singular | Plural |
+|---|---|---|
+| Masc/Fem | *grande* | *grandi* |
+| Masc/Fem | *verde* | *verdi* |
+
+> *Il ragazzo alto* → *I ragazzi alti* (The tall boy → The tall boys)
+> *La ragazza intelligente* → *Le ragazze intelligenti* (The clever girl → The clever girls)`
     },
     vocabulary: [
-      { italian: "Ragazzo", english: "Boy" },
-      { italian: "Ragazza", english: "Girl" },
-      { italian: "Gatto", english: "Cat" },
+      { italian: "Il ragazzo / La ragazza", english: "The boy / The girl", pronunciation: "eel ra-GAT-zo / la ra-GAT-za" },
+      { italian: "Il gatto / La gatta", english: "The male cat / The female cat", pronunciation: "eel GAT-to / la GAT-ta" },
+      { italian: "Il libro", english: "The book (masc)", pronunciation: "eel LEE-bro" },
+      { italian: "La casa", english: "The house (fem)", pronunciation: "la KAH-za" },
+      { italian: "Il fiore", english: "The flower (masc, ends in -e)", pronunciation: "eel FYO-reh" },
+      { italian: "La classe", english: "The class (fem, ends in -e)", pronunciation: "la KLAS-seh" },
+      { italian: "L'uomo / Gli uomini", english: "The man / The men (irregular)", pronunciation: "LWOH-mo / lyee WO-mi-nee" },
+      { italian: "La mano / Le mani", english: "The hand / The hands (fem, irregular)", pronunciation: "la MAH-no / leh MAH-nee" },
+      { italian: "Alto / Alta", english: "Tall (masc / fem)", pronunciation: "AL-to / AL-ta" },
+      { italian: "Grande", english: "Big / Great (same for both genders)", pronunciation: "GRAN-deh" },
+      { italian: "Bello / Bella", english: "Beautiful (masc / fem)", pronunciation: "BEL-lo / BEL-la" },
+      { italian: "Nuovo / Nuova", english: "New (masc / fem)", pronunciation: "NWOH-vo / NWOH-va" },
+      { italian: "Verde", english: "Green (same for masc & fem)", pronunciation: "VER-deh" },
+      { italian: "I ragazzi / Le ragazze", english: "The boys / The girls (plural)", pronunciation: "ee ra-GAT-zee / leh ra-GAT-zeh" },
+      { italian: "Gli studenti / Le studentesse", english: "The (male) students / The (female) students", pronunciation: "lyee stu-DEN-tee / leh stu-den-TES-seh" },
+      { italian: "La città", english: "The city (invariable — doesn't change in plural)", pronunciation: "la cheet-TAH" },
     ],
-    examples: [{ italian: "I ragazzi sono alti.", english: "The boys are tall." }],
-    dialogue: { title: "In piazza", lines: [{ speaker: "Paolo", italian: "Quanti gatti hai?", english: "How many cats do you have?" }] },
-    comprehensionQuestions: [{ question: "Plural of 'casa'?", options: ["Case", "Casi"], correctAnswer: "Case" }],
-    exercises: [{ id: "6_1", type: "reorder", question: "are / girls / the / beautiful", words: ["Le", "ragazze", "sono", "belle"], correctAnswer: ["Le", "ragazze", "sono", "belle"] }]
+    examples: [
+      { italian: "I ragazzi sono alti.", english: "The boys are tall." },
+      { italian: "Le ragazze sono intelligenti.", english: "The girls are clever." },
+      { italian: "Ho due gatti e una cagna.", english: "I have two (male) cats and a female dog." },
+      { italian: "I fiori del giardino sono belli.", english: "The flowers in the garden are beautiful." },
+      { italian: "Le città italiane sono grandi e antiche.", english: "Italian cities are large and ancient." },
+      { italian: "Gli studenti hanno i libri nuovi.", english: "The (male) students have the new books." },
+    ],
+    dialogue: {
+      title: "In Piazza (In the Square)",
+      lines: [
+        { speaker: "Paolo", italian: "Ciao Elena! Quanti gatti hai adesso?", english: "Hi Elena! How many cats do you have now?" },
+        { speaker: "Elena", italian: "Ne ho tre — due maschi e una femmina. Si chiamano Leo, Nero e Bianca.", english: "I have three — two males and one female. Their names are Leo, Nero, and Bianca." },
+        { speaker: "Paolo", italian: "Che bei gatti! Sono grandi?", english: "What beautiful cats! Are they big?" },
+        { speaker: "Elena", italian: "Leo e Nero sono grandi e neri, ma Bianca è piccola e bianca ovviamente!", english: "Leo and Nero are big and black, but Bianca is small and white — obviously!" },
+        { speaker: "Paolo", italian: "E i tuoi cani? Hai ancora quei due cani simpatici?", english: "And your dogs? Do you still have those two friendly dogs?" },
+        { speaker: "Elena", italian: "No, i cani ora vivono con mia sorella. La sua casa è grande, la mia è piccola.", english: "No, the dogs now live with my sister. Her house is big, mine is small." },
+        { speaker: "Paolo", italian: "Capisco! Comunque, le tue piante sul balcone sono bellissime.", english: "I see! Anyway, your plants on the balcony are absolutely beautiful." },
+        { speaker: "Elena", italian: "Grazie! Sono rose e fiori di campo. Le rose sono rosse, i fiori sono gialli.", english: "Thank you! They're roses and wildflowers. The roses are red, the flowers are yellow." },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "What is the plural of 'casa' (house)?",
+        options: ["Casi", "Case", "Casis", "Casee"],
+        correctAnswer: "Case"
+      },
+      {
+        question: "How many cats does Elena have?",
+        options: ["Two", "Three", "Four", "One"],
+        correctAnswer: "Three"
+      },
+      {
+        question: "Where do Elena's dogs live now?",
+        options: ["With Paolo", "With her mother", "With her sister", "In the garden"],
+        correctAnswer: "With her sister"
+      },
+    ],
+    exercises: [
+      {
+        id: "6_1",
+        type: "multiple-choice",
+        question: "What is the plural of 'il libro' (the book)?",
+        options: ["Le libri", "I libri", "I libre", "Gli libro"],
+        correctAnswer: "I libri",
+        explanation: "Masculine nouns ending in -o become -i in the plural. 'il' → 'i'."
+      },
+      {
+        id: "6_2",
+        type: "multiple-choice",
+        question: "What is the plural of 'la ragazza' (the girl)?",
+        options: ["I ragazze", "Le ragazze", "Le ragazzi", "La ragazze"],
+        correctAnswer: "Le ragazze",
+        explanation: "Feminine nouns ending in -a become -e in the plural. 'la' → 'le'."
+      },
+      {
+        id: "6_3",
+        type: "multiple-choice",
+        question: "What is the plural of 'il fiore' (the flower — ends in -e)?",
+        options: ["I fiorei", "Le fiori", "I fiori", "Gli fiori"],
+        correctAnswer: "I fiori",
+        explanation: "Nouns ending in -e (regardless of gender) become -i in the plural."
+      },
+      {
+        id: "6_4",
+        type: "fill-in-the-blank",
+        question: "La ragazza è alt___. (The girl is tall.) — fill in the correct adjective ending.",
+        correctAnswer: "a",
+        explanation: "'Alta' — the adjective must agree with the feminine noun 'ragazza'."
+      },
+      {
+        id: "6_5",
+        type: "fill-in-the-blank",
+        question: "I ragazzi sono alt___. (The boys are tall.) — fill in the correct ending.",
+        correctAnswer: "i",
+        explanation: "'Alti' — plural masculine adjective ending is -i."
+      },
+      {
+        id: "6_6",
+        type: "multiple-choice",
+        question: "Which article do you use before 'studente' (male student)?",
+        options: ["La", "Il", "Lo", "L'"],
+        correctAnswer: "Lo",
+        explanation: "'Lo' is used before masculine nouns starting with s + consonant (studente starts with 'st')."
+      },
+      {
+        id: "6_7",
+        type: "multiple-choice",
+        question: "What is the plural article for 'lo studente'?",
+        options: ["I studenti", "Gli studenti", "Le studenti", "Li studenti"],
+        correctAnswer: "Gli studenti",
+        explanation: "'Lo' becomes 'gli' in the plural. So 'lo studente' → 'gli studenti'."
+      },
+      {
+        id: "6_8",
+        type: "translation",
+        question: "Translate: 'The new books are beautiful.'",
+        correctAnswer: "I libri nuovi sono belli.",
+        explanation: "libri (masc pl) → nuovi, belli. Both adjectives take masculine plural -i ending."
+      },
+      {
+        id: "6_9",
+        type: "multiple-choice",
+        question: "What is the irregular plural of 'uomo' (man)?",
+        options: ["Uomi", "Uomini", "Uomoi", "Omini"],
+        correctAnswer: "Uomini",
+        explanation: "'Uomo → uomini' is an irregular plural you must memorise."
+      },
+      {
+        id: "6_10",
+        type: "multiple-choice",
+        question: "'La mano' (the hand) is grammatically...",
+        options: ["Masculine", "Feminine", "Neutral", "Changes by context"],
+        correctAnswer: "Feminine",
+        explanation: "Despite ending in -o, 'mano' is feminine: 'la mano', 'le mani'."
+      },
+      {
+        id: "6_11",
+        type: "fill-in-the-blank",
+        question: "Le città italian___ sono grand___. (Italian cities are big.) — fill both endings.",
+        correctAnswer: "e, i",
+        explanation: "'Italiane' (fem pl) and 'grandi' (adj ending in -e → -i in plural, same for both genders)."
+      },
+      {
+        id: "6_12",
+        type: "reorder",
+        question: "Reorder: 'The beautiful girls are tall.'",
+        words: ["Le", "ragazze", "belle", "sono", "alte."],
+        correctAnswer: ["Le", "ragazze", "belle", "sono", "alte."]
+      },
+      {
+        id: "6_13",
+        type: "multiple-choice",
+        question: "How do you say 'The green flowers' in Italian?",
+        options: ["I fiori verdi", "I fiori verde", "Le fiori verdi", "I fiore verdi"],
+        correctAnswer: "I fiori verdi",
+        explanation: "'Verde' ends in -e, so its plural is 'verdi' for both genders. 'Fiore' is masculine: i fiori."
+      },
+      {
+        id: "6_14",
+        type: "translation",
+        question: "Translate: 'She has two big cats.'",
+        correctAnswer: "Ha due gatti grandi.",
+        explanation: "Gatti (masc pl), grandi (pl of grande, same for both genders)."
+      },
+      {
+        id: "6_15",
+        type: "multiple-choice",
+        question: "What is the plural of 'la città'?",
+        options: ["Le città", "Le cittàe", "Le cittài", "Le citte"],
+        correctAnswer: "Le città",
+        explanation: "Nouns ending in a stressed vowel (città, caffè, virtù) are invariable — they don't change in the plural."
+      },
+      {
+        id: "6_16",
+        type: "fill-in-the-blank",
+        question: "Il gatto è piccol___. Le gatte sono piccol___. (The cat is small. The (female) cats are small.)",
+        correctAnswer: "o, e",
+        explanation: "Singular masc → -o. Plural fem → -e."
+      },
+      {
+        id: "6_17",
+        type: "reorder",
+        question: "Reorder: 'The new students have big books.'",
+        words: ["Gli", "studenti", "nuovi", "hanno", "libri", "grandi."],
+        correctAnswer: ["Gli", "studenti", "nuovi", "hanno", "libri", "grandi."]
+      },
+    ]
   },
   {
     id: 7,
