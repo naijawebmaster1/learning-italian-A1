@@ -396,49 +396,29 @@ Used for non-specific things. These are only used in the **singular**:
       }
     ],
     exercises: [
-      // Indefinite Articles (User's requested list)
-      { id: "3_ind_1", type: "fill-in-the-blank", question: "___ ragazzo", correctAnswer: "un" },
-      { id: "3_ind_2", type: "fill-in-the-blank", question: "___ ragazza", correctAnswer: "una" },
-      { id: "3_ind_3", type: "fill-in-the-blank", question: "___ amico", correctAnswer: "un" },
-      { id: "3_ind_4", type: "fill-in-the-blank", question: "___ amica", correctAnswer: "un'" },
-      { id: "3_ind_5", type: "fill-in-the-blank", question: "___ studente", correctAnswer: "uno" },
-      { id: "3_ind_6", type: "fill-in-the-blank", question: "___ studentessa", correctAnswer: "una" },
-      { id: "3_ind_7", type: "fill-in-the-blank", question: "___ zio", correctAnswer: "uno" },
-      { id: "3_ind_8", type: "fill-in-the-blank", question: "___ zia", correctAnswer: "una" },
-      { id: "3_ind_9", type: "fill-in-the-blank", question: "___ libro", correctAnswer: "un" },
-      { id: "3_ind_10", type: "fill-in-the-blank", question: "___ idea", correctAnswer: "un'" },
-      { id: "3_ind_11", type: "fill-in-the-blank", question: "___ esame", correctAnswer: "un" },
-      { id: "3_ind_12", type: "fill-in-the-blank", question: "___ casa", correctAnswer: "una" },
-      { id: "3_ind_13", type: "fill-in-the-blank", question: "___ stazione", correctAnswer: "una" },
-      { id: "3_ind_14", type: "fill-in-the-blank", question: "___ zaino", correctAnswer: "uno" },
-      { id: "3_ind_15", type: "fill-in-the-blank", question: "___ albero", correctAnswer: "un" },
-      { id: "3_ind_16", type: "fill-in-the-blank", question: "___ isola", correctAnswer: "un'" },
-      { id: "3_ind_17", type: "fill-in-the-blank", question: "___ ospedale", correctAnswer: "un" },
-      { id: "3_ind_18", type: "fill-in-the-blank", question: "___ ufficio", correctAnswer: "un" },
-      { id: "3_ind_19", type: "fill-in-the-blank", question: "___ arancia", correctAnswer: "un'" },
-      { id: "3_ind_20", type: "fill-in-the-blank", question: "___ psicologo", correctAnswer: "uno" },
-      
-      // Definite Articles (Balanced set of 20 - matching Indefinite)
-      { id: "3_def_1", type: "fill-in-the-blank", question: "___ ragazzo (the)", correctAnswer: "il" },
-      { id: "3_def_2", type: "fill-in-the-blank", question: "___ ragazza (the)", correctAnswer: "la" },
-      { id: "3_def_3", type: "fill-in-the-blank", question: "___ amico (the)", correctAnswer: "l'" },
-      { id: "3_def_4", type: "fill-in-the-blank", question: "___ amica (the)", correctAnswer: "l'" },
-      { id: "3_def_5", type: "fill-in-the-blank", question: "___ studente (the)", correctAnswer: "lo" },
-      { id: "3_def_6", type: "fill-in-the-blank", question: "___ studentessa (the)", correctAnswer: "la" },
-      { id: "3_def_7", type: "fill-in-the-blank", question: "___ zio (the)", correctAnswer: "lo" },
-      { id: "3_def_8", type: "fill-in-the-blank", question: "___ zia (the)", correctAnswer: "la" },
-      { id: "3_def_9", type: "fill-in-the-blank", question: "___ libro (the)", correctAnswer: "il" },
-      { id: "3_def_10", type: "fill-in-the-blank", question: "___ idea (the)", correctAnswer: "l'" },
-      { id: "3_def_11", type: "fill-in-the-blank", question: "___ esame (the)", correctAnswer: "l'" },
-      { id: "3_def_12", type: "fill-in-the-blank", question: "___ casa (the)", correctAnswer: "la" },
-      { id: "3_def_13", type: "fill-in-the-blank", question: "___ stazione (the)", correctAnswer: "la" },
-      { id: "3_def_14", type: "fill-in-the-blank", question: "___ zaino (the)", correctAnswer: "lo" },
-      { id: "3_def_15", type: "fill-in-the-blank", question: "___ albero (the)", correctAnswer: "l'" },
-      { id: "3_def_16", type: "fill-in-the-blank", question: "___ isola (the)", correctAnswer: "l'" },
-      { id: "3_def_17", type: "fill-in-the-blank", question: "___ ospedale (the)", correctAnswer: "l'" },
-      { id: "3_def_18", type: "fill-in-the-blank", question: "___ ufficio (the)", correctAnswer: "l'" },
-      { id: "3_def_19", type: "fill-in-the-blank", question: "___ arancia (the)", correctAnswer: "l'" },
-      { id: "3_def_20", type: "fill-in-the-blank", question: "___ psicologo (the)", correctAnswer: "lo" },
+      // — Indefinite Articles (best 10, covering all 4 forms) —
+      { id: "3_ind_1", type: "fill-in-the-blank", question: "___ ragazzo (a boy)", correctAnswer: "un", explanation: "'un' — masculine, starts with a regular consonant." },
+      { id: "3_ind_2", type: "fill-in-the-blank", question: "___ ragazza (a girl)", correctAnswer: "una", explanation: "'una' — feminine, starts with a consonant." },
+      { id: "3_ind_3", type: "fill-in-the-blank", question: "___ amico (a male friend)", correctAnswer: "un", explanation: "'un' — masculine before a vowel. Never 'un'' for masculine!" },
+      { id: "3_ind_4", type: "fill-in-the-blank", question: "___ amica (a female friend)", correctAnswer: "un'", explanation: "'un'' — feminine before a vowel always takes an apostrophe." },
+      { id: "3_ind_5", type: "fill-in-the-blank", question: "___ studente (a student)", correctAnswer: "uno", explanation: "'uno' — masculine before s+consonant (st-)." },
+      { id: "3_ind_6", type: "fill-in-the-blank", question: "___ zaino (a backpack)", correctAnswer: "uno", explanation: "'uno' — masculine before z." },
+      { id: "3_ind_7", type: "fill-in-the-blank", question: "___ idea (an idea)", correctAnswer: "un'", explanation: "'un'' — feminine before a vowel." },
+      { id: "3_ind_8", type: "fill-in-the-blank", question: "___ arancia (an orange)", correctAnswer: "un'", explanation: "'un'' — feminine before a vowel (ar-)." },
+      { id: "3_ind_9", type: "fill-in-the-blank", question: "___ isola (an island)", correctAnswer: "un'", explanation: "'un'' — feminine before a vowel (is-)." },
+      { id: "3_ind_10", type: "fill-in-the-blank", question: "___ psicologo (a psychologist)", correctAnswer: "uno", explanation: "'uno' — masculine before ps- (treated like s+consonant)." },
+
+      // — Definite Articles (best 10, covering il / lo / l' masc / la / l' fem) —
+      { id: "3_def_1", type: "fill-in-the-blank", question: "___ ragazzo (the boy)", correctAnswer: "il", explanation: "'il' — masculine, regular consonant." },
+      { id: "3_def_2", type: "fill-in-the-blank", question: "___ ragazza (the girl)", correctAnswer: "la", explanation: "'la' — feminine, consonant." },
+      { id: "3_def_3", type: "fill-in-the-blank", question: "___ amico (the male friend)", correctAnswer: "l'", explanation: "'l'' — masculine before a vowel (elision)." },
+      { id: "3_def_4", type: "fill-in-the-blank", question: "___ amica (the female friend)", correctAnswer: "l'", explanation: "'l'' — feminine before a vowel (elision). Same form as masculine here!" },
+      { id: "3_def_5", type: "fill-in-the-blank", question: "___ studente (the student)", correctAnswer: "lo", explanation: "'lo' — masculine before s+consonant (st-)." },
+      { id: "3_def_6", type: "fill-in-the-blank", question: "___ zaino (the backpack)", correctAnswer: "lo", explanation: "'lo' — masculine before z." },
+      { id: "3_def_7", type: "fill-in-the-blank", question: "___ idea (the idea)", correctAnswer: "l'", explanation: "'l'' — feminine before a vowel." },
+      { id: "3_def_8", type: "fill-in-the-blank", question: "___ arancia (the orange)", correctAnswer: "l'", explanation: "'l'' — feminine before a vowel (ar-)." },
+      { id: "3_def_9", type: "fill-in-the-blank", question: "___ stazione (the station)", correctAnswer: "la", explanation: "'la' — feminine, starts with a consonant (st-)." },
+      { id: "3_def_10", type: "fill-in-the-blank", question: "___ psicologo (the psychologist)", correctAnswer: "lo", explanation: "'lo' — masculine before ps- (same rule as s+consonant)." },
     ]
   },
   {
@@ -1164,18 +1144,264 @@ Adjectives **must agree** in gender and number with the noun they describe.
     title: "Prepositions (Simple & Articulated)",
     slug: "prepositions",
     grammar: {
-      title: "Di, A, Da, In, Su...",
-      content: "Prepositions often combine with articles: di + il = del, a + il = al, in + la = nella."
+      title: "Le Preposizioni Semplici e Articolate",
+      content: `Prepositions link nouns, pronouns, and phrases. Italian has **simple prepositions** and **articulated prepositions** (preposizioni articolate) — formed by fusing a preposition with a definite article.
+
+## Le Preposizioni Semplici (Simple Prepositions)
+
+| Preposition | Core meaning | Key uses |
+|---|---|---|
+| **di** | of, from | possession, origin, material |
+| **a** | to, at, in | destination, location (cities), indirect object |
+| **da** | from, by, since | origin, agent, duration |
+| **in** | in, to | location, destination (countries/regions) |
+| **con** | with | accompaniment, means |
+| **su** | on, about | location on a surface, topic |
+| **per** | for, through | purpose, duration, route |
+| **tra / fra** | between, among, in (time) | position, future time reference |
+
+> **City vs Country rule:**
+> - Use **a** with cities: *Vivo a Roma.* (I live in Rome.)
+> - Use **in** with countries and regions: *Vado in Italia.* (I'm going to Italy.) / *Abito in Toscana.*
+
+---
+
+## Le Preposizioni Articolate (Articulated Prepositions)
+
+When **di, a, da, in, su** precede a definite article, they fuse into a single word. *(Con, per, tra, fra do NOT fuse.)*
+
+| | **il** | **lo** | **la** | **l'** | **i** | **gli** | **le** |
+|---|---|---|---|---|---|---|---|
+| **di** | del | dello | della | dell' | dei | degli | delle |
+| **a** | al | allo | alla | all' | ai | agli | alle |
+| **da** | dal | dallo | dalla | dall' | dai | dagli | dalle |
+| **in** | nel | nello | nella | nell' | nei | negli | nelle |
+| **su** | sul | sullo | sulla | sull' | sui | sugli | sulle |
+
+### Examples in context:
+- *Vado **al** bar.* — I go **to the** bar. (a + il)
+- *Il libro è **sul** tavolo.* — The book is **on the** table. (su + il)
+- *Vengo **dalla** Germania.* — I come **from** Germany. (da + la)
+- *Parlano **degli** studenti.* — They talk **about the** students. (di + gli)
+- *Abito **nel** centro.* — I live **in the** centre. (in + il)
+
+---
+
+## Uses of Key Prepositions
+
+### DI — of, from, about
+- Possession: *Il libro **di** Marco* (Marco's book)
+- Origin: *Sono **di** Napoli.* (I'm from Naples.)
+- Material: *Una borsa **di** pelle.* (A leather bag.)
+- Topic: *Parliamo **di** musica.* (We talk about music.)
+
+### A — to, at, in (cities)
+- Movement: *Vado **a** scuola.* (I go to school.)
+- Location: *Sono **a** casa.* (I'm at home.)
+- Indirect object: *Do il libro **a** Lucia.* (I give the book to Lucia.)
+- Time: ***Alle** tre.* (At three o'clock.)
+
+### DA — from, by, since/for (with time)
+- Origin: *Vengo **da** Milano.* (I come from Milan.)
+- Duration (still ongoing): *Studio italiano **da** due anni.* (I've been studying Italian for two years.)
+- Agent (passive): *Il libro è scritto **da** Dante.* (The book is written by Dante.)
+- Function: *una tazza **da** caffè* (a coffee cup — designed for)
+
+### IN — in, to (countries/regions/rooms)
+- *Vivo **in** Italia.* (I live in Italy.)
+- *Vado **in** cucina.* (I go to the kitchen.)
+- *Lavoro **in** ufficio.* (I work in the office.)
+
+### SU — on, over, about
+- *Il gatto è **sul** divano.* (The cat is on the sofa.)
+- *Un libro **sulla** storia.* (A book about history.)`
     },
     vocabulary: [
-      { italian: "Di", english: "Of" },
-      { italian: "A", english: "To/At" },
-      { italian: "Nel", english: "In the (masc)" },
+      { italian: "Di", english: "Of / From / About", pronunciation: "dee" },
+      { italian: "A", english: "To / At / In (cities)", pronunciation: "ah" },
+      { italian: "Da", english: "From / By / Since", pronunciation: "dah" },
+      { italian: "In", english: "In / To (countries, rooms)", pronunciation: "een" },
+      { italian: "Con", english: "With", pronunciation: "kon" },
+      { italian: "Su", english: "On / About", pronunciation: "soo" },
+      { italian: "Per", english: "For / Through / In order to", pronunciation: "pehr" },
+      { italian: "Tra / Fra", english: "Between / Among / In (future time)", pronunciation: "trah / frah" },
+      { italian: "Al / Alla", english: "To the / At the (a + il / a + la)", pronunciation: "al / AL-la" },
+      { italian: "Del / Della", english: "Of the (di + il / di + la)", pronunciation: "del / DEL-la" },
+      { italian: "Dal / Dalla", english: "From the (da + il / da + la)", pronunciation: "dal / DAL-la" },
+      { italian: "Nel / Nella", english: "In the (in + il / in + la)", pronunciation: "nel / NEL-la" },
+      { italian: "Sul / Sulla", english: "On the (su + il / su + la)", pronunciation: "sul / SUL-la" },
+      { italian: "Dei / Degli / Delle", english: "Of the (plural: di + i / gli / le)", pronunciation: "day / LYEE / DEL-leh" },
+      { italian: "Vicino a", english: "Near / Next to", pronunciation: "vee-CHEE-no ah" },
+      { italian: "Lontano da", english: "Far from", pronunciation: "lon-TAH-no dah" },
     ],
-    examples: [{ italian: "Vado al bar.", english: "I go to the bar." }],
-    dialogue: { title: "Viaggio", lines: [{ speaker: "Mino", italian: "Vai in Italia?", english: "Are you going to Italy?" }] },
-    comprehensionQuestions: [{ question: "A + Il = ?", options: ["Al", "Del"], correctAnswer: "Al" }],
-    exercises: [{ id: "7_1", type: "multiple-choice", question: "Where is the cat? (In the house)", options: ["nella casa", "di casa"], correctAnswer: "nella casa" }]
+    examples: [
+      { italian: "Vado al bar con gli amici.", english: "I'm going to the bar with friends." },
+      { italian: "Il libro di Marco è sul tavolo.", english: "Marco's book is on the table." },
+      { italian: "Vengo dalla Francia ma abito in Italia.", english: "I come from France but I live in Italy." },
+      { italian: "Studio italiano da tre anni.", english: "I've been studying Italian for three years." },
+      { italian: "La stazione è vicino al centro.", english: "The station is near the centre." },
+      { italian: "Parliamo degli esercizi di domani.", english: "We're talking about tomorrow's exercises." },
+    ],
+    dialogue: {
+      title: "Un Viaggio a Roma (A Trip to Rome)",
+      lines: [
+        { speaker: "Mino", italian: "Ciao Sara! Vai in vacanza quest'estate?", english: "Hi Sara! Are you going on holiday this summer?" },
+        { speaker: "Sara", italian: "Sì! Parto per Roma fra due settimane. E tu?", english: "Yes! I'm leaving for Rome in two weeks. And you?" },
+        { speaker: "Mino", italian: "Che bello! Sei mai stata a Roma?", english: "How nice! Have you ever been to Rome?" },
+        { speaker: "Sara", italian: "No, è la prima volta. Vengo da una piccola città del nord, non viaggio spesso.", english: "No, it's the first time. I come from a small city in the north, I don't travel often." },
+        { speaker: "Mino", italian: "Dove alloggi? In un hotel nel centro storico?", english: "Where are you staying? In a hotel in the historic centre?" },
+        { speaker: "Sara", italian: "Sì, in un piccolo hotel vicino al Colosseo. Costa poco per una settimana.", english: "Yes, in a small hotel near the Colosseum. It costs little for a week." },
+        { speaker: "Mino", italian: "Perfetto! Devi assolutamente andare al Vaticano e sulla terrazza del Gianicolo.", english: "Perfect! You absolutely must go to the Vatican and up on the Janiculum terrace." },
+        { speaker: "Sara", italian: "Certo! Ho anche una guida sulla storia di Roma. Studio da mesi!", english: "Of course! I also have a guide about the history of Rome. I've been studying for months!" },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Where is Sara going on holiday?",
+        options: ["Milan", "Florence", "Rome", "Naples"],
+        correctAnswer: "Rome"
+      },
+      {
+        question: "How is 'a + il' contracted in Italian?",
+        options: ["Del", "Al", "Nel", "Sul"],
+        correctAnswer: "Al"
+      },
+      {
+        question: "Which preposition is used for countries (e.g. Italy, France)?",
+        options: ["A", "Di", "In", "Da"],
+        correctAnswer: "In"
+      },
+    ],
+    exercises: [
+      {
+        id: "7_1",
+        type: "multiple-choice",
+        question: "The cat is on the sofa. Which is correct?",
+        options: ["Il gatto è in sul divano.", "Il gatto è sul divano.", "Il gatto è su il divano.", "Il gatto è al divano."],
+        correctAnswer: "Il gatto è sul divano.",
+        explanation: "su + il = sul. Never write 'su il' — always contract to 'sul'."
+      },
+      {
+        id: "7_2",
+        type: "multiple-choice",
+        question: "What is 'di + gli' contracted to?",
+        options: ["Dei", "Degli", "Dello", "Delle"],
+        correctAnswer: "Degli",
+        explanation: "di + gli = degli. Used before masculine plural nouns starting with vowel, s+cons, z, etc."
+      },
+      {
+        id: "7_3",
+        type: "fill-in-the-blank",
+        question: "Vado ___ scuola ogni mattina. (I go to school every morning.)",
+        correctAnswer: "a",
+        explanation: "'A scuola' — use 'a' (not 'in') for school, work, and other common destinations."
+      },
+      {
+        id: "7_4",
+        type: "fill-in-the-blank",
+        question: "Vivo ___ Italia da cinque anni. (I've lived in Italy for five years.)",
+        correctAnswer: "in",
+        explanation: "Use 'in' for countries and regions: in Italia, in Francia, in Toscana."
+      },
+      {
+        id: "7_5",
+        type: "multiple-choice",
+        question: "How do you say 'Marco's book' in Italian?",
+        options: ["Il libro a Marco", "Il libro di Marco", "Il libro da Marco", "Il libro per Marco"],
+        correctAnswer: "Il libro di Marco",
+        explanation: "'Di' expresses possession in Italian — there is no apostrophe-s like in English."
+      },
+      {
+        id: "7_6",
+        type: "multiple-choice",
+        question: "Which sentence correctly uses 'da' for ongoing duration?",
+        options: ["Studio italiano per due anni.", "Studio italiano da due anni.", "Studio italiano in due anni.", "Studio italiano a due anni."],
+        correctAnswer: "Studio italiano da due anni.",
+        explanation: "'Da' + time = for (an ongoing situation). 'Per' + time = for (a completed duration)."
+      },
+      {
+        id: "7_7",
+        type: "translation",
+        question: "Translate: 'I come from Spain but I live in Rome.'",
+        correctAnswer: "Vengo dalla Spagna ma vivo a Roma.",
+        explanation: "da + la Spagna = dalla. Cities use 'a' (a Roma), countries use 'in' — but 'la Spagna' with article uses 'da + la = dalla'."
+      },
+      {
+        id: "7_8",
+        type: "multiple-choice",
+        question: "What does 'sulla' mean?",
+        options: ["From the (fem)", "In the (fem)", "On the (fem)", "To the (fem)"],
+        correctAnswer: "On the (fem)",
+        explanation: "sulla = su + la (on the — feminine singular)."
+      },
+      {
+        id: "7_9",
+        type: "fill-in-the-blank",
+        question: "Il treno parte ___ stazione alle nove. (The train leaves from the station at nine.)",
+        correctAnswer: "dalla",
+        explanation: "da + la = dalla. 'La stazione' is feminine."
+      },
+      {
+        id: "7_10",
+        type: "multiple-choice",
+        question: "How do you say 'I'm going to the supermarket'?",
+        options: ["Vado in supermercato.", "Vado al supermercato.", "Vado del supermercato.", "Vado nel supermercato."],
+        correctAnswer: "Vado al supermercato.",
+        explanation: "'Al' (a + il) = to the. Use 'a' for destinations with a definite article."
+      },
+      {
+        id: "7_11",
+        type: "reorder",
+        question: "Reorder: 'The book about history is on the table.'",
+        words: ["Il", "libro", "sulla", "storia", "è", "sul", "tavolo."],
+        correctAnswer: ["Il", "libro", "sulla", "storia", "è", "sul", "tavolo."]
+      },
+      {
+        id: "7_12",
+        type: "multiple-choice",
+        question: "Which prepositions do NOT fuse with articles?",
+        options: ["Di and a", "Da and in", "Con and per", "Su and di"],
+        correctAnswer: "Con and per",
+        explanation: "Only di, a, da, in, su fuse with articles. Con, per, tra, fra do not."
+      },
+      {
+        id: "7_13",
+        type: "translation",
+        question: "Translate: 'We talk with the students about the lesson.'",
+        correctAnswer: "Parliamo con gli studenti della lezione.",
+        explanation: "con + gli = con gli (no fusion). di + la = della."
+      },
+      {
+        id: "7_14",
+        type: "fill-in-the-blank",
+        question: "Il caffè è ___ bar all'angolo. (The coffee is from the bar on the corner.)",
+        correctAnswer: "del",
+        explanation: "di + il = del. 'Il bar' is masculine."
+      },
+      {
+        id: "7_15",
+        type: "multiple-choice",
+        question: "How do you say 'between you and me'?",
+        options: ["Per te e me", "Tra te e me", "Con te e me", "Da te e me"],
+        correctAnswer: "Tra te e me",
+        explanation: "'Tra/fra' means between or among. Both are interchangeable."
+      },
+      {
+        id: "7_16",
+        type: "multiple-choice",
+        question: "What does 'negli' come from?",
+        options: ["su + gli", "in + gli", "di + gli", "a + gli"],
+        correctAnswer: "in + gli",
+        explanation: "in + gli = negli. Example: *negli anni Ottanta* (in the Eighties)."
+      },
+      {
+        id: "7_17",
+        type: "translation",
+        question: "Translate: 'The station is near the hotel.'",
+        correctAnswer: "La stazione è vicino all'hotel.",
+        explanation: "a + l' = all'. 'L'hotel' starts with a vowel, so use the elided form."
+      },
+    ]
   },
   {
     id: 8,
