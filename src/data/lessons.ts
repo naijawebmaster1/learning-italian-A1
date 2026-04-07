@@ -423,6 +423,254 @@ Used for non-specific things. These are only used in the **singular**:
   },
   {
     id: 4,
+    title: "Prepositions of Place",
+    slug: "preposizioni-luogo",
+    grammar: {
+      title: "Le Preposizioni di Luogo — Where Things Are",
+      content: `Location prepositions answer the question *dove?* (where?). Unlike the articulated prepositions covered later (del, alla, nel…), these are used to describe **spatial relationships** between people and objects.
+
+## Le Preposizioni di Luogo (Location Prepositions)
+
+| Italian | English | Notes |
+|---|---|---|
+| **sopra** | above / on top of | Also *su* for "on a surface" |
+| **sotto** | under / below | |
+| **davanti a** | in front of | Always followed by **a** |
+| **dietro a / di** | behind | *dietro a* or *dietro di* (both correct) |
+| **vicino a** | near / next to | Always followed by **a** |
+| **lontano da** | far from | Always followed by **da** |
+| **accanto a** | beside / next to | Always followed by **a** |
+| **di fronte a** | opposite / facing | Always followed by **a** |
+| **tra / fra** | between | Interchangeable |
+| **dentro** | inside | Also *dentro a* + noun |
+| **fuori** | outside | Also *fuori da* + noun |
+| **a destra di** | to the right of | |
+| **a sinistra di** | to the left of | |
+| **in mezzo a** | in the middle of | |
+
+---
+
+## The Rule: Preposition + Article
+
+Many location prepositions are followed by **a**, **da**, or **di**, which then combine with the definite article:
+
+- *davanti **al** bar* (in front of the bar) → a + il = al
+- *vicino **alla** stazione* (near the station) → a + la = alla
+- *lontano **dall'**aeroporto* (far from the airport) → da + l' = dall'
+- *accanto **agli** studenti* (next to the students) → a + gli = agli
+
+> **Tip:** Learn these as fixed chunks: *vicino a*, *lontano da*, *davanti a*, *dietro a*, *accanto a*, *di fronte a*.
+
+---
+
+## C'è / Ci sono (There is / There are)
+
+These are essential for describing locations:
+
+- *C'è un bar davanti alla scuola.* — There is a bar in front of the school.
+- *Ci sono due sedie accanto al tavolo.* — There are two chairs next to the table.
+
+---
+
+## Dove + Essere (Where + To Be)
+
+- *Dov'è il gatto?* — Where is the cat?
+- *Il gatto è sotto il letto.* — The cat is under the bed.
+- *Dove sono le chiavi?* — Where are the keys?
+- *Le chiavi sono sopra il tavolo.* — The keys are on the table.`
+    },
+    vocabulary: [
+      { italian: "Sopra", english: "Above / On top of", pronunciation: "SO-pra" },
+      { italian: "Sotto", english: "Under / Below", pronunciation: "SOT-to" },
+      { italian: "Davanti a", english: "In front of", pronunciation: "da-VAN-tee ah" },
+      { italian: "Dietro a", english: "Behind", pronunciation: "dee-EH-tro ah" },
+      { italian: "Vicino a", english: "Near / Next to", pronunciation: "vee-CHEE-no ah" },
+      { italian: "Lontano da", english: "Far from", pronunciation: "lon-TAH-no dah" },
+      { italian: "Accanto a", english: "Beside / Next to", pronunciation: "ak-KAN-to ah" },
+      { italian: "Di fronte a", english: "Opposite / Facing", pronunciation: "dee FRON-teh ah" },
+      { italian: "Tra / Fra", english: "Between / Among", pronunciation: "trah / frah" },
+      { italian: "Dentro", english: "Inside", pronunciation: "DEN-tro" },
+      { italian: "Fuori", english: "Outside", pronunciation: "FWOH-ree" },
+      { italian: "A destra di", english: "To the right of", pronunciation: "ah DES-trah dee" },
+      { italian: "A sinistra di", english: "To the left of", pronunciation: "ah see-NEES-trah dee" },
+      { italian: "In mezzo a", english: "In the middle of", pronunciation: "een MED-zo ah" },
+      { italian: "C'è / Ci sono", english: "There is / There are", pronunciation: "CHEH / chee SO-no" },
+      { italian: "Dov'è?", english: "Where is it?", pronunciation: "do-VEH" },
+    ],
+    examples: [
+      { italian: "Il gatto è sotto il letto.", english: "The cat is under the bed." },
+      { italian: "La banca è di fronte alla farmacia.", english: "The bank is opposite the pharmacy." },
+      { italian: "C'è un parco vicino alla scuola.", english: "There is a park near the school." },
+      { italian: "Le chiavi sono dentro la borsa, non sopra il tavolo.", english: "The keys are inside the bag, not on the table." },
+      { italian: "Il supermercato è tra la pizzeria e il bar.", english: "The supermarket is between the pizzeria and the bar." },
+      { italian: "La macchina è parcheggiata fuori dal garage, a destra del cancello.", english: "The car is parked outside the garage, to the right of the gate." },
+    ],
+    dialogue: {
+      title: "Dov'è Tutto? (Where Is Everything?)",
+      lines: [
+        { speaker: "Giulia", italian: "Marco, hai visto il mio telefono? Non lo trovo!", english: "Marco, have you seen my phone? I can't find it!" },
+        { speaker: "Marco", italian: "Hmm... non è sul divano? Di solito lo lasci lì.", english: "Hmm... isn't it on the sofa? You usually leave it there." },
+        { speaker: "Giulia", italian: "No, ho già guardato sopra e sotto il divano. Niente.", english: "No, I already looked above and under the sofa. Nothing." },
+        { speaker: "Marco", italian: "E dentro la borsa? O accanto alle chiavi?", english: "And inside the bag? Or next to the keys?" },
+        { speaker: "Giulia", italian: "Le chiavi sono davanti alla porta, ma il telefono non è accanto a loro.", english: "The keys are in front of the door, but the phone isn't next to them." },
+        { speaker: "Marco", italian: "Aspetta — c'è qualcosa tra il cuscino e il bracciolo della poltrona!", english: "Wait — there's something between the cushion and the armrest of the armchair!" },
+        { speaker: "Giulia", italian: "Sì! Eccolo! Era in mezzo ai cuscini. Grazie mille!", english: "Yes! There it is! It was in the middle of the cushions. Thank you so much!" },
+        { speaker: "Marco", italian: "Prego! La prossima volta mettilo sopra il tavolo, di fronte al televisore.", english: "You're welcome! Next time put it on the table, in front of the TV." },
+      ]
+    },
+    comprehensionQuestions: [
+      {
+        question: "Where does Marco first suggest the phone might be?",
+        options: ["Inside the bag", "On the sofa", "In front of the door", "Under the table"],
+        correctAnswer: "On the sofa"
+      },
+      {
+        question: "Where was the phone eventually found?",
+        options: ["Under the sofa", "Inside the bag", "Between the cushions in the armchair", "Next to the keys"],
+        correctAnswer: "Between the cushions in the armchair"
+      },
+      {
+        question: "What does Marco suggest Giulia do next time?",
+        options: ["Put the phone inside the bag", "Leave it on the sofa", "Put it on the table in front of the TV", "Keep it next to the keys"],
+        correctAnswer: "Put it on the table in front of the TV"
+      },
+    ],
+    exercises: [
+      {
+        id: "4p_1",
+        type: "multiple-choice",
+        question: "The cat is under the bed. Which is correct?",
+        options: ["Il gatto è sopra il letto.", "Il gatto è sotto il letto.", "Il gatto è dentro il letto.", "Il gatto è fuori il letto."],
+        correctAnswer: "Il gatto è sotto il letto.",
+        explanation: "'Sotto' = under/below."
+      },
+      {
+        id: "4p_2",
+        type: "multiple-choice",
+        question: "How do you say 'in front of the school'?",
+        options: ["Dietro alla scuola", "Vicino la scuola", "Davanti alla scuola", "Sopra la scuola"],
+        correctAnswer: "Davanti alla scuola",
+        explanation: "'Davanti a' = in front of. 'a + la = alla'."
+      },
+      {
+        id: "4p_3",
+        type: "fill-in-the-blank",
+        question: "La farmacia è ___ fronte alla banca. (The pharmacy is opposite the bank.)",
+        correctAnswer: "di",
+        explanation: "'Di fronte a' is the full expression meaning 'opposite / facing'."
+      },
+      {
+        id: "4p_4",
+        type: "multiple-choice",
+        question: "Which sentence means 'The keys are next to the door'?",
+        options: ["Le chiavi sono lontano dalla porta.", "Le chiavi sono accanto alla porta.", "Le chiavi sono dentro la porta.", "Le chiavi sono tra la porta."],
+        correctAnswer: "Le chiavi sono accanto alla porta.",
+        explanation: "'Accanto a' = next to / beside. 'a + la = alla'."
+      },
+      {
+        id: "4p_5",
+        type: "fill-in-the-blank",
+        question: "Il supermercato è ___ la pizzeria e il bar. (The supermarket is between the pizzeria and the bar.)",
+        correctAnswer: "tra",
+        explanation: "'Tra' (or 'fra') = between. It does not fuse with articles."
+      },
+      {
+        id: "4p_6",
+        type: "translation",
+        question: "Translate: 'There is a park near the station.'",
+        correctAnswer: "C'è un parco vicino alla stazione.",
+        explanation: "'Vicino a' = near. 'a + la = alla'. 'C'è' = there is."
+      },
+      {
+        id: "4p_7",
+        type: "multiple-choice",
+        question: "How do you say 'far from the airport'?",
+        options: ["Vicino all'aeroporto", "Fuori dall'aeroporto", "Lontano dall'aeroporto", "Dietro all'aeroporto"],
+        correctAnswer: "Lontano dall'aeroporto",
+        explanation: "'Lontano da' = far from. 'da + l' = dall'."
+      },
+      {
+        id: "4p_8",
+        type: "fill-in-the-blank",
+        question: "Dov'è il libro? È ___ il tavolo. (Where is the book? It's on the table.)",
+        correctAnswer: "sul",
+        explanation: "'Su + il = sul'. 'Sopra il tavolo' also works, but 'sul tavolo' is more natural for flat surfaces."
+      },
+      {
+        id: "4p_9",
+        type: "multiple-choice",
+        question: "What does 'C'è' mean?",
+        options: ["There are", "There is", "Where is", "Here is"],
+        correctAnswer: "There is",
+        explanation: "'C'è' = there is (singular). 'Ci sono' = there are (plural)."
+      },
+      {
+        id: "4p_10",
+        type: "multiple-choice",
+        question: "How do you say 'The bathroom is to the left of the bedroom'?",
+        options: ["Il bagno è a destra della camera.", "Il bagno è a sinistra della camera.", "Il bagno è di fronte alla camera.", "Il bagno è in mezzo alla camera."],
+        correctAnswer: "Il bagno è a sinistra della camera.",
+        explanation: "'A sinistra di' = to the left of. 'di + la = della'."
+      },
+      {
+        id: "4p_11",
+        type: "translation",
+        question: "Translate: 'The dog is outside the house.'",
+        correctAnswer: "Il cane è fuori dalla casa.",
+        explanation: "'Fuori da' = outside. 'da + la = dalla'."
+      },
+      {
+        id: "4p_12",
+        type: "fill-in-the-blank",
+        question: "___ sono due sedie accanto al tavolo. (There are two chairs next to the table.)",
+        correctAnswer: "Ci sono",
+        explanation: "'Ci sono' = there are (plural). Use 'c'è' for singular."
+      },
+      {
+        id: "4p_13",
+        type: "reorder",
+        question: "Reorder: 'The bag is in the middle of the room.'",
+        words: ["La", "borsa", "è", "in", "mezzo", "alla", "stanza."],
+        correctAnswer: ["La", "borsa", "è", "in", "mezzo", "alla", "stanza."]
+      },
+      {
+        id: "4p_14",
+        type: "multiple-choice",
+        question: "What is the difference between 'vicino a' and 'accanto a'?",
+        options: [
+          "They are identical in meaning",
+          "'Vicino a' means near (general proximity), 'accanto a' means right beside (direct adjacency)",
+          "'Vicino a' is formal, 'accanto a' is informal",
+          "'Vicino a' means far, 'accanto a' means near"
+        ],
+        correctAnswer: "'Vicino a' means near (general proximity), 'accanto a' means right beside (direct adjacency)",
+        explanation: "'Vicino a' can mean generally nearby; 'accanto a' implies being right next to, side by side."
+      },
+      {
+        id: "4p_15",
+        type: "fill-in-the-blank",
+        question: "Il gatto è ___ il divano e la poltrona. (The cat is between the sofa and the armchair.)",
+        correctAnswer: "tra",
+        explanation: "'Tra' (or 'fra') = between."
+      },
+      {
+        id: "4p_16",
+        type: "translation",
+        question: "Translate: 'Where is the pharmacy? It is opposite the bank.'",
+        correctAnswer: "Dov'è la farmacia? È di fronte alla banca.",
+        explanation: "'Di fronte a' = opposite/facing. 'a + la = alla'."
+      },
+      {
+        id: "4p_17",
+        type: "reorder",
+        question: "Reorder: 'There is a supermarket to the right of the park.'",
+        words: ["C'è", "un", "supermercato", "a", "destra", "del", "parco."],
+        correctAnswer: ["C'è", "un", "supermercato", "a", "destra", "del", "parco."]
+      },
+    ]
+  },
+  {
+    id: 5,
     title: "Present Tense: Regular & Irregular Verbs",
     slug: "regular-verbs",
     grammar: {
@@ -612,7 +860,7 @@ These five verbs are used in almost every sentence. Memorize these patterns firs
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Numbers, Time & Dates",
     slug: "numbers-time",
     grammar: {
@@ -880,7 +1128,7 @@ Months are also **not capitalised**. Dates use cardinal numbers (not ordinal lik
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: "Gender & Plural Rules",
     slug: "gender-plurals",
     grammar: {
@@ -1140,7 +1388,7 @@ Adjectives **must agree** in gender and number with the noun they describe.
     ]
   },
   {
-    id: 7,
+    id: 8,
     title: "Prepositions (Simple & Articulated)",
     slug: "prepositions",
     grammar: {
@@ -1404,7 +1652,7 @@ When **di, a, da, in, su** precede a definite article, they fuse into a single w
     ]
   },
   {
-    id: 8,
+    id: 9,
     title: "Questions & Negatives",
     slug: "questions-negatives",
     grammar: {
@@ -1422,7 +1670,7 @@ When **di, a, da, in, su** precede a definite article, they fuse into a single w
     exercises: [{ id: "8_1", type: "fill-in-the-blank", question: "___ capisco. (I don't understand)", correctAnswer: "Non" }]
   },
   {
-    id: 9,
+    id: 10,
     title: "Daily Routine & Reflexive Verbs",
     slug: "routine-reflexives",
     grammar: {
@@ -1440,7 +1688,7 @@ When **di, a, da, in, su** precede a definite article, they fuse into a single w
     exercises: [{ id: "9_1", type: "multiple-choice", question: "Reflexive pronoun for 'Noi'?", options: ["Mi", "Ci"], correctAnswer: "Ci" }]
   },
   {
-    id: 10,
+    id: 11,
     title: "Survival Italian",
     slug: "survival-italian",
     grammar: {
